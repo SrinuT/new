@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="advance_search_layout.xhtml">
+
+    <ui:define name="mainsection">
+        <p:panel id="advancedSearchPanel">
+        	<div class="container app_page brdtop apppagelas adv_search">
+        		  <div class="row">
+		                <div class="col-md-12">
+		                <h2>Search Multiple Tests</h2>    
+		                </div>
+		          </div>
+		        <div class="row">
+                	<div class="col-md-6">
+                		<div class="logappinfo adv_src_bg">
+                			<h:form id="advancedSerachPageForm">
+                				<div>
+		                            <p:selectOneMenu styleClass="advancedSelect" id="testComboId"
+                                                  value="#{searchController.testName}"
+                                                     filter="true" filterMatchMode="startsWith"
+                                                     required="true" requiredMessage="Please select test name">
+                                        <f:selectItem  noSelectionOption="true" itemLabel="Search TestName" />
+                                        <f:selectItems value="#{searchController.testNameList}" />
+                                    </p:selectOneMenu>
+                                    <p:message for="testComboId"/>
+                                    
+                				</div>
+                				<div class="adv_select">
+                					<p:panel id="testNames">
+                					 <ui:repeat var="testName" value="#{searchController.advancedSearchTestNameList}">
+                					 	<p:commandLink layout="block" styleClass="selectedTestName" value="#{testName}" actionListener="#{searchController.removeTestName(testName)}">
+													<i class="abv_cls"></i>	
+													<f:param name="testName" value="#{testName}" />
+													<f:ajax execute="@this" render="@form" />					
+										</p:commandLink>
+                					 </ui:repeat>
+                					</p:panel>
+                				</div>
+                			</h:form>
+                		</div>
+                	</div>
+                </div>
+                <div class="row f_ser">
+                	<h:form>
+	                	<div class="col-md-3">
+			                <div class="fields_s selebx">
+								<p:autoComplete styleClass="advancedSelect" dropdown="true" required="true" requiredMessage="Please Select City Name"  
+									id="cityDD"
+									forceSelection="true" maxlength="6" cache="true"
+									queryDelay="100" value="#{searchController.city}"
+									completeMethod="#{searchController.completeCity}" autoUpdate="false">
+									<p:ajax event="itemSelect"
+										listener="#{searchController.onItemSelect}"
+										update="localityDD" />
+								</p:autoComplete>
+								<p:watermark for="cityDD" value="Search City"
+									id="cityWatermark" />
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="fields_s selebx">
+								<p:autoComplete styleClass="advancedSelect" dropdown="true" id="localityDD"
+									forceSelection="true" maxlength="6" cache="true"
+									queryDelay="100" value="#{searchController.locality}"
+									completeMethod="#{searchController.completeLocality}">
+								</p:autoComplete>
+								<p:watermark for="localityDD" value="Search Locality"
+									id="localityWatermark" />
+							</div>
+						</div>				
+						<div class="col-md-3">
+							<div class="fields_s textbx advancedSelect">
+								<p:inputText label="Zip" id="zip"
+									value="#{searchController.zip}" />
+								<p:watermark for="zip" value="Search Zip" id="zipWatermark" />
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="fields_s textbx">
+								<p:calendar styleClass="advancedSelect" id="date" value="#{searchController.date}"
+									pattern="MM/dd/yyyy">
+									<p:watermark for="date" value="Search Date" id="dateWatermark" />
+								</p:calendar>
+							</div>
+						</div>
+					</h:form>
+                </div>
+                <div class="row">
+	                <div class="col-md-12">
+		            	<div class="appointment">
+		            		<h:form>
+			                	<p:commandLink id="searchBtn" action="#{searchController.advanceSearch}" 
+			                		value="CLICK HERE TO SEARCH">		
+							    </p:commandLink>
+						    </h:form>
+		                </div>
+	                </div>
+          		</div>					
+        	</div>
+        </p:panel>
+    </ui:define>
+</ui:composition>

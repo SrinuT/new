@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="template/basicLayout.xhtml">
+
+    <ui:define name="mainsection">
+        <p:panel id="clinicResultPanel">
+            <h:form id="clinicResultForm" rendered="#{searchController.showSearchView}">
+                <section class="mainsection">
+                    <div class="toptitlesection">
+                        <div class="sortingsection">
+                            <p:outputLabel for="sort" value="Sorted by" />
+                            <p:selectOneMenu id="sort" value="#{searchController.selectedSortId}" >
+                                <p:ajax event="change" listener="#{searchController.simpleSearch}"/>
+                                <f:selectItem itemLabel="Rating" itemValue="1" />
+                                <f:selectItem itemLabel="Price " itemValue="2" />
+                                <f:selectItem itemLabel="Distance" itemValue="3" />
+                            </p:selectOneMenu>
+                        </div>
+                        <h1 class="pagetitle">
+                            Search Results by Test
+							<span>
+								<h:outputLabel  value="#{searchController.searchCriteria}"/>
+							</span>
+                        </h1>
+                    </div>
+                    <h:panelGroup id="pagingList">
+                        <ui:repeat var="clinic" value="#{searchController.clinicsViewList}">
+                            <section class="listclinic anim">
+                                <div class="clinicleft">
+                                    <div class="clinicbasic">
+                                        <p:link styleClass="clinicname" value="#{clinic.clinicName}"></p:link>
+                                        <div class="ratingline">
+									 <h:graphicImage rendered="#{clinic.scoredRating gt 0}" value="#{clinic.ratingImage}" class="stars" alt="" />
+								   	<h:outputLabel class="stars" rendered="#{clinic.scoredRating eq 0}" value="#{clinic.ratingImage}"/>
+								      
+									<span class="ratingbyuser">#{clinic.scoredRating} out of 10
+										from <a href="#">#{clinic.totalCustomerRated} customers</a><br />
+										<span class="clnicadress">#{clinic.clinicAddress.fullAddress}<br />
+										Phone Number: #{clinic.landLineNumber}
+										</span>
+									</span>
+                                        </div>
+                                        <div class="facilitytopicons">
+                                            <ul>
+                                                <li>Facilities :</li>
+                                                <ui:repeat var="facImage" value="#{clinic.facilitesList}">
+                                                    <li><h:graphicImage value="#{facImage}" rendered="#{facImage ne ''}" /></li>
+                                                </ui:repeat>
+                                            </ul>
+                                        </div>
+                                        <div class="appointmentbox">
+                                            <h5>
+												Availability  
+												<span>
+												<h:outputText rendered="#{clinic.timingSlot.size() gt 0 ?true:false}" value="#{clinic.nexttimeslot}" style="font-weight:600;color:#00537e;">
+		              									<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+		 										</h:outputText> 
+		 										<h:outputText rendered="#{clinic.timingSlot.size() gt 0 ?true:false}" value=" ( Select time slot to make appointment )"/>
+		 										<h:outputText rendered="#{clinic.timingSlot.size() eq 0 }" value=" ( No slots available )"/></span>
+                                            </h5>
+                                            <div class="timeschedules">
+										
+														<p:scrollPanel rendered="#{clinic.timingSlot.size() gt 0 ?true:false}" style="height:55px;overflow:hidden;overflow-x: scroll;white-space: nowrap;">
+															
+						                                                <ui:repeat var="slots" value="#{clinic.timingSlot}">
+																				<p:commandLink value="#{slots.slotTime}"  action="#{appController.bookAppointmentSlot(slots,clinic,searchController.testName)}" disabled="#{slots.active eq 'true'?false:true}" style="margin:5px;" >
+																				</p:commandLink> 
+						                                                </ui:repeat>
+														</p:scrollPanel>
+                                            </div>
+                                            <div class="timeschedulesbutn">
+												<p:commandLink value="Make Appointment" rendered="#{clinic.timingSlot.size() ge 0 ?true:false}"  actionListener="#{searchController.onMakeAppointmentClick}"  oncomplete="PF('dlgMkApnmnt').show();"  process="@this" update=":searchDlgForm:appCalendar">		
+		                                                    <f:attribute name="clinic" value="#{clinic}"/>
+		                                                </p:commandLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clinicright">
+                                    <div class="clinicpic">
+										<p:graphicImage value="#{clinic.imageUrl1}" alt="" />
+										<p:graphicImage value="images/no_image.jpg" rendered="#{empty clinic.imageUrl1}" />
+                                    </div>
+                                    <div class="botpicpart">
+                                        <div class="price">
+											<!--  <sup>Rs.</sup> -->
+											<!-- <p class="testpriceclinic" style="font-size:18px;width:100%;text-decoration: line-through">Rs. #{clinic.testPrice}</p><p class="testdiscountprice" style="width:100%;font-size:25px;">Rs. #{clinic.testDiscount}</p><span>(Save 10%)</span> -->
+		         							<h:outputLabel rendered="#{clinic.testDiscount gt 0.00}" value="Rs. #{clinic.testPrice}" class="testpriceclinic" style="font-size:18px;width:100%;text-decoration: line-through"/>
+		         							<h:outputText value="Rs. #{clinic.testPrice - clinic.testDiscount}" class="testdiscountprice" style="background:#349acf;width:100%;font-size:25px;" />
+		         							<h:outputText style="color:white;" rendered="#{clinic.testDiscount gt 0.00}" value="Save(#{clinic.testDiscount})" />
+		                                </div>
+                                        
+										<div class="distanceblock"> <!--distanceblock  timeschedulesbutn -->
+											<span id="distanced#{clinic.id}"> 
+												<p:commandButton rendered="#{empty clinic.distanceDifference or clinic.distanceDifference == '0'}" onclick="PF('tabView#{clinic.id}').select(2)" style="width:150px;height:40px;font-size:5px;" value="Get Distance &amp; Directions"   >
+												</p:commandButton>
+												<h:outputText rendered="#{!empty clinic.distanceDifference and clinic.distanceDifference != '0'}" value="#{clinic.distanceDifference}"></h:outputText>
+    										</span>
+    								    	<h:commandButton  value="Compare" class="icncompare" id="resCompareBtn">
+                                                <p:ajax process="@this" update=":compareForm :growl" listener="#{searchController.addToCompareBox}"  />
+                                                <f:attribute name="clinicParam" value="#{clinic}" />
+                                            </h:commandButton>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                                <div class="moredtails">
+                                    <p:tabView dynamic="true" activeIndex="#{searchController.activeIndex}" widgetVar="tabView#{clinic.id}">
+                                       <p:tab title="">
+                                       </p:tab>
+                                        <p:tab title="Details">
+                                            <!-- Tab panes -->
+                                            <div  id="detail#{clinic.clinicUIId}">
+                                                <div class="imagesdetai">
+                                                    <div class="gallreyimg">
+                                                        <ul>
+														<li><img src="#{clinic.imageUrl2}" /></li>
+														<li><img src="images/imageUrl3" /></li>
+														<li><img src="images/imageUrl4" /></li>
+														<li><img src="images/imageUrl5" /></li>
+														<li><img src="images/imageUrl5" /></li>
+                                                            <li><img src="images/detailimg.png" /></li>
+                                                            <li><img src="images/detailimg.png" /></li>
+                                                            <li><img src="images/detailimg.png" /></li>
+                                                            <li><img src="images/detailimg.png" /></li>
+                                                            <li><img src="images/detailimg.png" /></li>
+                                                            <li><img src="images/detailimg.png" /></li>
+                                                            <li><img src="images/detailimg.png" /></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="facilities">
+                                                    <div class="ourfacilities">
+                                                        <div class="desctitle">
+                                                            <h3>DESCRIPTION</h3>
+                                                        </div>
+                                                        <div>
+                                                            <p:outputLabel for="webAddress" value="Web Address : "  />
+                                                            <h:outputText id="webAddress" value="#{clinic.detailTab.webAddress}"/>
+                                                        </div>
+                                                        <div>
+                                                            <p:outputLabel for="productNames" value="Product name : "  />
+                                                            <h:outputText id="productNames" value="#{clinic.detailTab.productName}" />
+                                                        </div>
+                                                        <div>
+                                                            <p:outputLabel for="productDescription" value="Product description :" />
+                                                            <h:outputText id="productDescription" value="#{clinic.detailTab.productDescription}" />
+                                                        </div>
+                                                        <div>
+                                                            <p:outputLabel for="mobileNumber" value="Mobile number : " />
+                                                            <h:outputText id="mobileNumber" value="#{clinic.detailTab.mobileNumber}" />
+                                                        </div>
+                                                        <div>
+                                                            <p:outputLabel for="emailAddress" value="Email address : " />
+                                                            <h:outputText id="emailAddress" value="#{clinic.detailTab.emailAddress}" />
+                                                        </div>
+                                                        <div>
+                                                            <p:outputLabel for="openingHours" value="Opening hours : " />
+                                                            <h:outputText id="openingHours" value="#{clinic.detailTab.openingHours}" />
+                                                        </div>
+                                                        <p><span>#{clinic.detailTab.clinicDescription}</span></p>
+                                                        <div class="journeydesc">
+                                                            <p:dataGrid value="#{clinic.detailTab.certificationList}" var="certificate">
+                                                                <img src="images/journyicon.png" />
+                                                                <p>
+                                                                    #{certificate.certificateName} #{certificate.certificateDate}<br /> #{certificate.description}#{certificate.certificateDate}
+                                                                </p>
+                                                            </p:dataGrid>
+                                                        </div>
+                                                        <div class="awardedesc">
+                                                            <p:dataGrid value="#{clinic.detailTab.awardList}" var="award">
+                                                                <img src="images/awardeicon.png" />
+                                                                <p>#{award.awardName}</p>
+                                                            </p:dataGrid>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detaildesc">
+                                                        <div class="facititle">
+                                                            <h3>FACILITIES</h3>
+                                                        </div>
+                                                        <ui:repeat value="#{clinic.detailTab.clinicFacilites}"	var="amenities">
+                                                            <div class="faciinfo">
+                                                                <span>#{amenities.facilityHeading}</span>
+                                                                <ul>
+                                                                    <ui:repeat value="#{amenities.documents}" var="document">
+                                                                        <li><h:graphicImage value="images/righticon.png"
+                                                                                            rendered="#{document.status eq 'true'}" /> <h:graphicImage
+                                                                                value="images/wrongicon.png"
+                                                                                rendered="#{document.status eq 'false'}" /> <h:graphicImage
+                                                                                value="#{document.iconPath}" /> <span>#{document.name}</span>
+                                                                        </li>
+                                                                    </ui:repeat>
+                                                                </ul>
+                                                            </div>
+                                                        </ui:repeat>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </p:tab>
+                                        <p:tab title="Map">
+                                       
+                                        <div id="directionsdistance#{clinic.id}">
+                                        <table border="0" cellpadding="0" cellspacing="3">
+									        <tr>
+									            <td colspan="2">
+									           		Source:
+									                <h:inputText  id="txtSource" value="#{searchController.txtSource}" placeholder="Please Enter Source" style="width: 200px;margin-left: 3px;margin-right: 15px;border: 1px solid #DDDDDD;border-radius: 5px;padding: 4px;">
+									                	
+									                </h:inputText>
+									                 Destination:
+									                <h:inputText  id="txtDestination#{clinic.id}" value="#{clinic.clinicAddress.fullAddress}" style="width:300px;margin-left: 3px;margin-right: 15px;border: 1px solid #DDDDDD;border-radius: 5px;padding: 4px;" disabled="disabled" />
+									                <br />
+									                <p:commandLink styleClass="ui-button ui-state-default ui-corner-all ui-button-text-only" onclick="getRoute({clientid:'#{clinic.id}',idval:'#{clinic.clinicUIId}',lat:'#{clinic.clinicAddress.lattitude}',lng:'#{clinic.clinicAddress.longitude}'})" action="#{searchController.calculateDistance}" style="width:250px;margin-top:5px;margin-left:30%;paddding:5px;" value="Get Distance &amp; Directions"   >
+													</p:commandLink>
+									                <hr style="margin-top:2px;margin-bottom:2px"/>
+									             	
+									            </td>
+									        </tr>
+									        <tr>
+									            <td colspan="2">
+									                <div id="dvDistance#{clinic.id}">
+									                </div>
+									            </td>
+									        </tr>
+									        <tr>
+									            <td>
+									                <div id="dvMap#{clinic.id}" style="width: 100%; height: 305px;float:left;position:relative">
+									                </div>
+									                <span id="directionsspan#{clinic.id}" style="margin-top:2px;background-color:#fff;font-weight:600;float:left;left:40px;position:absolute;color:#f91;cursor:pointer" onclick="directions({clientid:'#{clinic.id}',idval:'#{clinic.clinicUIId}',lat:'#{clinic.clinicAddress.lattitude}',lng:'#{clinic.clinicAddress.longitude}'})">Directions</span>
+									                <div id="dvPanel#{clinic.id}" style="width: 350px; margin-top:20px;padding-left:5px;padding-right:5px;height: 270px;float:left;background-color:#fff;overflow:hidden;overflow-y:scroll;left:40px;position:absolute">
+									                </div>
+									                <!-- <span id="directionshidespan#{clinic.id}" style="background-color:#fff;font-weight:600;float:left;left:40px;margin-top:272px;position:absolute;color:#f91;cursor:pointer" onclick="directionshides({clientid:'#{clinic.id}',idval:'#{clinic.clinicUIId}',lat:'#{clinic.clinicAddress.lattitude}',lng:'#{clinic.clinicAddress.longitude}'})">Hide Details</span> -->
+									            </td>
+									            
+									        </tr>
+									    </table>
+                                        
+                                        
+                                        </div>
+                                        
+                                            <div id="map1#{clinic.clinicUIId}">
+                                                <div class="reset-this">
+											  <p:gmap center="#{clinic.clinicAddress.lattitude},#{clinic.clinicAddress.longitude}" model="#{clinic.clinicMap}" zoom="15" type="ROADMAP" style="width:100%;height:305px" >
+											 	<p:ajax event="overlaySelect" listener="#{searchController.onMarkerSelect}" />
+										        <p:gmapInfoWindow id="infoWindow">
+							            			<p:outputPanel style="text-align: center; display: block; margin: auto">
+								    	                <!--  <p:graphicImage value="/images/islamabad.png" height="150" />
+		    	                							<br /> -->
+								        	            <h:outputText value="#{searchController.marker.title}" escape="false" />    
+								            		</p:outputPanel>
+							        			</p:gmapInfoWindow>
+							        		 </p:gmap>
+								    		<p:remoteCommand oncomplete="gmapAddressSuggistions([{clientid:'#{clinic.id}',idval:'#{clinic.clinicUIId}',lat:'#{clinic.clinicAddress.lattitude}',lng:'#{clinic.clinicAddress.longitude}'}]); " autoRun="true"/>
+								    			
+                                                </div>
+                                            </div>
+                                        </p:tab>
+                                        <p:tab title="Deals">
+                                            <div  id="deals1#{clinic.clinicUIId}">
+                                                <div class="facilitiesrate">
+                                                    <h:form rendered="#{clinic.dealsTab.serviceDealList.size() le 5 ?true:false}" id="lessDealsForm">
+                                                        <ul>
+                                                            <li class="titletables">
+                                                                <div >Deals</div>
+                                                                <div >Deals Detail</div>
+                                                                <div >Rate</div>
+                                                            </li>
+                                                            <ui:repeat value="#{clinic.dealsTab.serviceDealList}" var="deals">
+                                                                <li>
+                                                                    <div >#{deals.dealName}</div>
+                                                                    <div >#{deals.dealDescription}</div>
+																<div >#{deals.dealDiscount}</div>
+                                                                </li>
+                                                            </ui:repeat>
+                                                        </ul>
+                                                    </h:form>
+                                                    <h:form rendered="#{clinic.dealsTab.serviceDealList.size() gt 5 ?true:false}" id="fullDealsForm">
+                                                        <ul>
+                                                            <li class="titletables">
+                                                                <div >Deals</div>
+                                                                <div >Deals Detail</div>
+                                                                <div >Rate</div>
+                                                            </li>
+                                                            <ui:repeat value="#{clinic.dealsTab.serviceDealList}" var="deals" size="5">
+                                                                <li>
+                                                                    <div >#{deals.dealName}</div>
+                                                                    <div >#{deals.dealDescription}</div>
+															<div >#{deals.dealDiscount}</div>													</li>
+                                                            </ui:repeat>
+                                                        </ul>
+                                                    </h:form>
+                                                </div>
+                                                <div class="linkformore">
+                                                    <p:commandLink value="See All" rendered="#{clinic.dealsTab.serviceDealList.size() gt 5 ?true:false}" actionListener="#{searchController.onViewMoreClick}" oncomplete="PF('dlgMrDls').show();" process="@this" update=":searchDlgForm:moreDeals">
+                                                        <f:attribute name="viewMore" value="deals"/>
+                                                        <f:attribute name="clinic" value="#{clinic}"/>
+                                                    </p:commandLink>
+                                                </div>
+                                            </div>
+                                        </p:tab>
+                                        <p:tab title="Reviews">
+                                            <div id="reviews1#{clinic.clinicUIId}">
+                                                <div class="reviewtab">
+                                                    <div class="ratingleft">
+                                                        <div class="reviewgraphic">#{clinic.scoredRating}</div>
+                                                        <div class="reviewtextd">
+                                                            <h2>Ratings</h2>
+                                                            <p>
+                                                                #{clinic.scoredRating} out of 10 from <a href="#">#{clinic.totalCustomerRated} customers</a>
+                                                            </p>
+                                                            <div class="linkformore">
+                                                                <p:commandLink value="See All"  rendered="#{clinic.reviewsTab.customerReviewsList.size() gt 5 ?true:false}" actionListener="#{searchController.onViewMoreClick}" oncomplete="PF('dlgMrRv').show();" process="@this" update=":searchDlgForm:moreReviews">
+                                                                    <f:attribute name="viewMore" value="reviews"/>
+                                                                    <f:attribute name="clinic" value="#{clinic}"/>
+                                                                </p:commandLink>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ratingright">
+                                                        <div class="ratinginall">
+                                                            <h:form rendered="#{clinic.reviewsTab.customerReviewsList.size() le 5 ?true:false}" id="lessReviewForm">
+                                                                <ul>
+                                                                    <ui:repeat value="#{clinic.reviewsTab.customerReviewsList}"	var="review" >
+                                                                        <li>
+                                                                            <div>#{review.customerReview}</div>
+                                                                            <div>
+                                                                                <div class="pgBar">
+                                                                                    <p:progressBar value="${review.percentProgress}" labelTemplate="{value}%" displayOnly="true"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div >${review.customerStarRating}</div>
+                                                                        </li>
+                                                                    </ui:repeat>
+                                                                </ul>
+                                                            </h:form>
+                                                            <h:form rendered="#{clinic.reviewsTab.customerReviewsList.size() gt 5 ?true:false}" id="fullReviewForm">
+                                                                <ul>
+                                                                    <ui:repeat value="#{clinic.reviewsTab.customerReviewsList}"	var="review" size="5">
+                                                                        <li>
+                                                                            <div>#{review.customerReview}</div>
+                                                                            <div>
+                                                                                <div class="pgBar">
+                                                                                    <p:progressBar value="${review.percentProgress}" labelTemplate="{value}%" displayOnly="true"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div >${review.customerStarRating}</div>
+                                                                        </li>
+                                                                    </ui:repeat>
+                                                                </ul>
+                                                            </h:form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- Review Tab End -->
+                                        </p:tab>
+                                    </p:tabView>
+                                </div>    <!-- moredetails end -->
+                            </section>
+                            
+  
+    
+    <style>
+    #directionshidespan#{clinic.id}{
+    display:none;
+    }
+    #dvPanel#{clinic.id}{
+    display:none;
+    }
+    #directionsspan#{clinic.id}{
+    display:none;
+    }
+		#dvMap#{clinic.id}{
+			display:none;
+				}
+		#dvDistance#{clinic.id}{
+			display:none;
+				}
+		#map1#{clinic.clinicUIId}{
+			display:block;
+			}
+	</style>
+                        </ui:repeat>
+                    </h:panelGroup>
+
+                    <ui:include src="/template/paging.xhtml">
+                        <ui:param name="formId" value="clinicResultForm" />
+                        <ui:param name="updateList" value="pagingList" />
+                        <ui:param name="controller" value="#{searchController}" />
+                    </ui:include>
+
+                </section>
+            </h:form>
+        </p:panel>
+        <ui:include src="compareclinic.xhtml"></ui:include>
+        <ui:include src="location.xhtml"></ui:include>
+        <ui:include src="searchDialog.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

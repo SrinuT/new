@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<p:panel id="appointmentMakePanel"
+		rendered="#{appController.showAppointmenttMake}">
+        <h:form id="panelsFormMA" prependId="false">
+			<div class="container app_page">
+				<div class="makeapp">
+					<div class="app_ldesc">
+						<h2>Confirm Appointment</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="confimform">
+								<p:inputText id="drName" value="#{appController.docName}">
+									<p:watermark for="drName" value="Dr. Name"></p:watermark>
+								</p:inputText>
+								<a href="#"><img
+									src="../images/info_icon.png" alt="" title="" /></a> 
+								<p:inputText id="refId" value="#{appController.refId}">
+									<p:watermark for="refId" value="Ref Id"></p:watermark>
+								</p:inputText>
+								<a href="#"><img
+									src="../images/info_icon.png" alt="" title="" /></a>
+								<p>If you provide a cell phone number, you agree that Quest
+									Diagnostics may contact you at this number, By checking this
+									box, you also agree to receive calls and messages, number you
+									provide. Normal charges may apply.</p>
+								<div class="fgtpasw">
+									<p:selectBooleanCheckbox vale="#{appController.serviceCenterPayment}"/> <span>Payment will be on
+										service center.</span>
+									    <span class="textbold">OR</span>
+									<p:selectBooleanCheckbox vale="#{appController.serviceCenterPayment}"/> <span>Pay NOW</span>
+								</div>
+								<div class="fgtpasw">
+									<p:selectBooleanCheckbox vale="#{appController.recievePromotionNews}"/><span>Yes, I want to receive
+										newsletters, special offers and o ther interesting
+										materials.By registering, you agree to our <a href="#">conditions
+											of use..</a>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="userdtbtn">
+								<p:commandLink value="Back">
+									<p:ajax listener="#{appController.onBackButtonClick}"
+										update=":centerPanel" />
+								</p:commandLink>
+								<p:commandLink value="Confirm Appointment"
+                                 action="#{appController.onConfirmedAppointmentClick}" rendered="#{searchController.appointmentUpdateId == null}" process="@this">
+                                 </p:commandLink>
+
+                                <p:commandLink value="Update Appointment"
+                                               action="#{appController.onConfirmedAppointmentClick}"
+                                               rendered="#{searchController.appointmentUpdateId != null}">
+                                    <f:attribute name="updateAppointmentId" value="#{searchController.appointmentUpdateId}"/>
+                                </p:commandLink>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+        </h:form>
+	</p:panel>
+</ui:composition>

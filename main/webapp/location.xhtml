@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<p:panel id="locPanel">
+		<h:form id="locForm" rendered="#{searchController.showMapView}" style="height:490px;">
+			<div class="container-fluid map-page">
+	          <div class="cliniclocation">
+	              <h2>Clinics Results</h2>
+	              <select>
+	                <option>Sort by: Relevance</option>
+	                <option>Sort by: Relevance</option>
+	                <option>Sort by: Relevance</option>
+	              </select>
+	              <div class="serresult">
+	              	<p:dataGrid value="#{searchController.clinicsViewList}"  var="clinic" columns="1" style="width:318px;max-height:571px;" >
+	                    <div class="showrst">
+	                        <div class="rstimg">
+	                            <img src="images/map_resimg.png" alt="" title="" />
+	                        </div>
+	                        <div class="hptldetail clearfix">
+	                            <h3>#{clinic.clinicName}</h3>
+	                            <h2>#{clinic.testPrice}</h2>
+	                            <div class="timeschedulesbutn">
+										<p:commandLink value="Appointment" rendered="#{clinic.timingSlot.size() gt 0 ?true:false}"  actionListener="#{searchController.onMakeAppointmentClick}"  oncomplete="PF('dlgMkApnmnt').show();"  process="@this" update=":searchDlgForm:appCalendar">		
+											<f:attribute name="clinic" value="#{clinic}"/>
+										</p:commandLink>
+									</div>
+	                        </div>
+	                        <p class="distance"><span style="padding: 0px 0px"><h:outputText rendered="#{!empty clinic.distanceDifference and clinic.distanceDifference != '0' }" value="#{clinic.distanceDifference}" style="padding: 3px 7px"></h:outputText></span> <h:outputText rendered="#{!empty clinic.distanceDifference and clinic.distanceDifference !='0'}" value=" away from here"></h:outputText></p> 
+	                        <p><h:outputText rendered="#{!empty clinic.distanceDifference and clinic.distanceDifference != '0'}" value="#{clinic.clinicName}"></h:outputText></p>
+	                    </div>
+	               </p:dataGrid>     
+	              </div>
+	          </div>
+	          <div class="maplocation">
+					<p:gmap id="gMapClinics" center="36.890257,30.707417" zoom="2" type="ROADMAP" model="#{searchController.advancedModel}"  style="width:100%;height:100%;"> 
+				        <p:ajax event="overlaySelect" listener="#{searchController.onMarkerSelect}" />
+				        <p:gmapInfoWindow id="infoWindow">
+	            			<p:outputPanel style="text-align: center; display: block; margin: auto">
+			                   <!--  <p:graphicImage value="/images/islamabad.png" height="150" />
+		    	                <br /> -->
+		        	            <h:outputText value="#{searchController.marker.title}" escape="false" />
+		            		</p:outputPanel>
+	        			</p:gmapInfoWindow>
+	    			</p:gmap>
+	          </div>
+	      </div>
+	   </h:form>
+  </p:panel>    
+</h:body>
+</h:html>
+      

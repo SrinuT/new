@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+<p:panel id="mainPanelTop" rendered="#{appController.showPanelTop}">
+    <h:form id="panelsFormTop" prependId="false">
+
+			<div class="container app_page brdtop">
+				<div class="row apptime">
+					<div class="col-md-6">
+						<div class="logpart">
+						<div class="clinicleft">
+								<div class="clinicbasic">
+								
+							<div class="appController.bookedClinicleft">
+								<div class="appController.bookedClinicbasic">
+									<p:link styleClass="clinicname"		value="#{appController.bookedClinic.clinicName}"></p:link>
+										<div class="ratingimg">
+										<h:graphicImage
+											value="../#{appController.bookedClinic.ratingImage}" styleClass="stars"
+											alt="Rating Image" /> 
+											</div>
+									<div class="ratingline"> 
+										<span class="ratingbyuser">#{appController.bookedClinic.scoredRating}
+											out of 10 from <a href="#">#{appController.bookedClinic.totalCustomerRated}
+												customers</a><br /> <span class="clnicadress">#{appController.bookedClinic.clinicAddress.fullAddress}</span>
+										</span>
+									</div>
+									<div class="facilitytopicons">
+										<ul>
+											<li>Facilities :</li>
+											<ui:repeat var="facImage"
+												value="#{appController.bookedClinic.facilitesList}">
+												<li><h:graphicImage value="../#{facImage}"
+														rendered="#{facImage ne ''}" /></li>
+											</ui:repeat>
+										</ul>
+									</div>
+									<div class="botpicpart">
+										<div class="price lprice">
+											<!--  #{appController.bookedClinic.testDiscount}<span>(Save 10%)</span> -->
+											<!-- <p class="testpriceclinic" style="font-size:18px;width:100%;text-decoration: line-through">Rs. #{appController.bookedClinic.testPrice}</p><p class="testdiscountprice" style="width:100%;font-size:25px;">Rs. #{appController.bookedClinic.testDiscount}</p><span>(Save 10%)</span> -->
+											<h:outputLabel rendered="#{appController.bookedClinic.testDiscount gt 0.00}" value="Rs. #{appController.bookedClinic.testPrice}" class="testpriceclinic" style="font-size:18px;width:100%;text-decoration: line-through"/>
+         									<h:outputText value="Rs. #{appController.bookedClinic.testPrice - appController.bookedClinic.testDiscount}" class="testdiscountprice" style="background:#349acf;width:100%;font-size:25px;" />
+         									<h:outputText style="color:white;" rendered="#{appController.bookedClinic.testDiscount gt 0.00}" value="Save(#{appController.bookedClinic.testDiscount})" />
+										</div>
+										<div class="distanceblock ldistablock">
+											<!-- <span>4.5 KM <span>Distance</span></span> -->
+											<span><h:outputLabel rendered="#{!empty appController.bookedClinic.distanceDifference and appController.bookedClinic.distanceDifference !='0' }" value="#{appController.bookedClinic.distanceDifference}"  class="distanceblock">
+													<h:outputLabel rendered="#{!empty appController.bookedClinic.distanceDifference and appController.bookedClinic.distanceDifference !='0'}" value="Distance"  style="font-weight:normal;"/>
+											</h:outputLabel></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="logpartr">
+							<div class="appschedule">
+								<h3>Appointment Detail</h3>
+								<div class="scheduledtl">
+									<div class="takeapp">
+										<label>Test Name:</label> <span>#{appController.bookedClinic.testName}</span>
+									</div>
+									<div class="takeapp">
+										<label>Schedule:</label> <span><sapn class="appscetime">#{appController.makeAppointment.slotTime}
+											PM</sapn>#{appController.makeAppointment.serviceDay},
+                                            <h:outputText value="#{appController.makeAppointment.startDate}">
+                                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                            </h:outputText>
+											.</span>
+									</div>
+									<div class="takeapp">
+										<label>Price:</label> <span> Rs. #{appController.bookedClinic.testPrice - appController.bookedClinic.testDiscount}</span> <!-- #{appController.bookedClinic.testPrice} #{clinic.testPrice - clinic.testDiscount}-->
+									</div>
+									<div class="takeapp">
+										<label>Clinic Phone:</label> <h:outputText value="#{appController.slrSeller.mobileNumber}"/>
+									</div>
+									<div class="takeapp">
+										<label>Clinic Email:</label> <h:outputText value="#{appController.slrSeller.emailAddress}"/>
+									</div>
+									<div class="takeapp">
+										<label>Clinic Adreess:</label> <span>#{appController.bookedClinic.clinicAddress.fullAddress}</span>
+									</div>
+									<div class="takeapp">
+										<label>Customer Care:</label> <span>966-001-2500</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+					<div class="moredtails">
+						
+						 <p:tabView dynamic="true" activeIndex="0">
+						  <p:tab title="">
+			  					 </p:tab>
+			  					 <p:tab title="Details">
+						    			<div role="tabpanel" class="tab-pane" id="detail1">
+											<div class="imagesdetai">
+												<div class="gallreyimg">
+													<ul>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+														<li><img src="../images/detailimg.png" /></li>
+													</ul>
+												</div>
+												<div class="linkformore">
+													<a href="#">See More photo</a>
+												</div>
+											</div>
+											<div class="facilities">
+												<div class="ourfacilities">
+													<div class="facititle">
+														<h3>FACILITIES</h3>
+													</div>
+													<ui:repeat
+														value="#{appController.bookedClinic.detailTab.clinicFacilites}"
+														var="amenities">
+														<div class="faciinfo">
+															<span>#{amenities.facilityHeading}</span>
+															<ul>
+																<ui:repeat value="#{amenities.documents}" var="document">
+																	<li><h:graphicImage value="../images/righticon.png"
+																			rendered="#{document.status eq 'true'}" /> <h:graphicImage
+																			value="../images/wrongicon.png"
+																			rendered="#{document.status eq 'false'}" /> <h:graphicImage
+																			value="../#{document.iconPath}" /> <span>#{document.name}</span>
+																	</li>
+																</ui:repeat>
+															</ul>
+														</div>
+													</ui:repeat>
+												</div>
+												<div class="detaildesc">
+													<div class="desctitle">
+														<h3>DESCRIPTION</h3>
+													</div>
+													<p>
+														<span>#{appController.bookedClinic.detailTab.clinicDescription}</span>
+													</p>
+													<div class="journeydesc">
+														<p:dataGrid
+															value="#{appController.bookedClinic.detailTab.certificationList}"
+															var="certificate">
+															<img src="../images/journyicon.png" />
+															<p>
+																#{certificate.certificateName} #{certificate.certificateDate}<br />
+																#{certificate.description}#{certificate.certificateDate}
+															</p>
+														</p:dataGrid>
+													</div>
+													<div class="awardedesc">
+														<p:dataGrid
+															value="#{appController.bookedClinic.detailTab.awardList}"
+															var="award">
+															<img src="../images/awardeicon.png" />
+															<p>#{award.awardName}</p>
+														</p:dataGrid>
+													</div>
+												</div>
+											</div>
+										</div>
+						    	</p:tab>
+							   
+							    	<p:tab title="Map">
+							    			<p:gmap center="#{appController.bookedClinic.clinicAddress.lattitude},#{appController.bookedClinic.clinicAddress.longitude}" model="#{appController.bookedClinic.clinicMap}" zoom="15" type="ROADMAP" style="width:100%;height:305px" >
+											<p:ajax event="overlaySelect" listener="#{searchController.onMarkerSelect}" />
+										        <p:gmapInfoWindow id="infoWindow">
+							            			<p:outputPanel style="text-align: center; display: block; margin: auto">
+								    	                <!--  <p:graphicImage value="/images/islamabad.png" height="150" />
+		    	                							<br /> -->
+								        	            <h:outputText value="#{searchController.marker.title}" escape="false" />    
+								            		</p:outputPanel>
+							        			</p:gmapInfoWindow>
+												 	
+								            </p:gmap>
+							    	</p:tab>
+						    	 <p:tab title="Deals">
+						    	 
+						    	 	<div role="tabpanel" class="tab-pane" id="rates1">
+										<div class="facilitiesrate">
+											<p:panel
+												rendered="#{appController.bookedClinic.dealsTab.serviceDealList.size() le 5 ?true:false}"
+												id="lessDealsForm">
+												<ul>
+													<li class="titletables">
+														<div>Deals</div>
+														<div>Deals Detail</div>
+														<div>Rate</div>
+													</li>
+													<ui:repeat
+														value="#{appController.bookedClinic.dealsTab.serviceDealList}"
+														var="deals">
+														<li>
+															<div>#{deals.dealName}</div>
+															<div>#{deals.dealDescription}</div>
+															<div>#{deals.dealDiscount}</div>
+														</li>
+													</ui:repeat>
+												</ul>
+											</p:panel>
+											<p:panel
+												rendered="#{appController.bookedClinic.dealsTab.serviceDealList.size() gt 5 ?true:false}"
+												id="fullDealsForm">
+												<ul>
+													<li class="titletables">
+														<div>Deals</div>
+														<div>Deals Detail</div>
+														<div>Rate</div>
+													</li>
+													<ui:repeat
+														value="#{appController.bookedClinic.dealsTab.serviceDealList}"
+														var="deals" size="5">
+														<li>
+															<div>#{deals.dealName}</div>
+															<div>#{deals.dealDescription}</div>
+															<div>#{deals.dealDiscount}</div>
+														</li>
+													</ui:repeat>
+												</ul>
+											</p:panel>
+										</div>
+										<div class="linkformore">
+											<p:commandLink value="See All"
+												rendered="#{appController.bookedClinic.dealsTab.serviceDealList.size() gt 5 ?true:false}"
+												actionListener="#{appController.onViewMoreClick}"
+												oncomplete="PF('dlgMrDls').show();" process="@this"
+												update="@([id$=popupPanel])">
+												<f:attribute name="viewMore" value="deals" />
+												<f:attribute name="clinic" value="#{appController.bookedClinic}" />
+											</p:commandLink>
+										</div>
+								</div>
+							    </p:tab>
+							     <p:tab title="Reviews">
+							     	<div role="tabpanel" class="tab-pane " id="reviews1">
+										<div class="reviewtab">
+											<div class="ratingleft">
+												<div class="reviewgraphic">#{appController.bookedClinic.scoredRating}</div>
+												<div class="reviewtextd">
+													<h2>Ratings</h2>
+													<p>
+														#{appController.bookedClinic.scoredRating} out of 10 from <a
+															href="#">#{appController.bookedClinic.totalCustomerRated}
+															customers</a>
+													</p>
+													<div class="linkformore">
+														<p:commandLink value="See All"
+															rendered="#{appController.bookedClinic.reviewsTab.customerReviewsList.size() gt 5 ?true:false}"
+															actionListener="#{appController.onViewMoreClick}"
+															oncomplete="PF('dlgMrRv').show();" process="@this"
+															update="@([id$=popupPanel])">
+															<f:attribute name="viewMore" value="reviews" />
+															<f:attribute name="clinic"
+																value="#{appController.bookedClinic}" />
+														</p:commandLink>
+													</div>
+												</div>
+											</div>
+											<div class="ratingright">
+												<div class="ratinginall">
+													<p:panel
+														rendered="#{appController.bookedClinic.reviewsTab.customerReviewsList.size() le 5 ?true:false}"
+														id="lessReviewForm">
+														<ul>
+															<ui:repeat
+																value="#{appController.bookedClinic.reviewsTab.customerReviewsList}"
+																var="review">
+																<li>
+																	<div>#{review.customerReview}</div>
+																	<div>
+																		<div class="pgBar">
+																			<p:progressBar value="${review.percentProgress}"
+																				labelTemplate="{value}%" displayOnly="true" />
+																		</div>
+																	</div>
+																	<div>${review.customerStarRating}</div>
+																</li>
+															</ui:repeat>
+														</ul>
+													</p:panel>
+													<p:panel
+														rendered="#{appController.bookedClinic.reviewsTab.customerReviewsList.size() gt 5 ?true:false}"
+														id="fullReviewForm">
+														<ul>
+															<ui:repeat
+																value="#{appController.bookedClinic.reviewsTab.customerReviewsList}"
+																var="review" size="5">
+																<li>
+																	<div>#{review.customerReview}</div>
+																	<div>
+																		<div class="pgBar">
+																			<p:progressBar value="${review.percentProgress}"
+																				labelTemplate="{value}%" displayOnly="true" />
+																		</div>
+																	</div>
+																	<div>${review.customerStarRating}</div>
+																</li>
+															</ui:repeat>
+														</ul>
+													</p:panel>
+												</div>
+											</div>
+										</div>
+									</div>
+							     </p:tab>
+						 </p:tabView>
+				</div>
+			</div>
+    </h:form>
+	</p:panel>
+	</h:body>
+</h:html>

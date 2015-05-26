@@ -1,0 +1,5026 @@
+
+::-moz-selection {
+background: #252525;
+color: #ffffff;
+text-shadow: none;
+}
+::selection {
+	background: #252525;
+}
+:focus {
+	outline-color: transparent!important;
+	outline-style: none!important;
+}
+html {
+	height:100%;
+}
+
+body {
+	font-family: 'latobold';
+	font-weight: normal;
+	height:100%;
+}
+a, p, li, ul, h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+}
+a:hover, a:focus {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+a {
+	color: #349acf;
+	text-decoration: none;
+	background: transparent;
+}
+a:hover {
+	color: #00537e;
+	text-decoration: none;
+}
+a, i{
+ -webkit-transition: all .2s ease-in-out;
+ -moz-transition: all .2s ease-in-out;
+ -ms-transition: all .2s ease-in-out;
+ transition: all .2s ease-in-out;
+}
+label {
+	color: #646464;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.anim {
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+/************** user img css start *********************/
+
+.dropdown-menu {
+	background-color: #282828;
+	left: auto;
+	right: 0;
+	top: 100%;
+	z-index: 1050;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: #007db0 solid 3px;
+	padding: 0;
+	margin: 12px 0 0;
+	min-width: 320px;
+}
+.dropdown-menu:before {
+	border-bottom: 12px solid #323232;
+	border-left: 12px solid rgba(0, 0, 0, 0);
+	border-right: 11px solid rgba(0, 0, 0, 0);
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 0;
+	position: absolute;
+	right: 12px;
+	top: -12px;
+	width: 0;
+	z-index: 10000;
+}
+/*.dropdown-menu li {
+	background-color: #282828;
+	padding: 0 0 1px 0;
+}*/
+.dropdown-menu li a {
+	color: #FFFFFF;
+	font-size: 12px;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #373737;
+	display: block;
+	padding: 10px 18px;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	border: none;
+	box-shadow: none;
+}
+.dropdown-menu li a:hover {
+	background-color: #4a4a4a;
+	color: #fff;
+}
+.userinfo {
+	min-height: 110px;
+	padding-top: 16px;
+	padding-bottom: 20px;
+	background: #323232;
+}
+.userinfo .ui_img {
+	float: left;
+	width: 100px;
+	text-align: center;
+	padding-top: 10px;
+}
+.ui_img .useimage {
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border: #FFFFFF solid 2px;
+	overflow: hidden;
+	text-align: center;
+}
+.userinfo .ui_info {
+	float: right;
+	width: 220px;
+	padding-right: 20px;
+}
+.ui_info .username {
+	color: #FFFFFF;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+.ui_info a.useremail {
+	padding: 0;
+	margin: 8px 0;
+	background: none;
+	text-transform: none;
+	text-align: left;
+}
+.ui_info a.useremail:hover {
+	text-decoration: underline;
+	background-color: transparent;
+}
+.ui_info .ui_btns {
+	margin-top: 5px;
+}
+.ui_btns a.ui_myprofile, .ui_btns a.ui_logout {
+	display: inline-block;
+	color: #FFFFFF;
+	font-size: 13px;
+	padding: 8px 12px;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+}
+.ui_btns a.ui_myprofile {
+	background-color: #007aba;
+}
+.ui_btns a.ui_myprofile:hover {
+	background-color: #007aba;
+}
+.ui_btns a.ui_logout {
+	background-color: #d34a40;
+}
+/************** user img css end *********************/
+
+/************** h_user img css end *********************/
+.logindpm {
+	background-color: #fff;
+	margin: 12px 0 0;
+	padding: 10px 20px;
+	border-radius: 0;
+}
+.logindpm:before {
+	border-bottom: 12px solid #fff;
+	border-left: 12px solid transparent;
+	border-right: 11px solid transparent;
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 0;
+	position: absolute;
+	right: 12px;
+	top: -12px;
+	width: 0;
+	z-index: 10000;
+}
+.logindpm li {
+	background-color: #fff;
+}
+.ldropmenu {
+}
+.ldropmenu h3 {
+	color: #007aba;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin: 10px 0;
+}
+.lpopup {
+}
+.lpopup input[type=text], .lpopup input[type=email], .lpopup input[type=password] {
+	font-size: 16px;
+	color: #bbbbbb;
+	font-family: 'latoregular';
+	padding: 5px 10px;
+	border: 1px solid #d4d4d4;
+	width: 100%;
+	margin: 5px 0;
+}
+
+.lpopup a.hlogin ,.lpopup a.lregi ,.lpopup a.checkmyapp{
+	background-color: #007aba !important;
+	color: #fff !important;
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 8px 0 !important;
+	width: 100%;
+	border: none;
+	margin: 8px 0 10px;
+    display: block;
+}
+.lpopup a.lregi{
+	background-color: #0099ba !important;
+}
+.lpopup a.checkmyapp{
+    background-color:#3f3f3f !important;
+}
+.ldropmenu .lpopup a {
+	background: none repeat scroll 0 0 transparent;
+	color: #007aba;
+	float: left;
+	font-size: 14px;
+	padding: 0;
+}
+.ldropmenu .lpopup a:hover{
+    background-color: transparent;
+    color: #007aba;
+}
+.lpopup span {
+	color: #bbbbbb;
+	font-size: 16px;
+	float: right;
+	text-transform: uppercase;
+	font-family: 'latoregular';
+}
+/************** h_user img css end *********************/
+
+/*********** bootstrap changes start*************/
+
+.navbar-default {
+	background-color: #272727;
+	border: none;
+}
+.navbar {
+	border-radius: 0;
+	margin: 0;
+	float: right;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+.navbar-nav > li > a {
+	padding: 7px 25px;
+	font-size: 16px;
+	margin: 0 5px;
+	border: transparent 1px solid;
+	border-radius: 5px;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	background-color: transparent;
+	color: #fff;
+	border: #007aba 1px solid;
+}
+.navbar-nav {
+	margin: 12px 0;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: #007aba;
+	color: #fff;
+}
+.navbar-toggle {
+	margin: 15px 15px 12px 0;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border-color: #333;
+}
+.subblckbg .navbar-right {
+	margin: 0;
+}
+.subblckbg .tab-content {
+	background: #349acf url(../images/whitecornerbg2.png) no-repeat;
+	min-height: 69px;
+    background-size: 322px auto;
+}
+.subblckbg .nav-tabs {
+	border: none;
+}
+.subblckbg .nav-tabs > li > a {
+	margin-right: 0px;
+	margin-left: 3px;
+	padding: 14px 50px;
+}
+.subblckbg .nav-tabs > li.active > a, .subblckbg .nav-tabs > li.active > a:hover, .subblckbg .nav-tabs > li.active > a:focus {
+	background-color: #349acf;
+	border: none;
+	color: #fff;
+	cursor: default;
+}
+.moredtails .tab-pane {
+	padding: 10px 0;
+}
+.subblckbg .nav-tabs > li > a {
+	margin-left: 3px;
+	margin-right: 0;
+	padding: 14px 50px;
+	border-radius: 0;
+	font-size: 18px;
+	border: none;
+	color: #888888;
+	background-color: #fff;
+}
+.progress {
+	height: 14px;
+	margin: 3px 0 0 0;
+	overflow: hidden;
+	background: none repeat scroll 0 0 #349acf;
+	border: 1px solid #006fa9;
+	border-radius: 8px;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4) inset;
+}
+.progress-bar {
+	color: #fff;
+	float: left;
+	font-size: 12px;
+	height: 100%;
+	line-height: 20px;
+	text-align: center;
+	transition: width 0.6s ease 0s;
+	width: 0;
+	background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
+	background-repeat: repeat-x;
+	border-radius: 8px;
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+}
+.ratingrow > input[type="radio"], input[type="checkbox"] {
+	margin: 5px 0 0 0;
+}
+.panel-group .panel {
+	border-radius: 0;
+}
+.panel-heading {
+	padding: 0;
+}
+.panel-default > .panel-heading {
+	background-color: transparent;
+}
+.panel-body {
+	border: medium none !important;
+	padding: 20px 0 0;
+}
+.panel-default {
+	border-color: transparent;
+}
+/*********** bootstrap changes  end*************/
+
+
+/*********** Header Start *************/
+
+header {
+	border-top: 3px solid #252525;
+	position: relative;
+	z-index: 1;
+}
+.topmenubar {
+}
+.topleft {
+	margin: 20px 0 0 15px;
+}
+.topleft a {
+	color: #fff;
+	display: inline-block;
+	font-size: 16px;
+}
+.topleft a img {
+	margin: 0 10px 0 0
+}
+.homelogo {
+	margin: 0 !important;
+    padding-left:10px !important;
+}
+.logo {
+	height: 67px;
+	padding: 7px 0 0 0;
+	float: left;
+	position: relative;
+	z-index: 10000;
+}
+.logo a {
+	display: inline-block;
+}
+.subheader {
+	position: relative;
+}
+.subheader:before {
+	background: #fff;
+	position: absolute;
+	width: 50%;
+	display: block;
+	left: 0;
+	height: 100%;
+	z-index: 0;
+	content: "";
+	top: 0;
+}
+.subheader:after {
+	background: #3f3f3f;
+	position: absolute;
+	width: 50%;
+	display: block;
+	right: 0;
+	height: 67px;
+	z-index: 0;
+	content: "";
+	top: 0;
+}
+.subblckbg {
+	background: #3f3f3f url(../images/whitecornerbg.png) no-repeat;
+	position: relative;
+	display: block;
+	z-index: 100;
+}
+.mytabbox {
+	background: #49a4d4;
+	position: relative;
+	height: 69px;
+	z-index: 10;
+}
+.mysearchtabs {
+	position: absolute;
+	right: 0;
+	top: -54px;
+	z-index: 100;
+}
+.mytabbox:after {
+	background: #349acf;
+	position: absolute;
+	width: 50%;
+	display: block;
+	right: 0;
+	height: 100%;
+	z-index: 0;
+	content: "";
+	top: 0;
+}
+.searchbar {
+	width: 100%;
+	display: table;
+	position: relative;
+	z-index: 1000;
+}
+.fields_s {
+	display: table-cell;
+}
+.searchbar form {
+	width: 100%;
+	display: table-row;
+}
+.fields_s select, .fields_s input[type="text"] {
+	width: 97%;
+	border: none;
+	border-radius: 5px;
+	color: #6b6b6b;
+	font-size: 15px;
+	padding: 6px 9px;
+	font-family: 'latoregular';
+}
+.searchbtn, .adsearchbtnlink {
+	text-align: right;
+}
+.searchbtn input[type="submit"] {
+	background: url(../images/searchicon.png) no-repeat #00537e 10px;
+	padding: 6px 20px 6px 40px;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.17);
+	border-radius: 5px;
+}
+.adsearchbtnlink a {
+	background: #fa9034;
+	padding: 9px 20px;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.17);
+	border-radius: 5px;
+	white-space: nowrap;
+	margin: 0 5px;
+}
+.subblckbg .tab-content {
+	padding: 16px 0 0;
+}
+.selebx {
+	width: 16%;
+}
+.myacc {
+	float: right;
+	position: relative;
+}
+.myacc > a {
+	color: #fff;
+	background: #349acf;
+	padding: 0px 0px 0px 20px;
+	display: inline-block;
+	line-height: 36px;
+	font-size: 15px;
+	text-transform: uppercase;
+	position: relative;
+	z-index: 10;
+	margin: 16px 0 0;
+}
+.myacclink {
+}
+.myacc > a span {
+	float: right;
+	color: #fff;
+	padding: 0 15px;
+	margin: 0 0 0 20px;
+	font-size: 18px;
+	background: #fa9034;
+	border-left: 1px solid #3f3f3f;
+}
+.myacc > a:hover, .myacc > a:focus {
+	background: #272727;
+}
+.healthclinics {
+	background: none repeat scroll 0 0 #fff;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	top: 51px;
+	width: 312px;
+}
+.clinictitle {
+	background: #272727;
+	padding: 10px 20px;
+}
+.clinictitle h2 {
+	color: #fff;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.cliniccharges {
+	padding: 17px 16px 0 17px;
+	overflow: auto;
+}
+.clinicview {
+}
+.clinicview h3 {
+	font-size: 14px;
+	color: #349acf;
+}
+.clinicview img {
+	float: right;
+}
+.chargeslist {
+	margin: 10px 0;
+	display: inline-block;
+	overflow: hidden;
+	border-radius: 5px;
+}
+.clinicrs, .clinickm {
+	background-color: #349acf;
+	font-size: 14px;
+	color: #fff;
+	float: left;
+	margin-right: 2px;
+	padding: 6px 11px 5px;
+}
+.clinickm {
+	background-color: #fa9034;
+	margin-right: 0px;
+}
+.comparebtn {
+	border-top: 1px solid #e1e1e1;
+	text-align: center;
+}
+.comparebtn button {
+	background-color: #349acf;
+	color: #fff;
+	font-size: 14px;
+	border: none;
+	padding: 10px 0;
+	width: 90%;
+	margin: 10px 0;
+	text-transform: uppercase;
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+}
+.comparebtn button:hover {
+	background-color: #2484b6;
+}
+/*********** Header end *************/
+
+
+/*********** Sidebar Start *************/
+
+
+.midpart {
+	overflow: auto;
+	background: #efefef;
+	padding: 0 0 40px;
+}
+aside {
+	width: 300px;
+	float: left;
+	margin: 4px 4px 0 0;
+}
+aside section {
+	margin: 0 0 4px 0;
+	background: #fff;
+	overflow: hidden;
+}
+.mapsection {
+	position: relative;
+}
+.mapsection a {
+	vertical-align: middle;
+}
+.mapsection a span {
+	color: #00537e;
+	display: block;
+	font-size: 20px;
+	padding: 15px 0;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 30px;
+}
+.mapicon {
+	background: url(../images/mapicon.png) no-repeat 25px center #00537e;
+	height: 60px;
+	width: 64px;
+	display: inline-block;
+	float: left;
+	position: relative;
+}
+.mapicon:after {
+	width: 0;
+	height: 0;
+	border-top: 0px solid transparent;
+	border-bottom: 60px solid transparent;
+	content: "";
+	position: absolute;
+	right: -32px;
+	border-left: 32px solid #00537e;
+}
+.filtersection {
+}
+.titlesection {
+}
+.lablesrange {
+	width: 100%;
+	margin: 10px 0 20px;
+	overflow: auto;
+}
+.lablesrange span {
+	width: 33.33%;
+	display: block;
+	float: left;
+	text-align: center;
+}
+.lablesrange span:first-child {
+	text-align: left;
+}
+.lablesrange span:last-child {
+	text-align: right;
+}
+.titleside {
+	background: url(../images/filtertitlebg.png) no-repeat #717171;
+	border-left: #424242 solid 4px;
+	padding: 14px 0 14px 20px;
+	color: #fff;
+	font-size: 20px;
+	line-height: 30px;
+	text-transform: uppercase;
+}
+.filterblock {
+	border-bottom: 1px solid #efefef;
+	padding: 20px;
+}
+.filterblock h3 {
+	font-size: 16px;
+	color: #5a5a5a;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+}
+.starrating {
+	padding: 0;
+}
+.ratingrow {
+	margin: 5px 0;
+	display: table;
+	width: 100%;
+}
+.ratingrow img {
+	margin: 0 0 0 8px;
+}
+.noclinic {
+	text-align: right;
+	display: table-row;
+}
+.ratingrow > * {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 3px 0;
+}
+.ratingrow > span {
+	text-align: center;
+}
+.ratingrow > a {
+	color: #5a5a5a;
+	font-family: 'latoregular';
+}
+.accordion {
+	margin: 3px 0;
+}
+.accordion-heading {
+	border-bottom: 1px solid #cecece;
+	font-size: 15px;
+}
+.accordion-heading a.accordion-toggle.collapsed {
+	background: url(../images/plusicon.png) no-repeat right 10px;
+	display: block;
+	padding: 5px 0;
+	margin: 5px 0;
+}
+.accordion-heading a {
+	background: url(../images/minicon.png) no-repeat right 10px;
+	display: block;
+	padding: 5px 0;
+	margin: 5px 0;
+}
+.accordion-inner {
+	padding: 5px 10px;
+}
+.filterselection {
+	margin: 4px 0;
+}
+.filterselection > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+.filterselection > img {
+	margin: 0 8px 0 10px;
+}
+.filterselection > input[type="checkbox" ] {
+	margin: 0 8px 0 0px;
+}
+.filterselection > span {
+	margin: 0 10px 0 0;
+	display: inline-block;
+	color: #5a5a5a;
+	font-family: 'latoregular';
+}
+/*********** Sidebar end *************/
+
+
+
+/*********** Mid Searchpage Start *************/
+
+section.mainsection {
+	margin: 0 0 0 304px;
+}
+.toptitlesection {
+	background: #fff;
+	padding: 26px 26px 15px 26px;
+	margin: 0 0 4px 0;
+}
+.pagetitle {
+	color: #666666;
+	font-size: 27px;
+	line-height: 25px;
+	text-transform: uppercase;
+}
+.pagetitle span {
+	font-size: 13px;
+	color: #555555;
+	display: block;
+}
+.sortingsection {
+	float: right;
+}
+.sortingsection select {
+	border: 1px solid #d4d4d4;
+	color: #6b6b6b;
+	font-size: 15px;
+	padding: 7px 10px;
+	margin: 0 0 0 5px;
+	font-family: 'latoregular';
+}
+.listclinic {
+	background: #fff;
+	overflow: auto;
+	border: 2px solid #cdcdcd;
+	position: relative;
+	z-index: 0;
+	width: 100%;
+	margin: 0 0 5px 0;
+	display: inline-block;
+}
+.listclinic:hover {
+	border: 2px solid #5bb6e6;
+	border-radius: 10px;
+	margin-left: -2%;
+	margin-right: -2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	width: 104%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.clinicleft {
+	width: 60%;
+	float: left;
+}
+.clinicright {
+	width: 40%;
+	float: left;
+	padding: 15px 0 0;
+}
+.clinicbasic {
+	padding: 20px 20px 10px;
+}
+a.clinicname {
+	color: #349acf;
+	font-size: 24px;
+}
+.ratingline {
+	vertical-align: middle;
+}
+.ratingline .stars {
+	margin: 0 15px 0 10px;
+}
+.ratingstatus {
+	border-left: 2px solid #9f9f9f;
+	font-size: 14px;
+	padding: 0 10px 2px 10px;
+	margin: 2px 0;
+	display: inline-block;
+	line-height: 18px;
+}
+.ratingbyuser {
+	border-left: 2px solid #9f9f9f;
+	font-size: 14px;
+	padding: 0 10px 2px 10px;
+	margin: 2px 0;
+	line-height: 23px;
+	color: #3a3a3a;
+	display: inline-block;
+	font-family: 'latoregular';
+}
+.ratingbyuser a {
+	color: #00537e;
+}
+.greencolor {
+	color: #0b7800
+}
+.graycolor {
+	color: #5a5a5a
+}
+.redcolor {
+	color: #da0000
+}
+.clinicpic {
+	height: 202px;
+	overflow: hidden;
+	width: 97%;
+}
+.clinicpic img {
+	width: 100%;
+}
+.clnicadress {
+	font-size: 14px;
+	margin: 10px 0;
+	line-height: 18px;
+	color: #373737;
+	font-family: 'latoregular';
+}
+.facilitytopicons {
+	margin: 15px 0 5px;
+}
+.facilitytopicons li {
+	display: inline-block;
+	margin: 0 3px;
+}
+.appointmentbox {
+	background: #f8f8f8;
+	border: 1px solid #e4e4e4;
+	font-family: 'latoregular';
+	padding: 10px 15px;
+	margin: 10px 0 0 0;
+	border-radius: 10px;
+}
+.appointmentbox h5 {
+	font-size: 16px;
+	color: #565656;
+}
+.appointmentbox h5 span {
+	font-size: 13px;
+	color: #0086cb;
+}
+.timeschedules {
+	margin: 15px 0;
+}
+.timeschedules a {
+	background: none repeat scroll 0 0 #fff;
+	border: 1px solid #dfdfdf;
+	border-radius: 6px;
+	color: #4b4b4b;
+	display: inline-block;
+	font-family: "latobold";
+	font-size: 12px;
+	margin: 2px 0;
+	padding: 5px;
+	text-transform: uppercase;
+}
+.timeschedules a.active {
+	background: none repeat scroll 0 0 #349acf;
+	color: #fff;
+}
+.timeschedulesbutn {
+}
+.timeschedulesbutn a i {
+	display: inline-block;
+	background: url(../images/appointmenticon.png) no-repeat center center;
+	width: 18px;
+	height: 21px;
+	float: left;
+	margin: 0 10px 0 0;
+}
+.timeschedulesbutn a {
+	background: #00537e;
+	font-family: 'latobold';
+	color: #fff;
+	padding: 5px 8px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	vertical-align: middle;
+}
+.botpicpart {
+	margin: 10px 0;
+	overflow: hidden;
+}
+.price {
+	color: #fff;
+	font-size: 30px;
+	background: #349acf;
+	display: inline-block;
+	padding: 5px 0 0;
+	text-align: center;
+	float: left;
+	width: 45%;
+}
+.price span {
+	display: block;
+	font-size: 16px;
+	background: #00537e;
+	font-family: 'latoregular';
+	padding: 3px 0px;
+}
+.price sup {
+	font-size: 19px;
+	font-family: 'latoregular';
+}
+.icncompare {
+	border-radius: 5px;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	margin: 10px 0 0 0;
+	padding: 5px 20px 5px 32px;
+	text-align: center;
+	border: none;
+	background: url(../images/compareicon.png) no-repeat 10px center #727272;
+	text-transform: uppercase;
+}
+.icncompare {
+	background-color: ##919191;
+}
+.distanceblock {
+	float: left;
+	font-size: 28px;
+	color: #fa9034;
+	text-align: center;
+	width: 50%;
+}
+.distanceblock a i {
+	display: inline-block;
+	background: url(../images/compareicon.png) no-repeat center center;
+	width: 15px;
+	height: 18px;
+	float: left;
+	margin: 0 10px 0 0;
+}
+.distanceblock a {
+	background: none repeat scroll 0 0 #727272;
+	border-radius: 5px;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	padding: 5px 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.distanceblock > span {
+	display: block;
+	height: 35px;
+}
+.distanceblock > span span {
+	font-size: 12px;
+	color: #00537e;
+	text-transform: uppercase;
+	font-family: 'latoregular';
+}
+.linksmore {
+	padding: 15px 0 10px;
+}
+.linksmore a {
+	font-size: 15px;
+	color: #4f4f4f;
+	float: left;
+	padding: 0 8px;
+	font-family: 'latoregular';
+	border-right: 1px solid #9f9f9f;
+}
+.linksmore a:last-child {
+	border-right: none;
+}
+.moredtails {
+	padding: 0px 20px 0 20px;
+	clear: both;
+	position: relative;
+}
+.moredtails .tab-content {
+	overflow: auto;
+}
+.imagesdetai {
+	float: left;
+	width: 30%;
+	padding: 0 8px 0 0;
+}
+.facilities {
+	width: 70%;
+	overflow: auto;
+	border-left: 1px solid #d2d2d2;
+	padding: 5px 0 10px 10px;
+}
+.gallreyimg {
+	margin: 0 0 4px;
+	overflow: auto;
+}
+.gallreyimg li {
+	float: left;
+	margin: 0 2% 2% 0;
+	width: 31%;
+}
+.gallreyimg li img {
+	width: 100%;
+	height: auto;
+}
+.imagesdetai a {
+	color: #5a5a5a;
+	font-size: 15px;
+	text-transform: uppercase;
+	margin: 5px 0 0;
+	display: inline-block;
+}
+.ourfacilities {
+	margin: 5px 0;
+}
+.facititle {
+	margin: 0 0 8px;
+}
+.facititle h3, .desctitle h3 {
+	color: #00537e;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+.faciinfo {
+	border-top: 1px solid #e7e7e7;
+	padding: 5px 0;
+	overflow: hidden;
+}
+.faciinfo:last-child {
+	border-bottom: 1px solid #e7e7e7;
+}
+.faciinfo span {
+	color: #2a2a2a;
+	font-size: 16px;
+	font-family: 'latoregular';
+	float: left;
+}
+.faciinfo ul {
+	float: right;
+}
+.faciinfo li {
+	float: left;
+	font-size: 14px;
+	color: #5a5a5a;
+	margin: 0 0 0 10px;
+}
+.smallimg {
+	width: 15px;
+	height: auto;
+	margin: 0 4px 1px 2px;
+}
+.detaildesc {
+	margin: 15px 0 0;
+}
+.desctitle {
+}
+.detaildesc p {
+	color: #282828;
+	font-size: 14px;
+	font-family: 'latoregular';
+	margin: 20px 0;
+}
+.journeydesc {
+	width: 50%;
+	float: left;
+}
+.journeydesc img, .awardedesc img {
+	float: left;
+	margin: 5px 18px 0 0;
+}
+.journeydesc p, .awardedesc p {
+	color: #525252;
+	font-size: 14px;
+	font-family: 'latoregular';
+	margin: 0;
+}
+.awardedesc {
+	width: 50%;
+	overflow: auto;
+}
+.facilitiesrate {
+}
+.titletables {
+	background: #349acf;
+	text-transform: uppercase;
+	color: #fff;
+}
+.facilitiesrate ul {
+	display: table;
+	width: 100%;
+}
+.facilitiesrate li {
+	display: table-row;
+}
+.facilitiesrate li > div {
+	border-bottom: 1px solid #d7d7d7;
+}
+.facilitiesrate li > div:last-child {
+	text-align: right;
+}
+.facilitiesrate li.titletables > div {
+	border-bottom: 1px solid #00537e;
+	font-family: 'latobold';
+}
+.facilitiesrate li > div {
+	display: table-cell;
+	padding: 6px 10px;
+	font-family: 'latoregular';
+}
+.linkformore a {
+	color: #00537e;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	display: inline-block;
+	font-family: 'latobold';
+	margin: 20px 10px;
+}
+.ratingleft {
+	width: 37%;
+	float: left;
+	overflow: auto;
+}
+.ratingright {
+}
+.reviewtab {
+	padding: 20px 0;
+}
+.reviewgraphic {
+	background: url(../images/ratingbg.png) no-repeat center center;
+	display: inline-block;
+	font-size: 52px;
+	height: 144px;
+	line-height: 144px;
+	text-align: center;
+	width: 144px;
+	color: #fff;
+	float: left;
+	margin: 0 20px 0 0;
+}
+.reviewtextd {
+	border-right: 1px solid #d7d7d7;
+}
+.reviewtextd h2 {
+	text-transform: uppercase;
+	color: #00537e;
+	font-size: 18px;
+	padding: 20px 0 0;
+}
+.reviewtextd p {
+	text-transform: uppercase;
+	color: #3a3a3a;
+	font-size: 14px;
+	margin: 10px 0;
+	font-family: 'latoregular';
+}
+.reviewtextd p a {
+	color: #00537e;
+	font-size: 15px;
+	display: inline-block;
+}
+.ratinginall {
+}
+.ratinginall ul {
+	display: table;
+	width: 62%;
+}
+.ratinginall li {
+	display: table-row;
+}
+.ratinginall li > div:last-child {
+	text-align: right;
+}
+.ratinginall li > div:nth-child(2) {
+	width: 16%;
+}
+.ratinginall li > div {
+	display: table-cell;
+	padding: 6px 10px;
+	font-family: 'latoregular';
+}
+.ratesymbol {
+	text-align: center;
+	width: 160px;
+}
+.ratesymbol img {
+	text-align: center;
+	height: 30px;
+}
+.closebtn {
+	background: #fff;
+	float: right;
+	margin: 10px;
+	padding: 5px;
+	height: 16px;
+	width: 15px;
+}
+/*********** Mid Searchpage end *************/
+
+/*********** footer Start *************/
+footer {
+	background: #e2e2e2;
+	padding: 11px 0;
+	font-family: 'latoregular';
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+}
+.static{
+    position: fixed;
+}
+/*.footerleft {
+	color: #414141;margin: 0 0 10px 0;
+}
+.footerleft a:link, .footerleft a:visited {
+	color: #414141;
+	margin: 0 5px;
+}
+.footerleft a:hover, .footerleft a:focus {
+	color: #349acf;
+}*/
+.footerl{}
+.footerl ul{
+    
+}
+.footerl li{
+    display: inline-block;
+    border-right: 1px solid #414141;
+    line-height: 12px;
+}
+.footerl li:last-child{
+    border: none;
+}
+.footerl li a{
+    font-size:13px;
+    color: #414141;
+    font-family: 'latoregular';
+    padding: 0 5px;
+}
+.footerl li.fnavactive a ,.footerl li a:hover{
+    color: #349acf;
+}
+.footerr{
+    text-align: right;
+}
+.footerr p{
+    font-size: 13px;
+    color: #414141;
+    font-family: 'latoregular';
+}
+/*********** footer end *************/
+
+
+/*********** comparepage start *************/
+
+.comparepage {
+	background-color: #efefef;
+	padding: 0 0 55px;
+}
+.comparetitle {
+	background-color: #fff;
+	padding: 27px 0 27px 32px;
+	margin-bottom: 4px;
+}
+.comparetitle h2 {
+	font-size: 25px;
+	color: #666666;
+	font-weight: normal;
+}
+.selectcategory {
+	float: left;
+	overflow: hidden;
+	width: 22%;
+	text-align: center;
+}
+.overview {
+	margin: 20px 0 0;
+}
+.overview select {
+	font-size: 16px;
+	color: #4b4b4b;
+	font-family: 'latoregular';
+	width: 80%;
+	padding: 8px 5px;
+	max-width: 100%;
+	border: 1px solid #d4d4d4;
+}
+.comparebtwtitle {
+	width: 78%;
+	overflow: auto
+}
+.supertitle, .averagetitle, .addclinic {
+	position: relative;
+	background-color: #0075b1;
+	padding: 18px;
+	overflow: auto;
+	width: 33.33%;
+	max-width: 100%;
+	float: left;
+}
+.supertitle h3, .averagetitle h3 {
+	font-size: 19px;
+	color: #fff;
+	font-family: 'latoregular';
+	padding: 0 20px;
+	text-align: center;
+}
+.averagetitle {
+	background-color: #006396;
+}
+.closeimg {
+	position: absolute;
+	top: 10px;
+	right: 8px;
+}
+.addclinic {
+	background-color: #00537e;
+	padding: 22px;
+}
+.addclinicbtn {
+}
+.addclinicbtn input[type=text] {
+	padding: 6px 5px;
+	width: 80%;
+	float: left;
+	border: none;
+	font-size: 15px;
+	border-right: 1px solid #00537e;
+}
+.addclinicbtn input[type=button] {
+	border: none;
+	background-color: #349acf;
+	color: #fff;
+	padding: 6px 13px;
+	font-size: 15px;
+	width: 20%;
+}
+.compareparttitle {
+	background-color: #f4f4f4;
+	overflow: auto;
+}
+.connectclinic {
+	margin-bottom: 8px;
+}
+.clinicsubtitles {
+	text-align: center;
+	background-color: #fff;
+	padding: 17px 0;
+	border-bottom: 2px solid #349acf;
+}
+.clinicsubtitles h3 {
+	font-size: 18px;
+	color: #4b4b4b;
+	font-weight: normal;
+}
+.cliniclistside {
+	background-color: #349acf;
+	position: relative;
+	width: 100%;
+	display: table;
+}
+.feturetitle {
+	display: table-cell;
+	float: left;
+	min-height: 70px;
+	text-align: center;
+	vertical-align: middle;
+	width: 22%;
+	padding: 0 20px;
+}
+.feturetitle h3 {
+	font-size: 20px;
+	color: #fff;
+	height: 70px;
+	margin: auto;
+	font-family: 'latoregular';
+	padding: 25px 0 0;
+}
+.clinic1 {
+	float: right;
+	width: 78%;
+	background-color: #fff;
+}
+.comparisonpart {
+	float: left;
+	width: 33.33%;
+	border-right: 1px solid #e4e4e4;
+}
+.comparisonpart:last-child {
+	border: none;
+}
+.cliniccontact, .pricetab, .comparerating, .clinicamenitiesicon {
+	text-align: center;
+	margin: 15px 0;
+}
+.appointment {
+	margin-bottom: 18px;
+}
+.appointment a {
+	font-size: 16px;
+	color: #fff;
+	background-color: #0075b1;
+	border-radius: 5px;
+	border-bottom: 3px solid #e5e5e5;
+	padding: 9px 30px 7px;
+	display: inline-block;
+}
+.contactappo {
+}
+.contactappo a span {
+	font-size: 18px;
+	color: #464646;
+}
+.contactappo a img {
+	margin-right: 8px;
+}
+.pricetab {
+}
+.pricetab h3 {
+	font-size: 22px;
+	color: #fff;
+	background-color: #4a4a4a;
+	border-bottom: 3px solid #e5e5e5;
+	display: inline-block;
+	padding: 10px 27px;
+	border-radius: 5px;
+	margin: 20px 0 6px;
+}
+.comparesubpart {
+	border-bottom: 1px solid #efefef;
+}
+.comparesubpart:last-child {
+	border: none;
+}
+.comparerating {
+}
+.averageimg {
+	margin: 2px 0 4px;
+}
+.averageimg img {
+	width: auto;
+	height: 40px;
+	max-width: 100%;
+}
+.comparerating span {
+	color: #363636;
+	font-size: 18px;
+}
+.clinicamenitiesicon {
+}
+.clinicamenitiesicon ul {
+	width: 65%;
+	margin: 0 auto;
+}
+.clinicamenitiesicon ul li {
+	text-align: left;
+	margin: 4px 0;
+}
+.clinicamenitiesicon li img {
+	margin-right: 10px;
+}
+.clinicamenitiesicon img:last-child {
+	margin: 10px 10px 0 0;
+}
+.clinicamenitiesicon li span {
+	color: #5a5a5a;
+	font-size: 14px;
+	font-family: 'latoregular';
+}
+.amenitiesstep2 {
+	padding: 23px 0;
+}
+.parkingtab {
+	padding: 6px 0;
+}
+/*********** comparepage end *************/
+
+
+
+/*********** login start *************/
+
+.lgback {
+}
+.loginbg {
+	background: url(../images/login_bg.jpg) no-repeat center center #000;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.subheader:before {
+	background: none repeat scroll 0 0 #fff;
+	content: "";
+	display: block;
+	height: 67px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	z-index: 0;
+}
+.usercontact {
+	float: right;
+	margin: 15px 0 0;
+	overflow: hidden;
+}
+.lusercon {
+	float: left;
+	margin: 7px 15px 0 0;
+	overflow: auto;
+}
+.lusercon a {
+	float: left;
+}
+.lusercon a img {
+	margin-right: 5px;
+}
+.lusercon a span {
+	color: #afafaf;
+	font-size: 16px;
+}
+.headsocial {
+	float: right;
+}
+.headsocial li {
+	float: left;
+	margin: 0 5px;
+}
+.social1, .social2, .social3 {
+	display: inline-block;
+	height: 40px;
+}
+.social1 {
+	width: 40px;
+	background: url('../images/social_icon.png') no-repeat 0px 0px;
+}
+.social2 {
+	width: 40px;
+	background: url('../images/social_icon.png') no-repeat -46px 0px;
+}
+.social3 {
+	width: 40px;
+	background: url('../images/social_icon.png') no-repeat -94px 0px;
+}
+.headsocial li a:hover .social1 {
+	background-position: 0px -50px;
+}
+.headsocial li a:hover .social2 {
+	background-position: -47px -50px;
+}
+.headsocial li a:hover .social3 {
+	background-position: -94px -50px;
+}
+
+.userlogin {
+	position: absolute;
+	bottom: 260px;
+	width: 100%;
+}
+.recorddetail {
+}
+.clinincimg {
+	bottom: 30px;
+	position: absolute;
+}
+.recorddetail {
+	height: 560px;
+	position: relative;
+	padding: 0 0 0 40px;
+}
+.clinincimg img {
+	float: left;
+	margin-right: 30px;
+}
+.clinincimg h1 {
+	font-size: 30px;
+	line-height: 40px;
+	font-family: 'latobold';
+	color: #fff;
+	width: 308px;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+	overflow: hidden;
+}
+.clinincimg p {
+	font-size: 18px;
+	color: #fff;
+	font-family: 'latoregular';
+	text-align: justify;
+	margin: 25px 0 0;
+	overflow: hidden;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+}
+.loginuser, .notanacc {
+	background-color: rgba(255,255,255,0.25);
+	float: right;
+	margin: 0;
+	overflow: hidden;
+	padding: 20px;
+	width: 90%;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.14);
+}
+.loginuser h4 a {
+	color: #fff;
+	font-size: 26px;
+	text-transform: uppercase;
+	font-family: 'latoregular';
+}
+.lgwithgoogle, .lgwithfb {
+	background-color: #dc4b39;
+	display: block;
+	text-align: center;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.lgwithfb {
+	background-color: #3b5998;
+}
+.lgwithfb img {
+	border-right: 1px solid #294683 !important;
+	padding: 10px 17px !important;
+}
+.lgwithgoogle img, .lgwithfb img {
+	border-right: 1px solid #ae3c2e;
+	float: left;
+	padding: 10px;
+}
+.lgwithgoogle span, .lgwithfb span {
+	color: #fff;
+	font-size: 14px;
+	font-family: 'latoregular';
+	text-transform: uppercase;
+	padding: 10px;
+	display: inline-block;
+}
+.signinemail {
+	text-align: center;
+	position: relative;
+	margin: 35px 0 20px;
+	overflow: hidden;
+}
+.signinemail h3 {
+	color: #fff;
+	font-size: 18px;
+	position: relative;
+	display: inline-block;
+}
+.signinemail:after, .signinemail:before {
+	border-top: 1px solid #fff;
+	position: absolute;
+	content: "";
+	top: 10px;
+	right: 0;
+	width: 25%;
+	z-index: -1px
+}
+.signinemail:before {
+	left: 0;
+}
+.userloginform {
+	border: 1px solid #cecece;
+	overflow: hidden;
+}
+.userloginform input[type=text], .userloginform input[type=password] {
+	border: none;
+	background-color: rgba(255,255,255,1);
+	width: 100%;
+	padding: 15px 10px;
+	color: #585858;
+	font-size: 16px;
+	font-family: 'latoregular';
+}
+.userloginform input[type=text], .userloginform input[type=password] {
+	border-bottom: 1px solid #cecece;
+}
+.logcheck {
+	padding: 13px 10px 13px;
+	background-color: rgba(255,255,255,1);
+	text-align: center;
+	width: 50%;
+	float: left;
+	border-right: 1px solid #cecece;
+}
+.logcheck input[type=checkbox] {
+	margin-right: 5px;
+}
+.logcheck span {
+	color: #525252;
+	font-size: 16px;
+	font-family: 'latoregular';
+	line-height: 24px;
+}
+.frgpsw {
+	overflow: hidden;
+	background-color: rgba(255,255,255,1);
+	text-align: center;
+}
+.frgpsw a {
+	color: #525252;
+	display: block;
+	font-family: "latoregular";
+	font-size: 16px;
+	line-height: 24px;
+	padding: 13px 10px;
+	text-align: center;
+}
+.loginuser input[type=button], .notanacc input[type=button] {
+	color: #fff;
+	font-size: 22px;
+	font-family: 'latolight';
+	background-color: #007aba;
+	text-align: center;
+	width: 100%;
+	padding: 12px 0;
+	border: none;
+	margin: 15px 0 0;
+	text-transform: uppercase;
+}
+.lgfooter {
+	background-color: rgba(0,0,0,0.55);
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+}
+.lgfooterl{
+    text-align: left;
+}
+.lgfooterl p{
+    font-size:13px;
+    color: #fff;
+}
+.lgfooter .footerleft ul {
+	float: right;
+	margin: 3px 0 0;
+}
+.footerleft ul li {
+	float: left;
+	border-right: 1px solid #fff;
+	line-height: 12px;
+}
+.footerleft ul li:last-child {
+	border: none;
+}
+.footerleft li a {
+	color: #fff !important;
+	font-size: 13px;
+	font-family: 'latoregular';
+    padding: 0 5px;
+    
+}
+.footerleft li.f_active a, .footerleft li a:hover {
+	color: #007aba !important;
+}
+.lcinfo {
+	bottom: 41px;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+    background: url(../images/)
+}
+.lcintab {
+	background-color: rgba(0,0,0,0.55);
+	padding: 20px 25px;
+	overflow: hidden;
+}
+.lcftab {
+	color: #fff;
+	padding: 0 10px 0 0;
+}
+.serimg {
+	float: left;
+	margin-right: 20px;
+}
+.serimg img {
+	max-width: 100%;
+}
+.ltabinfo {
+	font-family: 'latoregular';
+	color: #fff;
+	overflow: hidden;
+}
+.ltabinfo h3 {
+	font-size: 18px;
+	margin: 0 0 6px;
+}
+.ltabinfo p {
+	font-size: 14px;
+}
+.notanacc {
+	margin: 10px 0 0;
+}
+.notanacc a {
+	font-size: 18px;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'latoregular';
+}
+.frgpsw.accpsw, .logcheck.accpsw {
+	padding: 0;
+}
+.frgpsw.accpsw, .notanacc input[type=password] {
+	border-bottom: none;
+}
+.ourcondition {
+	text-align: center;
+	margin: 15px 0 0;
+}
+.ourcondition input[type=checkbox] {
+	margin-right: 10px;
+}
+.ourcondition a {
+	font-size: 16px;
+	color: #fff;
+	font-family: 'latoregular';
+	text-transform: none;
+}
+.fgpsw {
+	color: #fff;
+	font-family: "latoregular";
+	font-size: 22px;
+	text-transform: uppercase;
+}
+.fpswinfo {
+	font-size: 16px;
+	color: #fff;
+	margin: 15px 0;
+	font-family: 'latoregular';
+}
+.frganmail:before, .frganmail:after {
+	width: 42%;
+}
+.frgdetail {
+	height: 325px;
+}
+.frgsub {
+	margin: 50px 0 0 !important;
+}
+/*********** login end *************/
+
+/*********** map start *************/
+.logo img {
+	max-width: 226px;
+}
+.maplogo {
+	margin-left: 30px;
+}
+.mapnav {
+}
+.mapnav {
+	background-color: transparent !important;
+}
+.mapheader {
+}
+.mapheader ul {
+	margin: 16px 0 0 0 !important;
+}
+.userloginbtn {
+	margin: 12px 15px 0;
+	z-index: 100000;
+	position: relative;
+	float: right;
+}
+.userloginbtn a {
+	display: block;
+	width: 46px;
+	height: 46px;
+	border-radius: 50px;
+	background-color: #2f2f2f;
+	border: 1px solid #000;
+	box-shadow: 0 2px 8px -3px rgba(0, 0, 0, 0.7) inset;
+}
+.userloginbtn a img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+.mapsubhed {
+	padding: 15px 0 !important;
+	min-height: 70px !important;
+}
+.map-page {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 139px;
+}
+.refinerst {
+	float: left;
+	margin: 7px 0 0;
+}
+.refinerst span {
+	font-size: 17px;
+	color: #fff;
+	font-family: 'latoregular';
+	text-transform: uppercase;
+	margin: 0 15px 0;
+}
+.mapsearchbar {
+	width: 70%;
+	float: left;
+}
+.gridview {
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 7px;
+	float: right;
+	margin-right: 15px;
+	display: inline-block;
+}
+.gridview li {
+	float: left;
+	margin: 0 3px 0 0;
+}
+.gridview li:last-child {
+	margin: 0;
+}
+.gridview li a {
+	display: inline-block;
+	color: #00486e;
+	font-size: 16px;
+	padding: 5px 17px;
+	border-radius: 5px;
+}
+.gridview li.active a, .gridview li a:hover {
+	background-color: #00486e;
+	color: #fff;
+}
+.cliniclocation {
+	background-color: #fff;
+	bottom: 0;
+	float: left;
+	height: 100%;
+	overflow: auto;
+	padding: 15px;
+	position: absolute;
+	top: 0;
+	width: 365px;
+}
+.cliniclocation h2 {
+	font-size: 19px;
+	color: #393939;
+	font-family: 'latolight';
+	text-transform: uppercase;
+	padding: 15px 0;
+}
+.cliniclocation select {
+	border: none;
+s
+}
+.cliniclocation select {
+	background-color: #349acf;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 17px;
+	width: 100%;
+	border-bottom: 3px solid #eeeeee;
+	padding: 8px 12px;
+}
+.serresult {
+	padding: 15px 0 0;
+}
+.showrst {
+	padding: 15px 0;
+	border-top: 1px solid #e5e5e5;
+}
+.showrst:last-child {
+	border-bottom: 1px solid #e5e5e5;
+}
+.showrst:nth-child(2n) {
+	background: none repeat scroll 0 0 #f1f1f1;
+}
+.rstimg {
+	width: 140px;
+	height: 101px;
+	border: 1px solid #f2f2f2;
+	float: left;
+	margin: 0 10px 10px 0;
+}
+.rstimg img {
+	max-width: 100%;
+}
+.hptldetail {
+}
+.hptldetail h3 {
+	font-size: 17px;
+	color: #454545;
+}
+.hptldetail h2 {
+	font-size: 22px;
+	color: #026344;
+	font-family: 'latobold';
+	padding: 10px 0;
+}
+.hptldetail a {
+	background: none repeat scroll 0 0 #00537e;
+	border: medium none;
+	border-radius: 5px;
+	color: #fff;
+	display: inline-block;
+	font-family: "latobold";
+	padding: 5px 7px;
+	vertical-align: middle;
+}
+.hptldetail a i {
+	background: url("../images/appointmenticon.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	display: inline-block;
+	float: left;
+	height: 21px;
+	margin: 0 10px 0 0;
+	width: 18px;
+}
+.showrst .distance {
+	font-size: 16px;
+}
+.distance {
+	margin-bottom: 5px;
+}
+.showrst p {
+	font-size: 14px;
+	color: #282828;
+	font-family: 'latoregular';
+}
+.showrst p span {
+	background: none repeat scroll 0 0 #349acf;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 3px 7px;
+}
+.maplocation {
+	bottom: 0;
+	font-size: 0;
+	height: 100%;
+	left: 365px;
+	margin: auto;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: auto;
+}
+.maplocation iframe {
+	width: 100%;
+	height: 100%;
+}
+.appclinicr .distanceblock {
+	margin: 20px 0 0;
+}
+/*********** map end *************/
+
+
+
+/*********** appointmentlogin css start *************/
+.appclinicl {
+	width: 50%;
+}
+.appclinicr {
+	width: 50%;
+}
+.bgcolor {
+	background-color: #efefef;
+}
+.brdtop {
+	border-top: 3px solid #007aba;
+}
+.applist {
+	margin: 5px 0 0;
+}
+.applist h2 {
+	font-size: 22px;
+	color: #fff;
+}
+.app_page {
+	background-color: #fff;
+	margin-top: 11px;
+	border-bottom: 3px solid #d0d0d0;
+	overflow: auto;
+}
+.apptime {
+	padding: 0 25px;
+}
+.useravg {
+	overflow: hidden;
+}
+.useravg span {
+	font-size: 24px;
+	color: #007aba;
+	float: left;
+}
+.useravg img {
+	margin: 0 0 0 30px;
+}
+.ourloc {
+	margin: 5px 0;
+}
+.ourloc img {
+	float: left;
+	width: 12px;
+	height: 18px;
+	margin: 0 10px 0 0;
+}
+.ourloc p {
+	font-size: 16px;
+	color: #4d4d4d;
+	font-family: 'latoregular';
+	display: table;
+}
+.apptime .ihmdirection {
+	margin: 20px 0 0;
+}
+.ihmfacility {
+	margin: 15px 0 0;
+	overflow: auto;
+}
+.ihmfacility label {
+	font-size: 15px;
+	color: #3a3a3a;
+	font-family: 'latoregular';
+	float: left;
+	margin-right: 15px;
+}
+.ihmfacility ul {
+	margin: 3px 0 0;
+}
+.ihmfacility ul li {
+	float: left;
+	margin-right: 10px;
+}
+.appschedule {
+	background-color: #f7f7f7;
+	border: 1px solid #c6c6c6;
+	border-radius: 5px;
+	padding: 10px 15px;/*    margin: 15px 0  ;*/
+}
+.appschedule h3 {
+	font-size: 19px;
+	color: #007aba;
+}
+.scheduledtl {
+	margin: 10px 0 0;
+}
+.takeapp {
+	margin: 3px 0;
+	line-height: 28px;
+    overflow: hidden;
+}
+.takeapp label {
+	font-family: 'latoregular';
+	float: left;
+	font-size: 15px;
+	text-transform: none;
+	margin: 0 5px 0 0;
+	width: 25%;
+}
+.takeapp span {
+	font-size: 15px;
+	color: #4d4d4d;
+	font-family: 'latoregular';
+}
+.appscetime {
+	color: #007aba;
+	font-size: 20px;
+	font-family: 'latoregular';
+}
+.app_login {
+	padding: 20px 10px 20px 20px;/* border-right:1px solid #ededed;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);*/
+}
+.innerlogin {
+	background-color: #edfaff;
+	border: 1px solid #bbd7dc;
+	padding: 10px 20px;
+}
+.app_ldesc {
+	text-align: center;
+}
+.app_ldesc h2 {
+	text-transform: uppercase;
+	font-size: 26px;
+	color: #474747;
+	font-family: 'latoregular';
+	margin: 10px 0;
+}
+.app_ldesc p {
+	color: #4d4d4d;
+	font-size: 14px;
+	line-height: 19px;
+	text-align: justify;
+	font-family: 'latoregular';
+	padding: 12px 0;
+}
+.app_lform {
+	width: 400px;
+	padding: 10px;
+	margin: 0 auto;
+}
+.innerlogin .app_lform input[type=text], .innerlogin .app_lform input[type=email], .innerlogin .app_lform input[type=password] {
+	background-color: #fff;
+}
+.app_lform input[type=text], .app_lform input[type=email], .app_lform input[type=password] {
+	background-color: #fff;
+	color: #585858;
+	font-size: 16px;
+	border: 1px solid #9b9b9b;
+	padding: 7px 10px;
+	margin: 5px 0;
+	font-family: 'latoregular';
+	width: 100%;
+}
+.app_lform input[type="text"]:hover, .app_lform input[type="email"]:hover, .app_lform input[type="password"]:hover, .app_lform input[type="text"]:focus, .app_lform input[type="email"]:focus, .app_lform input[type="password"]:focus, .confimform input[type="text"]:hover, .confimform input[type="password"]:hover, .confimform input[type="email"]:hover, .confimform input[type="text"]:focus, .confimform input[type="password"]:focus, .confimform input[type="email"]:focus {
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.fgtpasw {
+	font-size: 16px;
+	color: #5f5f5f;
+	font-family: 'latoregular';
+	padding: 9px 0;
+	overflow: auto;
+}
+.fgtpasw input[type=checkbox] {
+	float: left;
+	margin-right: 8px;
+}
+.app_login .fgtpasw span {
+	float: left;
+}
+.fgtpasw span {
+	display: table;
+	font-size: 14px;
+}
+.fgtpasw a {
+	float: right;
+	color: #5f5f5f;
+	font-size: 14px;
+}
+.speoffer {
+	float: none !important;
+}
+.logbtn {
+	background-color: #007aba;
+	color: #fff;
+	text-transform: uppercase;
+	width: 100%;
+	padding: 10px;
+	font-size: 20px;
+	font-family: 'latolight';
+	margin: 8px 0;
+	display: block;
+	text-align: center;
+	border: 1px solid transparent;
+}
+.logbtn:hover, .userdtbtn a:hover {
+	background-color: #fff;
+	color: #007aba;
+	border: 1px solid #007aba;
+}
+.lgo_reg {
+	font-family: 'latoregular';
+	font-size: 16px;
+	text-align: center;
+	margin: 13px 0;
+}
+.lgo_reg span {
+	text-transform: uppercase;
+	color: #525252;
+}
+.lgo_reg a {
+	color: #007aba;
+}
+.emailapp {
+	text-align: center;
+	position: relative;
+	margin: 10px 0 20px;
+	overflow: hidden;
+}
+.emailapp:before, .emailapp:after {
+	border-top: 1px solid #525252;
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+.emailapp:before {
+	left: 0;
+}
+.emailapp h3 {
+	color: #525252;
+	display: inline-block;
+	font-size: 16px;
+	position: relative;
+	font-family: 'latoregular';
+	padding: 0 20px;
+	background-color: #edfaff;
+}
+.loginfg {
+	display: inline-block;
+	width: 100%;
+}
+.loginfg .lgwithfb {
+	float: right;
+	width: 48%;
+	margin: 0;
+}
+.loginfg .lgwithgoogle {
+	float: left;
+	margin: 0;
+	width: 48%;
+}
+.loginfg .lgwithfb span {
+	padding: 10px;
+}
+.loginfg .lgwithgoogle span {
+	padding: 10px 15px;
+}
+.app_guestuser {
+	padding: 30px 55px 10px;
+	background-color: #f6f6f6;
+	border: 1px solid #dddddd;
+}
+.innerguest {
+	padding: 20px 20px 20px 10px;
+}
+.ratingimg {
+	float: right;
+	margin: 5px 10px 0 0;
+}
+.logpart .ratingbyuser {
+	border: 0;
+	padding: 5px 10px 2px 0;
+}
+.wdth50 {
+	width: 49% !important;
+}
+.fltr {
+	float: right;
+}
+.fltnone {
+	float: none;
+}
+.logappinfo {
+	padding: 28px 35px;
+}
+.logappimg {
+	float: left;
+}
+.logappimg img {
+}
+.logappdesc {
+	margin-left: 110px;
+}
+.logappdesc p {
+	font-size: 14px;
+	color: #4d4d4d;
+	line-height: 22px;
+	font-family: 'latoregular';
+}
+.apppagelas {
+	margin: 10px auto 60px;
+}
+.confimform a {
+	display: inline-block;
+}
+.confimform a img {
+	margin: 0 3px 0;
+	vertical-align: middle;
+}
+.logpart {
+	overflow: hidden;
+}
+.logpartr {
+	padding: 20px 10px;
+	margin: 5px 0 0;
+}
+.logpart .clinicpic {
+	margin-top: 10px;
+}
+.logpart .clinicleft {
+	width: 100%;
+}
+.logpart .clinicbasic {
+	padding: 20px 0 0;
+}
+.confimform p.paynote {
+	color: #007aba !important;
+	font-size: 18px;
+	display: inline-block;
+	padding: 8px;
+	font-family: 'latobold';
+}
+.lprice {
+	font-size: 25px;
+}
+.ldistablock {
+	font-size: 23px;
+}
+.clinicleft .botpicpart {
+	padding: 10px 0;
+}
+/*********** appointmentlogin css end *************/
+
+/*********** appointmentmake css start *************/
+
+.makeapp {
+	padding: 30px 35px;
+}
+.makeapp .app_ldesc {
+	text-align: left;
+	margin: 0 0 25px 0;
+}
+.confimform {
+	padding: 0 40px 0 0
+}
+.confimform input[type=text], .confimform input[type=password], .confimform input[type=email] {
+	background-color: #f7f7f7;
+	color: #585858;
+	font-size: 16px;
+	border: 1px solid #9b9b9b;
+	padding: 7px 10px;
+	margin: 5px 3px 5px 0;
+	font-family: 'latoregular';
+	width: 280px;
+}
+.confimform p {
+	font-size: 15px;
+	color: #4d4d4d;
+	line-height: 19px;
+	font-family: 'latoregular';
+	text-align: justify;
+	margin: 15px 0;
+}
+.confimform p span {
+	color: #007aba;
+}
+.confimform .fgtpasw {
+	padding: 10px 0 12px 20px;
+}
+.confimform .fgtpasw span {
+	float: none;
+	font-size: 15px;
+}
+.confimform .fgtpasw a {
+	color: #007aba;
+	float: none;
+v
+}
+.userdtbtn {
+	margin: 10px 0 0;
+}
+.userdtbtn a {
+	background: #007aba;
+	text-transform: uppercase;
+	padding: 10px 25px;
+	font-size: 20px;
+	color: #fff;
+	font-family: 'latolight';
+	border: none;
+	margin-right: 5px;
+	margin-top: 30px;
+	border: 1px solid transparent;
+	display: inline-block;
+}
+.userdetail {
+	border: 1px solid #f0f0f0;
+}
+.comuserdtl {
+	color: #4d4d4d;
+	font-size: 15px;
+	background-color: #f0f0f0;
+	padding: 8px;
+}
+.comuserdtl:nth-child(2n) {
+	background-color: transparent;
+}
+.comuserdtl label {
+	font-family: 'latoregular';
+	text-align: right;
+	width: auto;
+	float: left;
+	margin: 0 10px 0 0;
+	font-size: 15px;
+}
+.comuserdtl span {
+	display: table;
+}
+/*********** appointmentmake css end *************/
+
+
+/*********** appointmentconfirm css start *************/
+
+
+.confmapp {
+	padding: 20px 27px;
+	overflow: auto;
+}
+.confmapp .app_ldesc {
+	text-align: left;
+}
+.confmapp .app_ldesc h2 {
+	float: left;
+}
+.cnfnum {
+	float: right;
+	line-height: 42px;
+	margin: 2px 0 0 0;
+}
+.cnfnum p {
+	font-size: 18px;
+	color: #fff;
+	font-family: 'latoregular';
+	background-color: #fa9034;
+	float: left;
+	padding: 12px 15px;
+}
+.cnfnum p:last-child {
+	font-size: 21px;
+	color: #555555;
+	background-color: #f6f6f6;
+	padding: 12px 20px;
+	font-family: 'latobold';
+}
+.confmappmid {
+	border-top: 2px solid #efefef;
+	border-bottom: 2px solid #efefef;
+	padding: 30px 0 40px;
+}
+.ihmlocation {
+	padding: 0 20px 0 0;
+	padding: 0 30px;
+}
+.locihm{
+    
+}
+.locihm img {
+	float: left;
+	margin-right: 10px;
+}
+.locihm span {
+	color: #007aba;
+	font-size: 21px;
+	line-height: 22px;
+	margin: 5px 0 0;
+    display: table;
+}
+.ihmlocation p {
+	font-size: 16px;
+	line-height: 24px;
+	color: #4d4d4d;
+	font-family: 'latoregular';
+	margin: 20px 0;
+}
+.ihmdirection {
+	overflow: hidden;
+	margin: 25px 0 10px;
+}
+span.distance {
+	background-color: #349acf;
+	color: #fff;
+	font-size: 26px;
+	border-radius: 6px;
+	padding: 8px 10px;
+	float: left;
+	margin: 0 10px 0 0;
+	line-height: 22px;
+}
+span.distance span {
+	font-size: 15px;
+	color: #fff;
+	display: inline-block;
+	margin: 0;
+	line-height: 0;
+}
+.ihmdirection p {
+	font-size: 16px;
+	color: #4b4b4b;
+	line-height: 24px;
+	font-family: 'latoregular';
+	margin: 10px 0 0;
+	display: inline-block;
+}
+.ihmdirection p a {
+	color: #349acf;
+	font-family: 'latobold';
+}
+.cnfudtl {
+	padding: 0 35px;
+}
+.cnfuserdtl {
+	background-color: #f7f7f7;
+	border: 1px solid #c6c6c6;
+	border-radius: 5px;
+	padding: 10px 0;
+}
+.cnfuserdtl .comuserdtl {
+	background-color: transparent;
+}
+.cnfuserdtl .comuserdtl label {
+	width: 175px;
+}
+.confmappbttm {
+	padding: 25px 27px;
+	overflow: auto;
+}
+.meetappdtl {
+	overflow: hidden;
+	float: left;
+}
+.meetappdtl ul {
+}
+.meetappdtl li {
+	float: left;
+	margin-right: 20px;
+}
+.meetappdtl li a {
+	overflow: auto;
+	display: block;
+	color: #5f5f5f;
+}
+.meetappdtl li a:hover {
+	color: #000;
+}
+.meetappdtl img {
+	float: left;
+	margin-right: 8px;
+}
+.meetappdtl span {
+	float: left;
+	margin: 3px 0 0;
+	font-size: 16px;
+	font-family: 'latoitalic'
+}
+.newappbtn {
+	float: right;
+}
+.newappbtn a {
+	color: #fff;
+	background-color: #007aba;
+	font-size: 18px;
+	padding: 8px 20px;
+	border: none;
+	margin-left: 15px;
+    display: inline-block;
+    
+}
+.newappbtn a:hover {
+	background-color: #349acf;
+}
+.conmno{text-align: center;padding: 35px 10px;}
+.conmno label{
+    font-size: 20px;
+    color: ##5f5f5f;
+    font-family: 'latoregular';
+    text-transform: none;
+    margin-right: 10px;
+}
+.conmno input[type="text"]{
+    background-color: #f1f1f1;
+    border: 1px solid #9b9b9b;
+    color: #585858;
+    font-family: "latoregular";
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 7px 10px;
+}
+.conmno input[type="text"]:hover ,.conmno input[type="text"]:focus{
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.conmno a{
+    background-color: #007aba;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius:5px;
+    margin-left: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.appfinfo{
+    width: 70%;
+    float: left;
+}
+.appfinfo p{
+    color: #4d4d4d;
+    font-family: "latoregular";
+    font-size: 14px;
+    line-height: 22px;
+    text-align: justify;
+}
+/*********** appointmentconfirm css end *************/
+
+/*********** appointmentcancel css start *************/
+
+.ihmlocation a.logbtn{
+    margin-top: 80px;
+}
+
+/*********** appointmentcancel css end *************/
+
+
+/*********** appointment_edit_list css start *************/
+.edit_appo{
+    padding: 20px 0;
+    border-bottom: none;
+}
+.edit_appo:nth-child(odd){
+    background-color: #fafafa;
+}
+.newappointment{
+    float: right;
+}
+.newappointment a{
+    background-color: #007aba;
+    border-radius: 0;
+    padding: 8px 22px; 
+    font-size: 18px;
+}
+.newappointment a i{
+    height: 24px;
+}
+.changeapp {
+    margin-top: 10px;
+    margin-left: 22px;
+}
+.changeapp .takeapp{
+    line-height: 22px;
+}
+.changeapp .takeapp label{
+    width: auto;
+}
+.changeapp .takeapp span{
+    font-family: 'latobold';
+}
+.changeapp sapn.appscetime {
+    font-family: "latobold";
+}
+.editapptime{
+    float: right;
+    margin-right: 30px;
+}
+.editapptime a{
+    float: left;
+    background-color: #349acf;
+    padding: 7px 18px;
+    color: #fff;    
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'latobold';
+}
+.editapptime a:last-child{background-color: #616161;}
+.editapptime a:hover{
+    background-color: #616161;
+}
+.previewicon{
+    background: url("../images/preview_icon.png") no-repeat scroll 0 1px rgba(0, 0, 0, 0);
+    margin: 0;
+    padding: 1px 15px;
+}
+.changeicon{
+    background: url("../images/change_icon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin: 0;
+    padding: 1px 15px;
+}
+/*.cancelicon{
+    background: url("../images/cancel_icon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin: 0;
+    padding: 1px 15px;
+}*/
+/*********** appointment_edit_list css end *************/
+
+/*********** appointment_change css start *************/
+.upappdtl{
+    padding: 0 30px 0 20px;
+}
+.changeform{
+    border: 1px solid #c6c6c6;
+}
+.changeform ,.appschedule{
+    min-height: 313px;
+}
+.upappdtl .appschedule{
+    border-radius: 0;
+    padding: 22px 30px;
+}
+.updateform{
+    padding: 0 20px 0 30px;
+}
+.appchangeform{
+    padding: 20px 40px;
+    width: 100%;
+}
+.upformrow{
+    width: 100%;
+    overflow: hidden;
+}
+.upformrow label{
+    font-size:16px;
+    color:#4d4d4d;
+    width: 25%;
+    font-family: 'latoregular';
+    text-transform: none;
+    float: left;
+    margin-top: 10px;
+}
+.upformrow select ,.upformrow input[type=text] ,.upformrow input[type=email] ,.upformrow input[type=password] {
+    width: 75%;
+    font-size:16px;
+    color: #4b4b4b;
+    border: 1px solid #9b9b9b;
+    background-color:#f7f7f7;
+    padding:8px 6px;
+    margin: 5px 0;
+    font-family: 'latoregular';
+}
+.edittime{
+    overflow: hidden;
+}
+.edittime p{
+    font-size: 16px;
+    color: #4d4d4d;
+    line-height: 34px;
+    font-family: 'latoregular';
+    margin: 6px 0 0;
+    overflow: hidden;
+}
+p span.colorb ,span.colorb{
+    font-family: 'latobold';
+    color: #007aba;
+}
+.edittime a{
+    float: right;
+    color: #585858;
+    line-height: 34px;
+    font-size: 16px;
+    margin: 5px 0 0;
+}
+.editicon {
+    background: url("../images/edit_icon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin: 0;
+    padding: 1px 14px;
+}
+.upcheck{
+    margin: 7px 0;
+    overflow: hidden;
+}
+.upformrow input[type=checkbox]{
+    float: left;
+    margin-right: 10px;
+}
+.upformrow span{
+    font-size: 16px;
+    color: #5f5f5f;
+    font-family: 'latoregular';
+}
+.updateform a.logbtn{
+    margin: 20px 0 0;
+}
+span.clinicnm{
+    font-family: 'latobold';
+}
+.updateform a.cancelapp{
+    background-color: #616161;
+    margin-top: 10px !important; 
+}
+.chother{
+    font-size: 14px;
+    text-align: center;
+    color: ##585858;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.updateform a.cancelapp:hover ,.updateform a.cancelapp:focus{
+    border:1px solid #616161;
+    color: #616161;
+    background-color: transparent;
+}
+.userloginbtn .myappbtn{
+    text-align: center;
+}
+.userloginbtn .myappbtn a{
+    color: #fff;
+    background-color: #007db0;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: block;
+}
+/*********** appointment_change css end *************/
+
+/*********** home css start ****************/
+.home_page{
+	position: relative;
+	z-index: 1;
+}
+.mobileimg{    
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	bottom: 0;
+	left:0;
+	right:0;
+}
+.mobileimg img{ 
+    bottom:0; 
+	right: 5%;
+    position: absolute; 
+	margin: auto;
+	max-width: 100%;
+	
+}
+.homebg {
+ 	background: url("../images/home_bg1.jpg") no-repeat fixed center center / cover rgba(0, 0, 0, 0);
+    height: 100%;
+} 
+.home_wrapper{
+	margin: 150px auto 0;
+	width: 1300px;
+}
+.hsearch_bg{
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    left: 0;
+    width: 100%;
+    position: absolute;
+}
+.hleft_side{
+	padding: 20px 40px 0 0;
+    text-align: right;;
+}
+.hleft_side img{
+	max-width: 100%;
+}
+.searchblock{
+    float: left;
+    padding-left: 40px;
+    overflow: auto;
+    padding-bottom: 50px;
+    width: 100%;
+}
+.searchblock h2{
+    color: #fff;
+    font-size:22px;
+    font-family: 'latobold';
+}
+.serform{
+    background-color: rgba(255,255,255,0.3);
+    padding: 7px 12px;
+    margin: 13px 0 20px;
+    width: 100%;
+    overflow: hidden;
+}
+.serbox {
+    float: left;
+    margin:10px 2px 10px 0;
+	width: 22.6%;
+}
+.serbox:last-child{margin: 10px 0;}
+.subsel{
+    overflow: auto;
+}
+.subtxt{
+}
+.hserbtn{
+   width: 8% !important;
+    margin: 10px 0;
+}
+.serform input[type=text] ,.serform select{
+    background-color: #fff;
+    border:none;
+    font-size:16px;
+    font-family: 'latoregular';
+    color: #a8a8a8;
+    width: 100%;
+    padding: 12px 15px;
+}
+.serform input[type=text]{
+}
+.serform select{
+    padding: 14px 10px 13px;
+}
+.serform a{
+    background-color: #007aba;
+    display: block;
+    padding: 9px 0;
+    text-align: center;
+}
+.serbox a img{
+    
+}
+
+.hfooter{text-align: center;}
+.hfooter p{
+    color: #737373;
+    font-size: 13px;
+}
+/*********** home css end ****************/
+
+
+
+@media screen and (max-width:1360px) {
+.loginuser h1 {
+	font-size: 24px;
+	margin-bottom: 18px;
+}
+.loginuser input[type="button"] {
+	padding: 10px 0;
+	font-size: 20px;
+}
+.signinemail {
+	margin: 28px 0 20px;
+}
+.recorddetail {
+	height: 525px;
+}
+.userloginform input[type="text"], .userloginform input[type="password"] {
+	padding: 11px 10px;
+}
+.clinincimg h1 {
+	font-size: 27px;
+}
+.notanacc a {
+	font-size: 16px;
+}
+.frgdetail {
+	height: 315px;
+}
+.lcintab {
+	padding: 15px 20px;
+}
+.userlogin {
+	bottom: 160px;
+}
+.lgwithgoogle, .lgwithfb {
+	margin-bottom: 5px;
+}
+.loginuser input[type="button"], .notanacc input[type="button"] {
+	margin: 10px 0 0;
+	padding: 7px 0;
+}
+.signinemail {
+	margin: 20px 0;
+}
+.signinemail h3 {
+	font-size: 16px;
+}
+.loginuser, .notanacc {
+	padding: 15px 20px;
+}
+.recorddetail {
+	height: 485px;
+}
+
+.home_wrapper {
+    margin: 150px auto 100px;
+    width: 1300px;
+}
+/*    .loginuser, .notanacc{padding: 10px 20px;}*/
+    
+}
+
+@media screen and (max-width:1300px) {
+.logo {
+	height: 80px;
+	padding: 10px 0 0 0;
+}
+.logo img {
+	width: 92%;
+}
+.myacc {
+	margin-top: 20px
+}
+.topleft {
+	margin: 15px 0 0 10px;
+}
+.navbar-nav > li > a {
+	font-size: 15px;
+	padding: 4px 22px;
+}
+.subblckbg .tab-content {
+	padding: 25px 0;
+	min-height: 0;
+}
+.mytabbox {
+	height: auto;
+}
+.toptitlesection {
+	padding: 25px;
+}
+.pagetitle {
+	font-size: 22px;
+}
+.sortingsection select {
+	padding: 5px 10px;
+}
+.mapsection a span {
+	font-size: 18px;
+	padding: 12px 0 2px;
+}
+.myacc {
+	margin-top: 0;
+}
+.mapicon {
+	height: 45px;
+	width: 45px;
+	background: url("../images/mapicon.png") no-repeat scroll 15px center #00537e;
+}
+.mapicon:after {
+	border-bottom: 45px solid transparent;
+	border-left: 20px solid #00537e;
+	border-top: 0 solid transparent;
+	content: "";
+	height: 0;
+	position: absolute;
+	right: -20px;
+	width: 0;
+}
+.titleside {
+	font-size: 19px;
+	line-height: 30px;
+	padding: 10px 0 10px 20px;
+}
+a.clinicname {
+	font-size: 22px;
+}
+.subheader:before, .subheader:after {
+	height: 80px;
+}
+.map-page {
+	top: 142px;
+}
+.showrst h3 {
+	font-size: 15px;
+}
+.showrst h2 {
+	font-size: 20px;
+}
+.rstimg {
+	width: 135px;
+	height: 95px;
+}
+.cliniclocation h2 {
+	font-size: 17px;
+}
+.searchbtn input[type="submit"] {
+	font-size: 14px;
+}
+.refinerst span {
+	font-size: 15px;
+}
+.gridview li a {
+	font-size: 14px;
+}
+.subheader:before, .subheader:after, .maplogo {
+	height: 70px;
+}
+.mapheader ul {
+	margin: 19px 0 0 !important;
+}
+.cliniclocation {
+	width: 320px;
+}
+.maplocation {
+	left: 320px;
+}
+.home_wrapper {
+    margin: 150px auto 0;
+    width: 90%;
+}
+/*.loginuser h1{font-size: 24px;margin-bottom: 18px;}
+    .loginuser input[type="button"]{padding: 10px 0; font-size: 20px;}
+    .signinemail {margin: 28px 0 20px;}
+    .recorddetail {height: 525px;}
+    .userloginform input[type="text"] , .userloginform input[type="password"]{padding: 12px 10px;}
+    .clinincimg h1{font-size: 27px;}
+    .notanacc a{font-size: 16px;}
+    .frgdetail{height: 315px;}*/
+
+}
+
+@media screen and (max-width:1280px) {
+.supertitle h3, .averagetitle h3 {
+	font-size: 17px;
+}
+.comparetitle h2 {
+	font-size: 23px;
+}
+.comparetitle {
+	padding: 23px 0 23px 32px;
+}
+.pricetab h3 {
+	font-size: 20px;
+}
+.feturetitle h3 {
+	font-size: 18px;
+}
+.addclinic {
+	padding: 20px;
+}
+.app_ldesc h2 {
+	font-size: 24px;
+}
+.confmapp {
+	padding: 16px 27px;
+}
+.useravg span {
+	font-size: 22px;
+}
+.app_lform input[type="text"], .app_lform input[type="email"], .app_lform input[type="password"] {
+	padding: 5px 10px;
+	font-size: 14px;
+}
+.logbtn {
+	padding: 8px;
+	font-size: 18px;
+}
+.confimform input[type="text"], .confimform input[type="password"], .confimform input[type="email"] {
+	padding: 5px 10px;
+	font-size: 14px;
+}
+.upformrow select ,.upformrow input[type=text] ,.upformrow input[type=email] ,.upformrow input[type=password] {
+    padding: 6px ;
+    font-size: 14px;
+}
+.userdtbtn a {
+	padding: 8px 20px;
+	font-size: 18px;
+}
+.appscetime {
+	font-size: 18px;
+}
+.hb_text{
+    margin-bottom: 60px;
+}
+.hb_text h1{
+    font-size: 35px;
+    padding: 8px 10px;
+}
+.hb_text p{
+    font-size: 18px;
+    padding: 8px 30px;
+}
+.serform a{
+    padding: 7px 0;
+}
+.serform input[type="text"]{
+    padding: 10px 15px;
+}
+.serform select {
+    padding: 12px 10px 11px;
+}
+.mobileimg{
+	right: 0;
+}
+}
+
+@media screen and (max-width:1198px) {
+.distanceblock a {
+	padding: 5px 10px;
+}
+.distanceblock a i {
+	margin: 0 5px 0 0;
+}
+}
+
+@media screen and (max-width:1160px) {
+.loginfg .lgwithfb, .loginfg .lgwithgoogle {
+	float: none;
+	width: 100%;
+}
+.loginfg .lgwithgoogle {
+	margin: 0 0 5px;
+}
+}
+
+@media screen and (max-width:1120px) {
+.confmappbttm {
+	padding: 20px 27px;
+}
+.newappbtn a {
+	padding: 8px 15px;
+	font-size: 16px;
+	margin-left: 10px;
+}
+.meetappdtl span {
+	font-size: 14px;
+}
+
+}
+
+@media screen and (max-width:1080px) {
+.faciinfo ul {
+	float: left;
+}
+.gallreyimg li {
+	float: left;
+	margin: 0 2% 2% 0;
+	width: 48%;
+	font-size: 0;
+}
+.faciinfo span {
+	display: block;
+	float: none;
+	margin: 0 0 4px;
+}
+.reviewgraphic {
+	border-right: 1px solid #d7d7d7;
+	float: none;
+	width: 100%;
+	margin: 0;
+}
+a.clinicname {
+	font-size: 18px;
+}
+.comuserdtl {
+	font-size: 14px;
+}
+.comuserdtl label {
+	margin-right: 10px;
+}
+
+}
+
+@media screen and (max-width:991px) {
+.appointment a {
+	font-size: 14px;
+	padding: 9px 20px 7px
+}
+.contactappo a span {
+	font-size: 14px;
+}
+.pricetab h3 {
+	font-size: 18px;
+}
+.feturetitle h3 {
+	font-size: 18px;
+}
+.comparetitle h2 {
+	font-size: 20px;
+}
+.comparetitle {
+	padding: 18px 0 18px 32px;
+}
+.feturetitle h3 {
+	font-size: 16px;
+}
+.supertitle h3, .averagetitle h3 {
+	padding: 0 10px;
+}
+.searchbtn input[type="submit"] {
+	display: block;
+}
+.mapsearchbar .fields_s {
+	width: 30%;
+	float: left;
+}
+.mapsearchbar {
+	width: 65%;
+}
+.mapsearchbar .selebx {
+	margin: 0 0 8px;
+}
+.map-page {
+	top: 174px;
+}
+.recorddetail {
+	width: 53%;
+	float: left;
+	height: 490px;
+	padding: 0 0 0 20px;
+}
+.lcftab {
+	float: left;
+	width: 33.33%;
+	padding: 0 12px 0 0;
+}
+.ltabinfo p {
+	font-size: 12px;
+}
+.ltabinfo h3 {
+	font-size: 16px;
+}
+.serimg img {
+	width: 50px;
+	height: auto;
+}
+.lgfooter .text-left {
+	float: left;
+}
+.lgfooter .footerleft {
+	text-align: center;
+}
+.lgfooterl{
+    text-align: center;
+}
+.lgfooter .footerleft ul{
+    float: none;
+}
+.footerleft ul li{
+    display: inline-block;
+    float: none;
+}
+.footerleft ul li a ,.lgfooterl p{
+    font-size: 11px;
+}
+.lgfooter{
+    padding: 3px 10px;
+}
+.lgfooter .footerleft ul{
+    margin: 0;
+}
+.lcinfo{
+	bottom: 43px;
+}
+.lcintab {
+	padding: 15px;
+}
+.userloginform input[type="text"], .userloginform input[type="password"] {
+	padding: 10px;
+}
+.frgpsw a, .logcheck span {
+	font-size: 14px;
+	line-height: 18px;
+}
+.logcheck {
+	padding: 10px 10px 11px;
+}
+.signinemail h3 {
+	font-size: 15px;
+}
+.signinemail {
+	margin: 20px 0 15px;
+}
+.loginuser h1 {
+	font-size: 22px;
+	margin-bottom: 15px;
+}
+.loginuser, .notanacc {
+	width: 42%;
+}
+.clinincimg p {
+	font-size: 16px;
+}
+.frgdetail {
+	height: 310px;
+}
+.meetappdtl li {
+	display: table;
+	float: none;
+}
+.meetappdtl li {
+	margin: 0 0 10px;
+}
+.meetappdtl li:last-child {
+	margin: 0;
+}
+.confmappbttm {
+	padding: 15px 27px;
+}
+.app_ldesc h2 {
+	font-size: 22px;
+}
+.meetappdtl {
+	margin: 0;
+}
+.cnfnum p:last-child {
+	font-size: 19px;
+	padding: 10px 18px;
+}
+.cnfnum p {
+	font-size: 16px;
+	padding: 10px 12px;
+}
+.appschedule {
+	margin: 15px 0 0;
+}
+.takeapp, .takeapp label {
+	font-size: 16px;
+}
+.appscetime {
+	font-size: 18px;
+}
+.app_login {
+	padding: 20px;
+}
+.app_ldesc h2 {
+	margin: 5px 0;
+}
+.loginfg .lgwithgoogle {
+	float: left;
+	width: 48%;
+}
+.loginfg .lgwithfb {
+	float: right;
+	width: 48%;
+}
+.loginfg .lgwithgoogle {
+	margin: 0
+}
+.scheduledtl {
+	margin: 15px 0 0;
+}
+.useravg span {
+	font-size: 20px;
+}
+.appschedule h3 {
+	font-size: 22px;
+}
+.appschedule {
+	padding: 10px 20px;
+}
+.confimform {
+	padding: 0;
+}
+.makeapp {
+	padding: 25px;
+}
+.userdtbtn {
+	margin: 10px 0 0;
+}
+.userdtbtn a {
+	font-size: 14px;
+	padding: 8px 10px;
+}
+.ourloc p {
+	font-size: 15px;
+}
+.apppagelas {
+	margin-bottom: 80px;
+}
+.logpart {
+	width: 100%;
+	float: none;
+}
+.logpartr {
+	float: none;
+	width: 100%;
+	padding: 0;
+}
+.upappdtl ,.updateform{
+    padding:0 20px;
+}
+.editapptime {
+    float: left;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 0;
+}
+.changeicon ,.cancelicon{
+    padding: 2px 15px;
+} 
+.editapptime a{
+    font-size: 14px;
+    padding: 7px 10px;
+}
+.ihmlocation a.logbtn {
+    margin-top: 30px;
+}
+.changeform, .appschedule{
+    min-height: 0;
+}
+.locihm span{
+    font-size: 19px;
+}
+.conmno label{
+    font-size: 18px;
+}
+.conmno input[type="text"]{
+    padding: 5px 10px;
+}
+.conmno a{
+    font-size: 17px;
+}
+.hb_text{
+    margin-bottom: 30px;
+}
+.hb_text h1 {
+    font-size: 30px;
+    padding: 5px 10px;
+}
+.hb_text p {
+    font-size: 16px;
+    padding: 6px 25px;
+}
+.serform select {
+    padding: 10px 8px 9px;
+}
+.serform input[type="text"]{
+    padding: 8px 15px;
+}
+.serbox a img {
+    height: auto;
+    width: 20px;
+}
+.searchblock h2{
+    font-size: 22px;
+}
+footer{
+    padding: 5px 0;
+}
+.footerl ,.footerr{
+    text-align: center;
+}
+.footerl li a ,.footerr p{
+    font-size: 11px;
+}
+.serbox{
+	width: 23.2%;
+}
+.hserbtn {
+    margin: 10px 0;
+    width: 6% !important;
+}
+.hleft_side {
+    text-align: center;
+	padding: 0 20px;
+}
+.home_wrapper {
+    margin-top: 30px;
+}
+.hleft_side img {
+    height: auto;
+    width: 300px;
+}
+.mobileimg img {
+    height: auto;
+    width: 700px;
+}
+.mobileimg { 
+	bottom: -15px;	
+}
+.searchblock{
+	margin: 0 auto;
+	width: 96%;
+	float: none;
+	padding-left: 0;
+}
+
+}
+    
+@media screen and (max-width:920px) {
+.clinicleft, .clinicright {
+	float: none;
+	width: 100%;
+}
+.botpicpart {
+	margin: 10px auto;
+	width: 90%;
+}
+.clinicright {
+	padding: 0;
+}
+.clinicpic {
+	width: 100%;
+}
+.supertitle h3, .averagetitle h3 {
+	font-size: 15px;
+}
+.addclinicbtn input[type="text"], .addclinicbtn input[type="button"] {
+	font-size: 12px;
+}
+.signinemail:after, .signinemail:before {
+	width: 18%;
+}
+.frganmail:before, .frganmail:after {
+	width: 40%;
+}
+}
+
+@media screen and (max-width:880px) {
+.mapsearchbar {
+	width: 60%;
+}
+}
+
+@media screen and (max-width:840px) {
+aside {
+	width: 250px;
+}
+section.mainsection {
+	margin: 0 0 0 254px;
+}
+.selebx {
+	width: 14%;
+}
+.supertitle h3, .averagetitle h3 {
+	padding: 1px 10px;
+	font-size: 13px;
+}
+.addclinicbtn input[type="text"], .addclinicbtn input[type="button"] {
+	font-size: 10px;
+}
+.overview {
+	margin: 10px 0 0;
+}
+}
+
+@media screen and (max-width:768px) {
+/*.text-left, .text-right {
+	text-align: center;
+}*/
+.pagetitle {
+	font-size: 18px;
+	margin: 8px 0 0;
+}
+.moredtails {
+	padding: 10px 20px;
+}
+}
+
+@media screen and (max-width:767px) {
+aside {
+	float: none;
+	width: 96%;
+	margin: 0 auto;
+}
+.fields_s {
+	display: inline-block;
+}
+section.mainsection {
+	margin: 0 auto;
+	width: 96%;
+}
+.selebx, .textbx {
+	width: 18%;
+	display: inline-block;
+}
+.searchbar form {
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+.searchbtn, .adsearchbtnlink {
+	margin: 7px 0 0;
+	text-align: right;
+}
+.subblckbg .tab-content {
+	padding: 15px 0;
+}
+.searchbtn input[type="submit"], .adsearchbtnlink a {
+	font-size: 14px;
+}
+.searchbtn input[type="submit"] {
+	padding: 7px 20px 7px 40px;
+}
+.adsearchbtnlink a {
+	padding: 8px 20px;
+}
+.logo img {
+	width: 100%;
+}
+.myacc > a {
+	font-size: 12px;
+}
+.aside section {
+	margin: 4px 0;
+}
+.maplogo {
+	width: 60%;
+	padding: 6px 0 0;
+}
+.homelogo{
+    padding-top: 10px !important;
+    padding-left: 10px !important;
+}
+.comparetitle {
+	padding: 13px 0 13px 32px;
+}
+.comparetitle h2 {
+	font-size: 18px;
+}
+.appointment a {
+	padding: 9px 10px 7px;
+}
+.pricetab h3 {
+	font-size: 16px;
+}
+.comparerating span {
+	font-size: 16px;
+}
+.addclinicbtn input[type="text"], .addclinicbtn input[type="button"] {
+	font-size: 10px;
+}
+.addclinicbtn input[type="text"] {
+	width: 75%;
+}
+.addclinicbtn input[type="button"] {
+	width: 25%;
+}
+.addclinic {
+	padding: 19px;
+}
+.closeimg > img {
+	height: auto;
+	width: 10px;
+}
+.closeimg {
+	top: 3px;
+}
+.supertitle h3, .averagetitle h3 {
+	padding: 0;
+	font-size: 12px;
+}
+
+.supertitle, .averagetitle, .addclinic {
+	padding: 18px 5px;
+}
+.navbar-toggle {
+	margin: 10px 15px 10px 0;
+}
+.refinerst {
+	margin: 7px 0;
+	float: none;
+}
+.mapsearchbar {
+	width: 98%;
+	margin: 10px auto 0;
+}
+.mapsearchbar .searchbtn, .adsearchbtnlink {
+	margin: 0 2px;
+}
+.map-page {
+	top: 213px;
+}
+.recorddetail {
+	width: 100%;
+	padding: 0 20px;
+	height: auto;
+	float: none;
+}
+.clinincimg {
+	position: relative;
+	top: 0
+}
+.loginuser, .notanacc {
+	width: 370px;
+	max-width: 100%;
+	float: none;
+	margin: 0 auto;
+}
+.notanacc {
+	margin: 10px auto 0;
+}
+.userlogin {
+	margin: 30px auto 0;
+	position: relative;
+	bottom: 0
+}
+.clinincimg p {
+	margin: 7px 0 15px;
+}
+.clinincimg img {
+	width: 50px;
+}
+.clinincimg h1 {
+	width: auto;
+	font-size: 24px;
+	line-height: 30px;
+}
+.serimg img {
+	width: 35px;
+}
+.clinincimg p {
+	font-size: 14px;
+}
+.serimg {
+	float: none;
+}
+.loginuser h1 {
+	font-size: 19px;
+	margin-bottom: 12px;
+}
+.signinemail {
+	margin: 15px 0;
+}
+.userloginform input[type="text"], .userloginform input[type="password"], .logcheck {
+	padding: 7px 10px;
+}
+.frgpsw a {
+	padding: 10px 10px 9px;
+}
+.loginuser input[type="button"] {
+	font-size: 18px;
+	padding: 7px 0;
+	margin: 10px 0 0;
+}
+.ltabinfo h3 {
+	font-size: 14px;
+}
+.lgfooter .text-left, .lgfooter .footerleft {
+	float: none;
+	font-size: 12px;
+}
+.footerleft li a {
+	font-size: 12px;
+}
+.lgfooter .footerleft {
+	margin: 0;
+}
+.footerleft ul {
+	float: none;
+	display: inline-block;
+	margin: 0 auto;
+}
+.lgfooter {
+	padding: 5px 0;
+}
+.lcinfo {
+	bottom: 45px;
+}
+.usercontact {
+	background: none repeat scroll 0 0 #333;
+	overflow: hidden;
+	padding: 10px;
+	float: none;
+}
+.loginlogo.maplogo {
+	background: none repeat scroll 0 0 #fff;
+	width: 100%;
+	text-align: center;
+	margin: 0
+}
+.lgback {
+	width: 100%;
+}
+.userloginbtn {
+	margin: 6px 15px 0;
+}
+.app_ldesc h2 {
+	font-size: 20px;
+}
+.cnfnum p:last-child {
+	font-size: 16px;
+	padding: 8px 15px;
+}
+.cnfnum p {
+	font-size: 14px;
+	padding: 8px !important;
+}
+.locihm span {
+	font-size: 18px;
+}
+.confmapp {
+	padding: 12px 20px;
+}
+.newappbtn a {
+	padding: 6px 13px;
+	font-size: 14px;
+}
+.applist {
+	margin: 5px 0 0 15px;
+}
+.ihmlocation p {
+	font-size: 14px;
+}
+span.distance {
+	font-size: 22px;
+	padding: 6px 8px;
+}
+span.distance span {
+	font-size: 13px;
+}
+.appschedule h3 {
+	font-size: 20px;
+}
+.scheduledtl {
+	margin: 10px 0 0;
+}
+.makeapp .app_ldesc {
+	margin: 0 0 10px;
+}
+.fgtpasw {
+	font-size: 14px;
+	padding: 5px 0;
+}
+.userdtbtn input[type="button"] {
+	font-size: 14px;
+	padding: 6px 12px;
+}
+.lgo_reg {
+	margin: 5px 0;
+}
+.app_ldesc p {
+	padding: 6px 0;
+}
+.conmno label {
+    font-size: 16px;
+}
+.conmno input[type="text"] {
+    padding: 3px 7px;
+}
+.conmno a {
+    font-size: 15px;
+}
+.hb_text h1 {
+    font-size: 25px;
+    padding: 3px 8px;
+}
+.hb_text p {
+    font-size: 14px;
+    padding: 5px 15px;
+}
+.searchblock h2{
+    font-size: 20px;
+}
+.serform select {
+    padding: 8px 8px 7px;
+}
+.serform input[type="text"] {
+    padding: 6px 15px 7px;
+}
+.serform a {
+    padding: 5px 0;
+}
+.serform input[type="text"], .serform select{
+    font-size: 14px;
+}
+    .serform a {padding: 6px 0;}
+.hb_text {
+    margin-bottom: 15px;
+}
+.serform{margin: 6px 0 15px;}
+.serbox a img {
+    width: 15px;
+}
+.homedesc p{font-size: 12px;}
+.lgfooter{
+    position: relative;
+}
+.lcinfo{
+    position: relative;
+    bottom: 0;
+    margin-bottom: 1px; 
+    margin-top: 15px;
+}
+.hleft_side img {
+    width: 250px;
+}
+.mobileimg img  {
+    width: 550px;
+	right:0;
+	position: relative;
+}
+.mobileimg{
+	position: relative;
+	text-align:center;
+}
+}
+@media screen and (max-width:730px) { 
+    /*.subtxt{width: 17.3%;}
+    .hserbtn {width: 5.3%;}
+    .serbox a img{width: 16px;}
+    .subsel { width: 19.4%;}*/
+.serbox {
+    width: 23.1%;
+}
+    .faciinfo li {
+	display: block;
+	float: none;
+	margin: 0 0 0 10px;
+}
+.logo {
+	height: auto;
+	padding: 10px;
+}
+.logo img {
+	width: 210px;
+}
+.appointment a {
+	padding: 7px 8px;
+	font-size: 12px;
+}
+.appointment {
+	margin-bottom: 10px;
+}
+.contactappo a span {
+	font-size: 12px;
+}
+.pricetab h3 {
+	font-size: 14px;
+	padding: 8px 20px;
+	margin: 10px 0 6px;
+}
+.feturetitle h3 {
+	font-size: 14px;
+}
+.lcftab {
+	float: none;
+	width: auto;
+	margin: 0 0 10px;
+}
+.lcftab:last-child {
+	margin: 0;
+}
+.serimg {
+	float: left;
+}
+.appschedule h3 {
+	font-size: 18px;
+}
+.appfinfo{
+    width: 100%;
+    float: none;
+}
+}
+
+@media (max-width:767px) {
+.navbar {
+	float:none;
+}
+}
+
+@media screen and (max-width:600px) {
+.cnfnum {
+	float: none;
+}
+.confmapp .app_ldesc h2 {
+	float: none;
+}
+.confimform input[type="text"], .confimform input[type="password"], .confimform input[type="email"] {
+	width: auto;
+}
+.appschedule h3 {
+	font-size: 16px;
+}
+}
+@media screen and (max-width:582px) {
+
+.serbox{
+    margin: 5px 2px 5px 0;
+}
+.serform{
+    padding: 10px;
+}
+.serbox:last-child {
+    margin: 5px 0;
+}
+}
+
+
+@media screen and (max-width:580px) {
+.userlogin {
+	position: relative;
+	bottom: 0;
+}
+.meetappdtl {
+	float: none;
+}
+.newappbtn {
+	float: none;
+	margin: 10px 0 0;
+}
+.newappbtn a {
+	margin: 0 5px 0 0;
+}
+.newappbtn a:last-child {
+	margin: 0;
+}
+.loginfg .lgwithfb, .loginfg .lgwithgoogle {
+	float: none;
+	width: 100%;
+}
+.loginfg .lgwithgoogle {
+	margin: 0 0 5px;
+}
+.useravg span {
+	font-size: 18px;
+}
+.newappointment {
+    float: left;
+}
+.locihm span {
+    font-size: 16px;
+}
+.hb_text p {
+    font-size: 12px;
+    padding: 5px 15px;
+}
+.hb_text h1 {
+    font-size: 20px;
+    padding: 3px 8px;
+}
+.searchblock h2 {
+    font-size: 18px;
+}
+.serbox {
+    width: 22.5%;
+}
+.hserbtn {
+    width: 8% !important;
+}
+}
+
+@media screen and (max-width:520px) {
+.supertitle h3, .averagetitle h3 {
+	font-size: 11px;
+	padding: 1px 0;
+}
+.maplogo {
+	margin: 0;
+	background-color: #fff;
+}
+.subblckbg {
+	background: #333;
+}
+.subblckbg .tab-content{
+    background-image: none;
+    background-color: ##349acf;
+}
+.userloginbtn a {
+	width: 40px;
+	height: 40px;
+}
+.app_lform {
+	width: 100%;
+}
+.app_login, .app_guestuser {
+	padding: 20px;
+}
+.logappimg img {
+	width: 50px;
+	height: auto;
+}
+.logappdesc {
+	margin-left: 70px;
+}
+.appscetime {
+	font-size: 16px;
+}
+.takeapp, .takeapp label {
+	font-size: 14px;
+}
+.conmno label{
+    display: block;
+}
+
+}
+
+@media screen and (max-width:480px) {
+.myacc {
+	margin-top: 15px;
+}
+.gallreyimg li {
+	width: 98%;
+}
+.nav > li > a {
+	padding: 10px;
+}
+a.clinicname {
+	display: block;
+	font-size: 15px;
+	margin: 0 0 10px;
+}
+.selebx, .textbx {
+	display: inline-block;
+	margin: 3px 0;
+	width: 95%;
+}
+.comparetitle {
+	padding: 10px 0 10px 20px;
+}
+.comparetitle h2 {
+	font-size: 16px;
+}
+.comparisonpart {
+	float: none;
+	width: 100%;
+}
+.clinicamenitiesicon ul {
+	width: 60%;
+}
+.comparisonpart {
+	border-bottom: 1px solid #efefef
+}
+.feturetitle {
+	padding: 0;
+}
+.supertitle, .averagetitle, .addclinic {
+	float: none;
+	padding: 15px;
+	width: 100%;
+}
+.overview select {
+	font-size: 13px;
+}
+.selectcategory {
+	width: 25%;
+}
+.comparebtwtitle {
+	width: 75%;
+}
+.feturetitle {
+	width: 25%;
+}
+.clinic1 {
+	width: 75%;
+}
+.cliniccontact, .pricetab, .comparerating, .clinicamenitiesicon {
+	margin: 10px 0;
+}
+.clinicsubtitles {
+	padding: 10px 0;
+}
+.clinicsubtitles h3 {
+	font-size: 15px;
+}
+.amenitiesstep2 {
+	padding: 10px 0;
+}
+.userloginform input[type="text"], .userloginform input[type="password"] {
+	font-size: 14px;
+}
+.maplogo {
+	padding: 6px;
+}
+.cnfudtl {
+	padding: 0 20px;
+}
+.cnfuserdtl .comuserdtl label {
+	float: none;
+	text-align: left;
+}
+.comuserdtl {
+	padding: 4px 8px;
+}
+ .newappbtn a] {
+padding: 6px 8px;
+margin: 0 5px 0 0;
+font-size: 12px;
+}
+.takeapp label {
+	float: none;
+}
+.comuserdtl label {
+	text-align: left;
+	width: auto;
+}
+.useravg span {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+.appschedule h3 {
+	font-size: 15px;
+}
+.appscetime, .takeapp span {
+	font-size: 14px;
+}
+.appchangeform ,    .upappdtl .appschedule{
+    padding: 20px;
+}
+.ihmlocation {
+    padding: 0 10px;
+}
+.editapptime{
+    margin-left: 10px;
+}
+
+}
+
+@media screen and (max-width:450px) {
+.confimform input[type="text"], .confimform input[type="password"], .confimform input[type="email"] {
+	width: 88%;
+}
+.upappdtl, .updateform {
+    padding: 0 10px !important;
+}
+}
+
+@media screen and (max-width:420px) {
+.logo {
+	background: none repeat scroll 0 0 #fff;
+}
+.subblckbg {
+	background: #333;
+}
+.myacc {
+	margin: 0;
+}
+.logo a {
+	display: block;
+	text-align: center;
+}
+.myacc {
+	margin: 0;
+	text-align: center;
+	width: 100%;
+}
+.myacc > a {
+	display: inline-block;
+	font-size: 12px;
+}
+.myacc > a span {
+	border-left: 1px solid #fff;
+}
+.ratingleft {
+	float: none;
+	overflow: auto;
+	width: 100%;
+}
+.reviewtextd, .reviewgraphic {
+	border-right: none;
+}
+.ratingright {
+	width: 100%;
+}
+.healthclinics {
+	left: 0;
+}
+.overview select {
+	font-size: 11px;
+}
+.myacc > a {
+	margin: 0;
+}
+.subblckbg .tab-content {
+	padding: 10px 0;
+}
+.fields_s select, .fields_s input[type="text"] {
+	font-size: 12px;
+}
+.logo {
+	padding: 5px;
+}
+.loginuser, .notanacc {
+	margin: 0 10px;
+	width: auto;
+	padding: 20px 10px;
+}
+.notanacc {
+	width: auto;
+	margin: 10px 10px 0;
+}
+.usercontact {
+	text-align: center;
+}
+.lusercon {
+	float: none;
+	display: inline-block;
+}
+.headsocial {
+	display: inline-block;
+	float: none;
+}
+.clinincimg h1 {
+	font-size: 20px;
+}
+.gridview {
+	float: none;
+	margin: 0 0 0 15px;
+}
+.mapsearchbar {
+	width: 100%;
+	padding: 0 15px;
+}
+.mapsearchbar .fields_s {
+	width: 100%;
+}
+.mapsearchbar .searchbtn {
+	margin: 10px 0 0;
+}
+.userloginbtn {
+	margin: 8px 10px 0 0;
+}
+.logo img {
+	width: auto;
+	max-width: 100%;
+}
+.locihm span {
+	display: table;
+}
+.logappimg {
+	float: none;
+	text-align: center;
+}
+.logappdesc {
+	margin: 0;
+}
+.newappbtn a {
+	padding: 6px;
+}
+.upformrow label{
+    float: none;
+    width: 100%;
+}    
+.upformrow select, .upformrow input[type="text"], .upformrow input[type="email"], .upformrow input[type="password"]{
+    width: 100%;
+    margin: 0px;
+}
+.edittime a ,.edittime p{
+    line-height: 25px;
+    margin: 0;
+}
+.appchangeform, .upappdtl .appschedule {
+    padding:10px 20px;
+}
+.takeapp label {
+    float: none;
+    width: auto;
+}
+.subsel {
+    width: 100%;
+}
+.subtxt {
+    width: 89%;
+}
+.hserbtn {
+    width: 10% !important;
+}
+.home_wrapper{
+    position: static;
+}
+.hsearch_bg{
+    position: static;
+}
+.hbnnerdis{
+    position: static;
+    margin: 20px 0;
+}  
+.subheader:before, .subheader:after, .maplogo {
+    height: auto;
+}
+}
+
+@media screen and (max-width:350px) {
+.frgpsw a, .logcheck span {
+	font-size: 12px;
+}
+.wdth50 {
+	width: 100% !important;
+}
+.fltr {
+	float: none;
+}
+.apptime {
+	padding: 10px;
+}
+.apppagelas {
+	margin-bottom: 100px;
+}
+.editapptime a{
+    margin-left: 5px;
+} 
+.editapptime a {
+    font-size: 12px;
+    padding: 5px 6px;
+}
+.changeicon, .cancelicon {
+    padding: 4px 15px;
+}
+.previewicon{
+    padding: 2px 15px;
+}
+
+}
+.pgBar {
+	background: none repeat scroll 0 0 #349acf;
+	border-radius: 8px;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4) inset;
+	height: 18px;
+	margin: 3px 0 0;
+	overflow: hidden;
+}
+.ui-autocomplete {
+	width: auto;
+	zoom: 1;
+	cursor: pointer;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	position: relative;
+}
+@media screen and (max-width:320px) {
+
+.homelogo{
+    width: 60%;
+    height: 70px;
+    padding: 0;
+}
+}
+
+
+/* Waqas CSS End */
+/****** Jack ******/
+
+
+.selebx .ui-autocomplete-dropdown {
+	height: 20px;
+	right: 9px;
+	width: 20px;
+	top: 6px;
+}
+.ui-datagrid .ui-widget-content {
+	border: none;
+	background: none;
+}
+.ui-widget {
+	font-family: 'latobold';
+}
+.ui-datagrid-column {
+	padding: 0;
+}
+.ui-icon-check {
+	background-position: -64px -145px;
+}
+.ui-progressbar .ui-progressbar-label {
+	text-indent: -999px;
+}
+.amenitiesicon {
+	width: 35px;
+	text-align: center;
+}
+.ui-slider {
+	background: none repeat scroll 0 0 #349acf !important;
+	border: 1px solid #006fa9;
+	border-radius: 8px;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4) inset;
+	cursor: pointer;
+	height: 14px;
+	left: 0;
+	margin-top: -5px;
+	top: 50%;
+	width: 100%;
+}
+.ui-slider .ui-slider-handle {
+	background-color: #fff;
+	border: 4px solid #00537e;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+	height: 25px;
+	position: absolute;
+	width: 25px;
+	border-radius: 50%;
+	top: -8px;
+	cursor: pointer;
+}
+.ui-slider-range {
+	background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
+	background-repeat: repeat-x;
+	border-radius: 4px;
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+	box-sizing: border-box;
+	position: absolute;
+}
+.ui-widget-content table {
+	width: 100%;
+}
+.ui-helper-clearfix:after {
+	clear: none;
+}
+.ui-tabs-nav li:first-child, .ui-tabs-panels > div:first-child {
+	display: none;
+}
+.searchbtn-pf {
+	background: url(../images/searchicon.png) no-repeat #00537e 10px;
+	padding: 3px 0 5px 24px;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.17);
+	border-radius: 5px;
+}
+.ui-tabs.ui-tabs-top > .ui-tabs-nav {
+	overflow: hidden;
+}
+.ui-tabs .ui-tabs-nav.ui-widget-header li {
+	border: none;
+	font-family: "latobold";
+	font-size: 14px;
+}
+.ui-tabs .ui-tabs-nav.ui-widget-header li:hover a {
+	background: #eee;
+	color: #00537e;
+}
+.ui-tabs .ui-tabs-nav.ui-widget-header li a {
+	border-radius: 4px 4px 0 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.ui-tabs .ui-tabs-panel {
+	padding: 10px 0;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+	color: #555555;
+	background: #eee;
+}
+.ui-tabs {
+	padding: 0;
+}
+.ui-tabs.ui-tabs-top .ui-tabs-nav.ui-widget-header li.ui-state-active {
+	border: none;
+}
+.ui-dialog.ui-widget-content .ui-dialog-titlebar-close {
+    margin-top: 5px;
+}
+.filterblock {
+	position: relative;
+}
+.ui-dialog .ui-dialog-title {
+	float: none;
+}
+.moreReviews .ratingright {
+	clear: both;
+}
+.moreReviews .ratinginall ul, .moreReviews .ratingleft {
+	width: 100%;
+	float: none;
+}
+.moreReviews .reviewtextd h2 {
+	padding: 0;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-size: 14px;
+}
+.ui-panel {
+	padding: 0;
+}
+.ui-widget-content {
+	background: none;
+	border: none;
+	color: #333333;
+}
+.ui-widget {
+	font-size: 14px;
+}
+.ui-widget .clinicname {
+	font-size: 24px !important;
+}
+.ui-panel .ui-panel-content {
+	border: 0 none;
+	padding: 0;
+}
+.ui-autocomplete-items, .ui-datepicker {
+	background: #fff;
+}
+.ui-datepicker {
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+.ui-dialog.ui-widget-content {
+	border-radius:15px;
+} 
+.entryBlock > td > div > h3{
+	color: #555;
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+.entryBlock .ui-dialog.ui-widget-content .ui-dialog-titlebar {
+	border-bottom:none;
+}
+.entryBlock .ui-dialog-titlebar {
+	cursor: default;
+}
+.entryBlock .ui-datagrid {
+	background: #fff;
+}
+.entryBlock .ui-datagrid-content-empty {
+	text-align: center;
+	padding: 30px 0;
+}
+.fc-day-header {
+	width: auto !important;
+}
+.fc-day {
+	background: #fff; 
+	border: 1px solid #ddd;
+	height: 100px;
+	width: 14.285%;
+	
+}
+.fc-day:hover {
+	background: #f9f9f9;	
+}
+.fc-day > div { 
+    display: block;
+    width: 100%;
+    min-height: 0 !important;
+}
+.fc-grid .fc-day-number {
+    color: #333;
+    float: none;
+    font-size: 18px; 
+    padding: 0 2px;
+    text-align: center;
+} 
+.fc-grid .fc-day-content {
+	padding: 0 2px ;
+} 
+.ui-dialog.ui-widget-content .ui-dialog-title {
+	font-size: 20px;
+	font-weight: normal;
+}
+.fc-header td{
+	background: #007aba;
+	padding: 18px;
+}
+.ui-dialog.ui-widget-content .ui-dialog-content {
+	padding: 0;
+}
+.fc-header .fc-button {
+	margin: 0;
+}
+.fc-header-title h2 {
+	color: #fff;
+	font-size: 24px;
+}
+.fc th {
+	padding: 10px;
+	
+}
+.fc td, .fc th {
+	 vertical-align: middle;
+}
+.fc-day-header {
+	background: #005d8e;
+	border-color: #005d8e;
+	color: #fff;
+	font-weight: normal;
+    text-transform: uppercase; 
+    font-family: "latobold";
+}
+#searchDlgForm .fc-header-right .ui-state-default, #searchDlgForm .ui-widget-content .ui-state-default, #searchDlgForm .ui-widget-header .ui-state-default {
+	background: #f5f5f5; 
+	border:none;
+    border-radius: 0px;
+    box-shadow:none;
+}
+#searchDlgForm .fc-header-right .ui-corner-left , #searchDlgForm  .fc-header-left .ui-corner-left{ 
+	border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+#searchDlgForm .fc-header-right .ui-corner-right, #searchDlgForm  .fc-header-left .ui-corner-right{ 
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#searchDlgForm .ui-state-active, #searchDlgForm  .ui-widget-content .ui-state-active, #searchDlgForm  .ui-widget-header .ui-state-active {
+	box-shadow:none;
+	text-shadow:none;
+	background: #b1def7;
+}
+.fc-day.ui-widget-content.fc-today.ui-state-highlight { 
+	background: #e3f2f9;
+}
+
+.entryBlock .ui-panel-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+	display: none;
+}
+.entryBlock > td {
+	background:#DDDDDD;
+	padding: 2%; 
+}
+.entryBlock .ui-datagrid-data {
+	background:#fff;  
+}
+.dataclicked {
+	background:#DDDDDD; 
+}
+.dataclicked > div {
+	border-radius:50%;
+	border-radius: 25px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    transform: scale(1);
+    width: 40px;
+    margin: 0 auto;
+    
+}
+.dataclicked > div {
+    background: none repeat scroll 0 0 #fff;
+    border: medium none;
+    color: #000;
+    transform: scale(1.75);
+}
+ 
+.dataclicked:hover {
+	background: #DDDDDD;	
+}
+.entryBlock .ui-datagrid-row {
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #888; 
+    line-height: 1.8;
+} 
+.entryBlock table  td label{
+	margin: 0;
+}
+.entryBlock .ui-datagrid-column > div > div > table tr > td:first-child{
+	width: 30%;
+    padding: 13px 0 13px 15px;
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+}
+.entryBlock .ui-datagrid-column > div > div > table tr:hover {
+	background: #f2f2f2;
+}
+.entryBlock .ui-datagrid-column > div > div > table tr > td:nth-child(2){
+	border-left: 1px solid #ddd;
+    width: 40%;
+    padding: 13px 0 13px 15px;
+    color: #aaa; 
+    font-size: 11px; 
+    text-transform: uppercase;
+    text-align: left;
+}
+.entryBlock .ui-datagrid-column > div > div > table tr > td:nth-child(2) > label{ 
+    color: #aaa; 
+    font-size: 11px; 
+    text-transform: uppercase;
+}
+.entryBlock .ui-datagrid-column > div > div > table tr > td:last-child{ 
+    width: 30%;  
+    padding: 10px 10px 10px 0;
+}
+.entryBlock .ui-datagrid-column > div > div > table tr > td:last-child > a{ 
+    float: right;
+    margin: 0 0 0 10px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 32px;
+    padding: 0 12px;
+    background: #007aba;
+    color: #fff;
+    border-radius :5px;
+}
+.entryBlock .ui-datagrid-column > div > div > table tr > td:last-child > a:hover{  
+    background: #005d8e;
+    
+}
+.entryBlock .ui-dialog.ui-widget-content .ui-dialog-title{
+	font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+/* My CSS end */
+

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        template="homeTemplate.xhtml">
+<ui:define name="content">
+ <h:inputHidden id="clinicLocation" class="location" name="sourceAddress" value="#{searchController.clientLocation}" />				
+	<header>
+	<div class="subheader">
+		<div class="container subblckbg ">
+			<div class="logo maplogo homelogo">
+				<h:outputLink value="#">
+					<p:graphicImage value="images/ihealthlogo.png" alt="iHealthMantra" >
+					</p:graphicImage>
+				</h:outputLink>
+			</div>
+
+			<div class="userloginbtn">
+				<a href="#" data-toggle="dropdown">
+					<p:graphicImage value="images/user_icon.png" alt="" title=""></p:graphicImage>
+				</a>
+				<ul aria-labelledby="dLabel" role="menu"
+					class="dropdown-menu dpmenu logindpm">
+					<li>
+						<div class="ldropmenu">
+							<h3>Login</h3>
+							<form id="loginForm" method="post" action="#{facesContext.externalContext.requestContextPath}/login/process" class="lpopup">
+										<h:outputText value="${SPRING_SECURITY_LAST_EXCEPTION.message}" style="color: red;" rendered="${not empty param.login_error}" />
+										<input type="email" placeholder="Email address"
+											name="j_username" /> <input type="password"
+											placeholder="Password" name="j_password" /> <input
+											type="button" class="hlogin" value="Login"
+											onclick="document.getElementById('loginForm').submit();" /> <a
+											href="#">Forgot Password?</a> <span>OR</span>
+								<h:outputLink styleClass="lregi" value="#{request.contextPath}/pages/login/login.xhtml"> Register </h:outputLink> <h:outputLink styleClass="checkmyapp"
+									href="appointmentguestconf.html">MY Appointment</h:outputLink>
+									</form>
+							
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="headsocial hmsclimg">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="social1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="social2"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="social3"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+			<nav class="navbar navbar-default navbar-static-top mapnav">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+					</button>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse mapheader">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="./about.xhtml">About <span class="sr-only">(current)</span></a></li>
+					<li><a href="./contact.xhtml">Contact</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse --> </nav>
+		</div>
+	</div>
+	</header>
+	<!-- Ajax Loader Start -->
+        <p:ajaxStatus onstart="PF('statusDialog').show()" id="ajaxStatus"
+		onsuccess="PF('statusDialog').hide()" />
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" id="ajaxLoader"
+		closable="false" resizable="false" showHeader="false">
+		<p:graphicImage value="/images/ajax-loader.gif" />
+        </p:dialog>
+	<!-- Ajax Loader End -->
+	<div class="home_wrapper">
+		<div class="row home_page">
+
+           <div class="col-md-7 homepageright">
+                         <div class="searchblock">
+                              <h2>Start your search here.</h2>
+                              
+                              <h:form id="homePageForm" styleClass="serform">
+                               <p:panel id="validate_home" >
+
+                                   <div class="serbox subsel mydropbox">
+
+                                    <!--          <p:autoComplete  required="false" id="testDD"
+                                                             value="{searchController.testName}"
+                                                             completeMethod="{searchController.completeTest}">
+                                            </p:autoComplete>
+                                            <p:watermark for="testDD" value="Search TestName" id="testWatermark" />
+
+
+                                            <p:autoComplete dropdown="true" required="false" id="testDD"
+                                             forceSelection="true" maxlength="6" cache="true"
+                                                            update="testMsg" queryDelay="100" scrollHeight="200"
+                                                            value="{searchController.testName}"
+                                                            completeMethod="{searchController.completeTest}">
+                                            </p:autoComplete>-->
+
+                                    <p:selectOneMenu styleClass="searchbar" style= "background-color: #0A7EC5; width: 95%;" id="testComboId"
+                                                  value="#{searchController.testName}"
+                                                     filter="true" filterMatchMode="startsWith"
+                                                     required="true" requiredMessage="Please select test name">
+                                        <f:selectItem  noSelectionOption="true" itemLabel="Search TestName" />
+                                        <f:selectItems value="#{searchController.testNameList}" />
+                                    </p:selectOneMenu>
+                                    <p:message for="testComboId"/>
+
+
+
+
+                                   </div>
+                                   <div class="serbox subsel mydropbox">
+                                    <!--<p:autoComplete  id="cityDD" value="{searchController.city}"
+                                                     completeMethod="{searchController.completeCity}">
+                                        <p:ajax event="itemSelect"	listener="{searchController.onItemSelect}" update="localityDD" />
+                                        </p:autoComplete>
+                                    <p:watermark for="cityDD" value="Search City" id="cityWatermark" />-->
+
+
+                                    <p:selectOneMenu   styleClass="searchbar" style= "background-color: #0A7EC5; width: 95%;" id="cityComboId"
+                                                       value="#{searchController.city}"
+                                                       filter="true" filterMatchMode="startsWith"
+                                                       required="true" requiredMessage="Please select city">
+                                        <f:selectItem  noSelectionOption="true" itemLabel="Search City" />
+                                        <f:selectItems   value="#{searchController.cityList}" />
+                                        <p:ajax event="change" listener="#{searchController.onItemSelect}" process="@this" update=":homePageForm:localityComboId"/>
+                                    </p:selectOneMenu>
+                                    <p:message for="cityComboId"/>
+
+                                   </div>
+                                   <div class="serbox subsel mydropbox">
+                                    <!--<p:autoComplete  id="localityDD" value="{searchController.locality}"
+                                                     completeMethod="{searchController.completeLocality}">
+                                        </p:autoComplete>
+                                     <p:message for="localityDD" />
+                                        <p:watermark for="localityDD" value="Search Locality"
+                                                 id="localityWatermark" />-->
+                                <h:panelGroup id="localityComboId">
+                                    <p:selectOneMenu   styleClass="searchbar" style= "background-color: #0A7EC5; width: 95%;"
+                                                       value="#{searchController.locality}"
+                                                       filter="true" filterMatchMode="startsWith" >
+                                        <f:selectItem  noSelectionOption="true" itemLabel="Search loclity" />
+                                        <f:selectItems   value="#{searchController.localityList}" />
+                                    </p:selectOneMenu>
+                                </h:panelGroup>
+
+                                   </div>
+                                   <div class="serbox subsel mydropbox">
+                                        <p:calendar styleClass="searchbar" required="false" requiredMessage="Date required" id="date" value="#{searchController.date}"
+                                             pattern="MM/dd/yyyy">
+                                             <p:watermark for="date" value="Search Date" id="dateWatermark" />
+                                        </p:calendar>
+                                        <p:message for="date" />
+                                   </div>
+                                   <div class="serbox hserbtn">
+                                        <p:commandLink id="searchBtn" update="validate_home" action="#{searchController.simpleSearch}">
+                                             <p:graphicImage value="images/search_home.png" alt="" title="" />
+                                        </p:commandLink>
+                                   </div>
+     
+                                   <!--<i class="sericon"></i>-->
+                                   </p:panel>
+                              </h:form>
+                         </div>
+                    </div>
+			<div class="col-md-5">
+				<div class="hleft_side">
+					<p:graphicImage value="images/labs_img.png"  alt="" title="" ></p:graphicImage>
+				</div>
+			</div>
+			<div class="mobileimg">
+				<p:graphicImage value="images/mobile_img1.png" alt="" title="" ></p:graphicImage>
+			</div>
+		</div>
+    </div>
+		<div class=" home_product">
+			<div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                           <div class="titlesgrp">
+                            <h1>Mobile App Coming Soon</h1>
+                        </div> 
+                        <div  class="middleGallery"> 
+                            <div id="effect-2" class="effects clearfix">
+                                <div class="img"> <img src="images/feature_1.png" val="0" alt="" />
+                                    <div class="overlay"> <a href="#" class="expand plusride">SEARCH <br />MADE EASY</a> <a class="close-overlay hidden">x</a> </div>
+                                </div>
+                                <div class="img"> <img src="images/feature_2.png" val="1" alt=""/>
+                                    <div class="overlay"> <a href="#" class="expand plusride">ONLINE APPOINTMENT</a> <a class="close-overlay hidden">x</a> </div>
+                                </div>
+                            </div>
+
+                            <div id="effect-2" class="effects clearfix">
+                                <div class="img"> <img src="images/feature_3.png" val="2" alt=""/>
+                                    <div class="overlay"> <a href="#" class="expand plusride">GET<br /> DIRECTIONS</a> <a class="close-overlay hidden">x</a> </div>
+                                </div>
+                                <div class="img"> <img src="images/feature_4.png" val="3" alt=""/>
+                                    <div class="overlay"> <a href="#" class="expand plusride">MANAGE <br />MEDICAL RECORDS</a> <a class="close-overlay hidden">x</a> </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                        <div class="secondGallery">
+                            <a href="javascript:void(0);" id="closeSecond"><img src="images/close.png" /></a>
+                            <div class="bxslider">
+                                <ul class="slides">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-5 modelimg modelimg1">
+                                                <img src="images/featured_slider_1.png" />
+                                            </div>
+                                            <div class="col-md-7 modeldesc">
+                                                <h2>Search Made Easy</h2>
+                                                <p>Search diagnostic labs on your Android &amp; IOS mobile. Compare discounts, prices and lab facilities.</p>
+                                            </div>
+                                        </div>  
+                                    </li>
+                                    <li><div class="row"> 
+                                            <div class="col-md-7 modeldesc">
+                                                <h2>Online Appointment</h2>
+                                                <p>Select a lab, choose your preferred day/time and just click to get an appointment. Never miss an appointment by using our automated reminders.</p>
+                                            </div>
+                                            <div class="col-md-5 modelimg modelimg2">
+                                                <img src="images/featured_slider_2.png" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-5 modelimg modelimg3">
+                                                <img src="images/featured_slider_3.png" />
+                                            </div>
+                                            <div class="col-md-7 modeldesc">
+                                                <h2>GET DIRECTIONS</h2>
+                                                <p>Use map feature to get directions.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row"> 
+                                            <div class="col-md-7 modeldesc">
+                                                <h2>Manage Medical Records</h2>
+                                                <p>Go green. Save, search, share and view your medical records anytime and anywhere.
+                                                </p>
+                                            </div>
+                                            <div class="col-md-5 modelimg modelimg4">
+                                                <img src="images/featured_slider_4.png" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> 
+                        <div class="text-center"> <a href="#" class="morelink">Go To Top</a> </div>
+                    </div>
+                </div>
+            </div> 
+            
+	</div> 
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="hfooter"> 
+					<ul>
+                         	<li><a href="about.xhtml">About</a></li>
+                              <li><a href="contact.xhtml">Contact</a></li>
+                              <li><a href="tearms.xhtml">Terms &amp; Conditions</a></li>
+                              <li><a href="privacypolicy.xhtml">Privacy</a></li>
+                         </ul>
+				</div>
+			</div>
+               <div class="col-md-6">
+				<div class="hfooter">
+					<p>© 2015, iHealthMantra. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- 	<script src="js/jquery.min.js"></script> [conflicting] -->
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-slider.js"></script>
+	<script type="text/javascript">
+		$("#ex1").slider({});
+		$("#ex2").slider({});
+		
+	</script>
+	<script type="text/javascript">
+		
+	</script>
+	<script src="js/jquery-ui.js"></script> 
+
+        <script type="text/javascript">
+           $('.hs-previous-button, .hs-next-button').hide();
+			
+           $('#simple-menu').click(function() {
+               $('.js-global-nav-overlay').toggle();
+           });
+           $('.js-global-nav-overlay , .closemenu').click(function() {
+               $.sidr('toggle', 'sidr');
+               $('.js-global-nav-overlay').toggle();
+           });
+           $(".ui-inputfield").val("");
+           
+        </script>
+    </ui:define>
+</ui:composition>

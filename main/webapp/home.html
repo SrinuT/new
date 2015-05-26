@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ihealthMantra | Search Result page</title>
+
+<!-- Bootstrap -->
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-slider.css" rel="stylesheet">
+<link href="fonts/stylesheet.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="homebg">
+<header>
+  <div class="subheader">
+    <div class="container subblckbg ">
+      <div class="logo maplogo homelogo"> <a href="#"><img src="images/ihealthlogo.png" alt="iHealthMantra"/></a> </div>
+      <div class="userloginbtn"> <a href="#" data-toggle="dropdown"> <img src="images/user_icon.png" alt="" title="" /> </a>
+        <ul aria-labelledby="dLabel" role="menu" class="dropdown-menu dpmenu logindpm">
+          <li>
+            <div class="ldropmenu">
+              <h3>Login</h3>
+              <form method="" class="lpopup">
+                <input type="email" placeholder="Email address" />
+                <input type="password" placeholder="Password" />
+                <a class="hlogin" href="#">Login</a> <a href="#">Forgot Password?</a> <span>OR</span> <a class="lregi" href="#" > Register </a> <a class="checkmyapp" href="appointmentguestconf.html">MY Appointment</a>
+              </form>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <nav class="navbar navbar-default navbar-static-top mapnav">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse mapheader">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> 
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="home_wrapper">
+	<div class="row home_page">
+		  <div class="col-md-5">
+		  	<div class="hleft_side">
+				<img src="images/labs_img.png" alt="" title=""/>  
+			</div>
+		  </div>
+        <div class="col-md-7">
+          <div class="searchblock">
+            <h2>Start your search here.</h2>
+            <form action="" class="serform">
+              <div class="serbox subsel">
+                <select>
+                  <option>Test name</option>
+                  <option>Test name</option>
+                  <option>Test name</option>
+                </select>
+              </div>
+              <div class="serbox subsel">
+                <select>
+                  <option>Select City</option>
+                  <option>Select City</option>
+                  <option>Select City</option>
+                </select>
+              </div>
+              <div class="serbox subsel">
+                <select>
+                  <option>Select Locality</option>
+                  <option>Select Locality</option>
+                  <option>Select Locality</option>
+                </select>
+              </div>
+              <div class="serbox subtxt">
+                <input type="text" placeholder="Date" />
+              </div>
+              <div class="serbox hserbtn"> <a href="#"><img src="images/search_home.png" alt="" title=""></a> </div>
+              
+              <!--<i class="sericon"></i>-->
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="mobileimg">
+		  <img src="images/mobile_img1.png" alt="" title="">
+	  </div>
+</div>
+<footer class="static">
+       		<div class="container">
+            	<div class="row">
+                	<div class="col-md-12">
+                        <div class="hfooter">
+                		      <p>© 2014, iHealthMantra. All rights reserved.</p>
+                        </div>
+                    </div>
+				</div>
+            </div>
+       </footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/bootstrap-slider.js"></script> 
+<script type="text/javascript">
+	$("#ex1").slider({});  
+    $("#ex2").slider({});  
+	$(document).ready(function(e) {
+        $(".myacclink").click(function(){
+			$(".healthclinics").toggle();
+		});
+    });
+    </script> 
+<script type="text/javascript">
+		$(document).ready(function(e) { 
+			$(document).on('click',".myacclink", function(event){
+	    	   	$(".healthclinics").toggle();
+				event.stopPropagation();
+				
+			}); 
+			$(document).on('click',".userloginlink", function(event){
+	    	   	$(".logindpm").toggle();
+				event.stopPropagation();
+				
+			}); 
+			
+			$(".logindpm").click(function(event){
+				event.stopPropagation();
+			});
+	        $(document).click(function(){ 
+	        	if($(".healthclinics").css("display") == "block")
+	        	{	
+	        		console.log($(".healthclinics").css("display"));
+	           		$(".healthclinics").hide();
+	        	}
+	        	if($(".logindpm").css("display") == "block")
+	        	{	
+	        		$(".logindpm").hide();
+	        	}
+	        }); 
+	        $(document).on('click', '.fc-day', function(){
+	        	var parenttr = $(this).parent("tr");
+	        	$(".fc-day").removeClass("dataclicked"); 
+	        	$(this).addClass("dataclicked"); 
+	        	$(".entryBlock").remove(); 
+	        	parenttr.after('<tr class="entryBlock"></tr>');  
+	        }); 
+	    }); 
+		function getData(){
+			var trData = '<td colspan="7"><table><tr>' + $(".eventDetails").html() + '</tr></table></td>'; 
+    		$(".entryBlock").html(trData);
+    		
+		}
+	    $(".healthclinics").hide();
+    </script>
+</body>
+</html>

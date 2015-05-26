@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+
+<h:body>
+	<ui:composition>
+		<!-- Header start -->
+		<header>
+		<div class="subheader">
+			<div class="container subblckbg ">
+				<div class="logo maplogo homelogo">
+					<h:outputLink value="home.xhtml">
+						<p:graphicImage value="images/ihealthlogo.png" alt="iHealthMantra" />
+						<!--                     		<p:ajax update=":clinicResultPanel @([id$=leftNavPanel]) :locPanel" process="@this"></p:ajax> -->
+					</h:outputLink>
+				</div>
+				<div class="userloginbtn">
+					<a href="#" class="userloginlink"> <img
+						src="images/user_icon.png" alt="" title="" />
+					</a>
+					<h:panelGroup rendered="#{empty sessionBean.personDto}">
+						<ul class="dpmenu logindpm" style="display: none;">
+							<li>
+								<div class="ldropmenu">
+									<h3>Login</h3>
+									<form id="loginForm" method="post" action="#{facesContext.externalContext.requestContextPath}/login/process" class="lpopup">
+										<input type="email" placeholder="Email address"
+											name="j_username" /> <input type="password"
+											placeholder="Password" name="j_password" /> <input
+											type="button" class="hlogin" value="Login"
+											onclick="document.getElementById('loginForm').submit();" /> <a
+											href="#">Forgot Password?</a> <span>OR</span>
+										<h:button value="REGISTER" styleClass="lregi"
+											outcome="/pages/login/login.xhtml" />
+									</form>
+								</div>
+							</li>
+						</ul>
+					</h:panelGroup>
+					
+					<h:panelGroup rendered="#{not empty sessionBean.personDto}">
+						<ul class="dpmenu logindpm" style="display: none;">
+							<li>
+								<form style="margin-top: 0px; margin-right: 0px;" id="logoutForm" name="loginForm" action="#{facesContext.externalContext.requestContextPath}/logout/process" method="post">
+									<a href="javascript: document.getElementById('logoutForm').submit();">Log Out</a>
+								</form>
+							</li>
+						</ul>
+					</h:panelGroup>
+				</div>
+				<h:form id="compareForm">
+					<div class="myacc">
+						<a href="#" class="myacclink">My Selected Clinics <span>#{searchController.compareClinicList.size()}</span></a>
+						<div class="healthclinics">
+							<div class="clinictitle">
+								<h2>Clinics</h2>
+							</div>
+							<div class="cliniccharges">
+								<ui:repeat var="compare"
+									value="#{searchController.compareClinicList}">
+									<div class="clinicview">
+										<!--  @([id$=compareResutForm])   oncomplete="window.location.replace(window.location.href);"-->
+										<p:commandLink id="removeLink"
+											actionListener="#{searchController.removeClinic}"
+											update="@([id$=compareForm]) @([id$=leftNavPanel])"
+											process="@this">
+											<p:graphicImage value="images/closeicon.png" />
+											<f:attribute name="removeClinic" value="#{compare}" />
+										</p:commandLink>
+										<h3>#{compare.clinicFullName}</h3>
+										<div class="chargeslist">
+											<span class="clinicrs">#{compare.testPrice}</span> <span
+												class="clinickm">4.5 KM</span>
+										</div>
+									</div>
+								</ui:repeat>
+							</div>
+							<div class="comparebtn">
+								<p:commandButton id="cmpbtn" process="@form" value="Compare"
+									actionListener="#{searchController.compareProducts}"
+									update="@([id$=clinicResultPanel]) @([id$=leftNavPanel]) @([id$=locPanel]) @([id$=compareResultPanel]) @([id$=coparePanell])"/>
+							</div>
+						</div>
+					</div>
+				</h:form>
+
+				<nav class="navbar navbar-default navbar-static-top mapnav">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse mapheader">
+					<ul class="nav navbar-nav navbar-right">
+						<li><h:link value="Appointments"
+								outcome="/appointmentguestconf.xhtml" /></li>
+						<li class="active"><a href="#">My PHR</a></li>
+						<li><a href="#">About <span class="sr-only">(current)</span></a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse --> </nav>
+		    </div>
+        </div>
+		<div class="mytabbox">
+			<div class="container subblckbg">
+				<div class="tab-content">
+					<div class="tab-pane active" id="Pathology">
+						<div class="applist">
+                                <h2>Advance Search</h2>
+                        </div>  
+					</div>
+				</div>
+			</div>
+		</div>
+		</header>
+		<!-- Header end -->
+		<ui:include src="commonDialog.xhtml"></ui:include>
+	</ui:composition>
+</h:body>
+</h:html>

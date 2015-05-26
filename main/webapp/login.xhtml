@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://java.sun.com/jsf"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	lang="en">
+  <h:head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <title>ihealthmantra | Login</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="css/style.css" rel="stylesheet" type="text/css"></link>
+    <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css"></link>
+
+    </h:head>
+ <h:body>
+  	
+    <img class="bg" src="images/bg_img.png" alt="" title=""></img>
+    <div class="top-border"></div>
+  	<header>
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-6 main_logo">
+                	<img src="images/logo.png" alt="" title=""></img>
+                </div>
+                <div class="col-md-6 call_us ">
+                	<div class="call">
+                    	<a href="callto:+880 111-111-111">Call Us : +880 111-111-111</a>
+                    </div>
+                    <div class="socia_img">
+                   		<a href=""><img src="images/fb_1.png" alt="" title=""></img></a>
+                    	<a href=""><img src="images/twitter_1.png" alt="" title=""></img></a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </header> 
+    <div class="login_window">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 account">
+                	<div class="acc_login">
+                        <div class="login">
+                            <h2> Login to your Seller Account</h2>
+                            
+                            <h:form action="" class="login_form" id="loginform">
+                            
+                                <h:messages style="color:red;margin:12px;size:12px" />
+                                
+                                <h:inputText type="text" id="uid" required ="true" requiredMessage="Please Enter User Id" value="#{LoginBean.userName}"></h:inputText>
+                                <p:watermark for="uid" value="User Id" />
+                                <h:message for="uid" /> 
+                                <br></br>
+                                <h:inputSecret type="password" id="pwd" required ="true" requiredMessage="Password Can Not Be Blank"  value="#{LoginBean.password}">
+                                <p:watermark for="pwd" value="Password" />
+                                 </h:inputSecret>
+                                <h:message for="pwd" /> 
+                                <br></br>
+                                <br></br>
+                                <input type="checkbox" name="check" value="0"></input>Remember me<span> 
+                                <h:outputLink id="fp" value="forgotpassword.xhtml"><h:outputText value="Forget Password" /></h:outputLink></span>
+                                <h:commandButton value="sign in" action="#{LoginBean.loginValidate}" ajax="false" type="submit" id="signin" > </h:commandButton>
+                            </h:form>
+                            <div class="acc_yet">
+                            <h3>Don't have an account yet?<span>
+                            <h:form>
+                            <h:commandLink value="SignUp" action="signup"></h:commandLink></h:form>
+                            </span> </h3>
+                             
+                          </div>
+                          </div>
+                          
+                          <div class="clear"></div>
+                        	<div class="light_green">
+                            	<div class="blue">
+                         		</div>
+                      		</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                	<div class="connect">
+                    		<h1>Need Help? </h1>
+                            
+                           <div class="abc"><h3> Contact seller support <span>020- 6546 6789</span><br></br> Hours <span>Mon - Fri 09:00 am to 09:06:00 pm IST.</span> <br/>(Closed holiday)</h3></div>
+                    	<div class="contact">
+							<h1>Connect <span>with us!</span></h1>  
+                            <img src="images/image_1.png" alt="" title=""></img>                      
+                        </div>
+                        <div class="bottom_border">
+                        </div>
+                    </div>
+                
+                </div>
+                
+            </div>
+        </div> 	
+     </div> 
+     
+     <footer>
+     	<div class="container">
+        	<div class="row footer_nav">
+            	
+                	<ul>
+                    	<li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                
+                <p>Copyright@ 2014, ihealthmatra. All right reserved.</p>
+                
+            </div>
+        </div>
+     </footer>  
+ </h:body>
+</html>

@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+  <p:panel id="compareResultPanel">		
+	<h:form id="compareResutForm" rendered="#{searchController.showCompareView}">
+		<section class="comparepage">
+	          <div class="container">
+	              <div class="comparetitle">
+	                <h2>Compare Clinics</h2>
+	              </div>
+	              <div class="compareparttitle">
+	                  <div class="selectcategory">
+	                      	<div class="overview">
+	                            <select>
+	                                <option>Overview</option>
+	                                <option>Overview</option>
+	                                <option>Overview</option>
+	                            </select>
+	                      	</div>
+	                  </div>
+                      <div class="row comparebtwtitle">
+	                      <ui:repeat value="#{searchController.compareClinicList}" var="list">
+	                    		<div class="col-sm-4 supertitle">
+		                           <p:commandLink id="cmdLinkCmprResultPage" styleClass="closeimg" actionListener="#{searchController.removeClinic}" update="@([id$=compareForm]) @([id$=compareResutPanel]) @([id$=compareResutForm])"  process="@this" >
+										<p:graphicImage value="images/white__close.png"  />
+		                           		<f:attribute name="removeClinic" value="#{list}" />
+	                               </p:commandLink>
+		                           <h3>#{list.clinicFullName}</h3> 
+								</div> 
+						  </ui:repeat>						 
+	                      <h:form class="addclinicbtn" id="addForm"  rendered="#{(searchController.compareClinicList.size() lt 3)?true:false}">
+	                            <div class="col-sm-4 addclinic">
+	                            	<div class="addclinicbtn">
+                                        <p:commandButton id="addBtn" rendered="#{searchController.isComparePage()}"
+                                                         actionListener="#{searchController.onBackSearchResult}"
+                                                         styleClass="searchbtn-pf" value="ADD" process="@form"
+                                                         update="@([id$=clinicResultPanel]) :growl @([id$=locPanellocPanel]) @([id$=leftNavPanel]) @([id$=compareResultPanel]) @([id$=coparePanell])" />
+	                             	</div>
+	                  			</div>	     
+	                      </h:form>                       
+                      </div>
+	             </div>
+	             <div class="connectclinic">
+	                <div class="clinicsubtitles">
+	                    <h3>Connect with Clinics</h3>
+	                </div>
+	                <div class="cliniclistside">
+	                    <div class="feturetitle">
+	                        <h3>Clinic Information</h3>
+	                    </div>
+	                    <div class="clinic1">
+	                        <div class="row">
+                                <table>
+                                    <tr>
+		                         <ui:repeat value="#{searchController.compareClinicList}" var="list">
+                                     <td width="20%">
+			                         	<div class="comparisonpart">
+			                                <div class="cliniccontact">
+			                                   <div class="appointment">
+                                                   <p:commandLink value="Make Appointment" actionListener="#{searchController.onMakeAppointmentClick}"  oncomplete="PF('dlgMkApnmnt').show();"  process="@this" update=":searchDlgForm:appCalendar">
+                                                       <f:attribute name="list" value="#{list}"/>
+                                                   </p:commandLink>
+			                                        <div class="contactappo">
+			                                        <a href="#">
+			                                            <img title="" alt="" src="images/phone_icon.png" />
+			                                            <span>Call to : +1 234 5678</span></a>
+			                                    	</div>
+			                                   </div>
+			                                 </div>
+			                            </div>
+                                     </td>
+			                      </ui:repeat>
+                                    </tr>
+                                </table>
+	                       	</div>
+	                    </div>
+	                 </div>
+	              </div>
+	              
+	              <div class="connectclinic">
+	                    <div class="clinicsubtitles">
+	                        <h3>Patient Experience</h3>
+	                    </div>
+	                    <div class="comparesubpart">
+	                        <div class="cliniclistside">
+	                            <div class="feturetitle">
+	                                <h3>Price</h3>
+	                            </div>
+	                            <div class="clinic1">
+	                                <div class="row">
+	                                 <p:dataGrid value="#{searchController.compareClinicList}" var="list"  rows="1"> 
+	                                	<div class="comparisonpart"> 
+		                                        <div class="pricetab">
+		                                            <h3>#{list.testPrice}</h3>
+		                                        </div>
+		                                   </div>     
+		                               </p:dataGrid>   
+		                               
+	                               </div>
+	                            </div> 
+	
+	                        </div>
+	                  	</div>
+	                 <div class="comparesubpart">
+	                   <div class="cliniclistside">
+	                       <div class="feturetitle">
+	                           <h3>Clinic Rating</h3>
+	                       </div>
+	                       <div class="clinic1">
+	                           <div class="row">
+	                           		 <p:dataGrid value="#{searchController.compareClinicList}" var="list" rows="1"> 
+		                               <div class=" comparisonpart">
+		                               
+		                                   <div class="comparerating">
+		                                       <div class="averageimg">
+		                                           <h:graphicImage value="#{list.clinicRatingImage}" class="stars" alt="" />
+		                                       </div>
+		                                       <span>78%</span>
+		                                   </div>
+		                              
+		                               </div>
+		                             </p:dataGrid>    
+		                       </div>
+	                       </div> 
+	
+	                   </div>
+	                 </div>
+	                 <div class="comparesubpart">
+		                  <div class="cliniclistside">
+		                      <div class="feturetitle">
+		                          <h3>Clinic Distance</h3>
+		                      </div>
+		                      <div class="clinic1">
+		                          <div class="row">
+		                          	  <p:dataGrid value="#{searchController.compareClinicList}" var="list"  rows="1"> 
+		                              <div class=" comparisonpart">
+		                            
+		                                  <div class="comparerating">
+		                                      <div class="distance">
+		                                          <span>2 km</span>
+		                                      </div>
+		                                  </div>
+		                                 
+		                              </div>
+		                               </p:dataGrid>  
+		                          </div>
+		                      </div> 
+		                  </div>
+	                </div>
+	           </div>
+				<div class="connectclinic">
+					<div class="clinicsubtitles">
+						<h3>Clinic Amenities</h3>
+					</div>
+					
+						<div class="comparesubpart">
+							<div class="cliniclistside">
+								<div class="feturetitle">
+									<h3>Car Parking</h3>
+								</div>
+								
+								<div class="clinic1">
+									<div class="row">
+										<ui:repeat value="#{searchController.compareClinicList}" var="cmprList">
+											<div class=" emecomparisonpart">
+												<ui:repeat value="#{cmprList.carParking}"	var="cpDoc">
+													<div class="clinicamenitiesicon">
+														<ul>
+	
+															<li class="clearfix"><h:graphicImage
+																	value="images/righticon.png"
+																	rendered="#{cpDoc.status eq 'true'}" /> <h:graphicImage
+																	value="images/wrongicon.png"
+																	rendered="#{cpDoc.status eq 'false'}" /> <h:graphicImage
+																	value="#{rdDoc.iconPath}" /> <span>#{cpDoc.name}</span>
+															</li>
+	
+														</ul>
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+									</div>
+								</div>
+								
+
+							</div>
+						</div>
+						<div class="comparesubpart">
+							<div class="cliniclistside">
+								<div class="feturetitle">
+									<h3>Customer Waiting Lounge</h3>
+								</div>
+								
+								<div class="clinic1">
+									<div class="row"> 
+										<ui:repeat value="#{searchController.compareClinicList}" var="cmprList">
+											<div class=" emecomparisonpart">
+												<ui:repeat value="#{cmprList.customerWaitingLounge}"	var="cwlDoc">
+													<div class="clinicamenitiesicon">
+														<ul>
+	
+															<li class="clearfix"><h:graphicImage
+																	value="images/righticon.png"
+																	rendered="#{cwlDoc.status eq 'true'}" /> <h:graphicImage
+																	value="images/wrongicon.png"
+																	rendered="#{cwlDoc.status eq 'false'}" /> <h:graphicImage
+																	value="#{cwlDoc.iconPath}" /> <span>#{cwlDoc.name}</span>
+															</li>
+	
+														</ul>
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+									</div>
+								</div>
+								
+
+							</div>
+						</div>
+						<div class="comparesubpart">
+							<div class="cliniclistside">
+								<div class="feturetitle">
+									<h3>Doorstep Sample Collections</h3>
+								</div>
+								
+								<div class="clinic1">
+									<div class="row">
+										<ui:repeat value="#{searchController.compareClinicList}" var="cmprList">
+											<div class=" emecomparisonpart">
+												<ui:repeat value="#{cmprList.doorStepCollection}"	var="dscDoc">
+													<div class="clinicamenitiesicon amenitiesstep2">
+														<ul>
+	
+															<li class="clearfix"><h:graphicImage
+																	value="images/righticon.png"
+																	rendered="#{dscDoc.status eq 'true'}" /> <h:graphicImage
+																	value="images/wrongicon.png"
+																	rendered="#{dscDoc.status eq 'false'}" /> <h:graphicImage
+																	value="#{dscDoc.iconPath}" /> <span>#{dscDoc.name}</span>
+															</li>
+	
+														</ul>
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="comparesubpart">
+							<div class="cliniclistside">
+								<div class="feturetitle">
+									<h3>Entertainment</h3>
+								</div>
+								
+								<div class="clinic1">
+									<div class="row">
+										<ui:repeat value="#{searchController.compareClinicList}" var="cmprList">
+											<div class="emecomparisonpart">
+												<ui:repeat value="#{cmprList.entertainment}"	var="enterDoc">
+													<div class="clinicamenitiesicon">
+														<ul>
+	
+															<li class="clearfix"><h:graphicImage
+																	value="images/righticon.png"
+																	rendered="#{enterDoc.status eq 'true'}" /> <h:graphicImage
+																	value="images/wrongicon.png"
+																	rendered="#{enterDoc.status eq 'false'}" /> <h:graphicImage
+																	value="#{enterDoc.iconPath}" /> <span>#{enterDoc.name}</span>
+															</li>
+	
+														</ul>
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+									</div>
+								</div>
+								
+
+							</div>
+						</div>
+						<div class="comparesubpart">
+							<div class="cliniclistside">
+								<div class="feturetitle">
+									<h3>Report Delivery</h3>
+								</div>
+								
+								<div class="clinic1">
+									<div class="row">
+										<ui:repeat value="#{searchController.compareClinicList}" var="cmprList">
+											<div class=" emecomparisonpart">
+												<ui:repeat value="#{cmprList.reportDelivery}"	var="rdDoc">
+													<div class="clinicamenitiesicon">
+														<ul>
+	
+															<li class="clearfix"><h:graphicImage
+																	value="images/righticon.png"
+																	rendered="#{rdDoc.status eq 'true'}" /> <h:graphicImage
+																	value="images/wrongicon.png"
+																	rendered="#{rdDoc.status eq 'false'}" /> <h:graphicImage
+																	value="#{rdDoc.iconPath}" /> <span>#{rdDoc.name}</span>
+															</li>
+	
+														</ul>
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="comparesubpart">
+							<div class="cliniclistside">
+								<div class="feturetitle">
+									<h3>Two wheeler Parking</h3>
+								</div>
+								
+								<div class="clinic1">
+									<div class="row">
+										<ui:repeat value="#{searchController.compareClinicList}" var="cmprList">
+											<div class=" emecomparisonpart">
+												<ui:repeat value="#{cmprList.twoWheelerParking}"	var="twpDoc">
+													<div class="clinicamenitiesicon">
+														<ul>
+	
+															<li class="clearfix"><h:graphicImage
+																	value="images/righticon.png"
+																	rendered="#{twpDoc.status eq 'true'}" /> <h:graphicImage
+																	value="images/wrongicon.png"
+																	rendered="#{twpDoc.status eq 'false'}" /> <h:graphicImage
+																	value="#{twpDoc.iconPath}" /> <span>#{twpDoc.name}</span>
+															</li>
+	
+														</ul>
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+				</div>
+		            <div class="connectclinic">
+			            <div class="clinicsubtitles">
+			                <h3>Connect with Clinics</h3>
+			            </div> 
+			            <div class="cliniclistside">
+			                <div class="feturetitle">
+			                    <h3>Clinic Information</h3>
+			                </div>
+
+                            <div class="clinic1">
+                                <div class="row">
+                                    <table>
+                                        <tr>
+                                            <ui:repeat value="#{searchController.compareClinicList}" var="list">
+                                                <td width="20%">
+                                                    <div class="comparisonpart">
+                                                        <div class="cliniccontact">
+                                                            <div class="appointment">
+                                                                <p:commandLink value="Make Appointment" actionListener="#{searchController.onMakeAppointmentClick}"  oncomplete="PF('dlgMkApnmnt').show();"  process="@this" update=":searchDlgForm:appCalendar">
+                                                                    <f:attribute name="list" value="#{list}"/>
+                                                                </p:commandLink>
+                                                                <div class="contactappo">
+                                                                    <a href="#">
+                                                                        <img title="" alt="" src="images/phone_icon.png" />
+                                                                        <span>Call to : +1 234 5678</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </ui:repeat>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+			            </div>
+		         	 </div>      
+	         </div> 
+      </section>
+    </h:form>
+  </p:panel>    
+</h:body>
+</h:html>
+          	      

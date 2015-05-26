@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="loginMain.xhtml">
+    <ui:define name="content">
+        <div class="userlogin">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="recorddetail">
+                            <div class="clinincimg">
+                            <img src="#{request.contextPath}/images/clinic_icon.png" alt="" title="" />
+                                <h1>Connect with Healthcare Providers</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="recorddetail">
+                            <div class="panel-group" id="accordion" role="tablist"
+							aria-multiselectable="true">
+                                <div class="panel panel-default loginuser">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion"
+											href="#collapseOne" aria-expanded="true"
+											aria-controls="collapseOne"> Login </a> </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in"
+									role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body"> <a class="lgwithgoogle" href="#"> <img
+											src="#{request.contextPath}/images/gplus_icon.png" alt="" title="" /> <span>Log
+                                            in with google</span> </a> <a class="lgwithfb" href="${pageContext.request.contextPath}/auth/facebook"><img
+											src="#{request.contextPath}/images/fb_icon.png" alt="" title="" /> <span>Log
+                                            in with Facebook</span> </a>
+                                            <div class="signinemail">
+                                                <h3>Or Sign in with Email</h3>
+                                            </div>
+                                            <form name="loginForm" id="loginForm" action="#{facesContext.externalContext.requestContextPath}/login/process" method="post" class="userloginform">
+                                                <h:messages style="font-size: 15px; color: green;" />
+                                                <h:outputText value="${SPRING_SECURITY_LAST_EXCEPTION.message}" style="color: red; margin-left: 83px; margin-top: 15px;" rendered="${not empty param.login_error}" />
+                                                <br />
+                                                <input type="text" placeholder="Email" name="j_username" />
+                                                <input type="password" placeholder="Password" name="j_password" />
+                                                <div class="logcheck">
+                                                    <input type="checkbox" />
+                                                    <span>Remember me</span> </div>
+                                                <div class="frgpsw">
+                                                    <h:link value="Forgot Password?" outcome="forgotPassword.xhtml"/>
+                                                </div>
+                                                <input type="button" value="Login" onclick="document.getElementById('loginForm').submit();" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default notanacc ">
+                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                        <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse"
+											data-parent="#accordion" href="#collapseTwo"
+											aria-expanded="false" aria-controls="collapseTwo"> if you
+                                            do not have an account ? </a> </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse"
+									role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body"> <a class="lgwithgoogle" href="#"> <img
+											src="#{request.contextPath}/images/gplus_icon.png" alt="" title="" /> <span>Log
+                                            in with google</span> </a> <a class="lgwithfb" href="#"> <img
+											src="#{request.contextPath}/images/fb_icon.png" alt="" title="" /> <span>Log
+                                            in with Facebook</span> </a>
+                                            <div class="signinemail">
+                                                <h3>Or Sign in with Email</h3>
+                                            </div>
+                                            <h:form id="registerForm" styleClass="userloginform">
+                                                <p:messages />
+                                                <f:event listener="#{personController.validatePassword}" type="postValidate" />
+                                                <br/>
+                                                <div class="logcheck accpsw">
+                                                    <p:inputText validatorMessage="First name is wrong" requiredMessage="Please enter first name." required="true" styleClass="text" placeholder="First Name" value="#{personController.personDto.firstName}">
+                                                        <f:validateRegex pattern="[a-zA-Z]+" />
+                                                    </p:inputText>
+                                                </div>
+                                                <div class="frgpsw accpsw">
+                                                    <p:inputText validatorMessage="Last name is wrong" requiredMessage="Please enter last name." required="true" styleClass="text" placeholder="Last Name" value="#{personController.personDto.lastName}">
+                                                        <f:validateRegex pattern="[a-zA-Z]+" />
+                                                    </p:inputText>
+                                                </div>
+                                                <p:inputText validatorMessage="Please insert valid email address" required="true" requiredMessage="Please enter email address" styleClass="text" placeholder="Email" value="#{personController.personDto.email}">
+                                                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                                </p:inputText>
+                                                <div class="logcheck accpsw">
+                                                    <p:password required="true" requiredMessage="Please enter password" id="password" placeholder="Password" value="#{personController.personDto.password}" />
+                                                </div>
+                                                <div class="frgpsw accpsw">
+                                                    <p:password required="true" requiredMessage="Please enter confirm password" id="confirmPassword" placeholder="Retype Password" value="#{personController.personDto.confPassword}" />
+                                                </div>
+                                                <div class="ourcondition">
+                                                    <p:selectBooleanCheckbox value="#{personController.personDto.termsAndConditions}"/>
+                                                    <a href="">Accept Terms and	Condition</a> </div>
+                                                <p:commandButton value="Signup"
+															 actionListener="#{personController.onRegistration}"
+                                                             update="registerForm"/>
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

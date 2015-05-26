@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/appointment/conf/appointmentMain.xhtml">
+	
+<ui:define name="content">
+
+	<h:form id="appointmentGuestForm"> 
+		<h:inputHidden id="forViewListener" value="someValue"/>
+		<h:panelGroup id="pageContent">
+			<h:panelGroup rendered="#{appointmentConfController.pageRender.appointmentGuestConf}">
+				<ui:include src="/appointment/conf/guestConf.xhtml">
+					<ui:param name="controller" value="#{appointmentConfController}"/>
+				</ui:include>
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{appointmentConfController.pageRender.appointmentEditList}">
+				<ui:include src="/appointment/conf/editList.xhtml">
+					<ui:param name="controller" value="#{appointmentConfController}"/>
+				</ui:include>
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{appointmentConfController.pageRender.appointmentChange}">
+				<ui:include src="/appointment/conf/change.xhtml">
+					<ui:param name="controller" value="#{appointmentConfController}"/>
+				</ui:include>
+			</h:panelGroup>
+		</h:panelGroup>
+				
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-slider.js"></script>
+		
+		<script type="text/javascript">
+			$("#ex1").slider({});
+			$("#ex2").slider({});
+			$(document).ready(function(e) {
+				$(".myacclink").click(function() {
+					$(".healthclinics").toggle();
+				});
+			});
+		</script>
+	</h:form>
+
+    <ui:include src="/searchDialog.xhtml" />
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $(document).on('click',".myacclink", function(event){
+                $(".healthclinics").toggle();
+
+                event.stopPropagation();
+
+            });
+            $(document).on('click',".userloginlink", function(event){
+                $(".logindpm").toggle();
+
+                event.stopPropagation();
+            });
+
+            $(".logindpm").click(function(event){
+                event.stopPropagation();
+            });
+            $(document).click(function(){
+
+                if($(".healthclinics").css("display") == "block")
+                {
+                    console.log($(".healthclinics").css("display"));
+                    $(".healthclinics").hide();
+                }
+                if($(".logindpm").css("display") == "block")
+                {
+                    $(".logindpm").hide();
+                }
+            });
+            $(document).on('click', '.fc-day', function(){
+                var parenttr = $(this).parent("tr");
+                $(".fc-day").removeClass("dataclicked");
+                $(this).addClass("dataclicked");
+                $(".entryBlock").remove();
+                parenttr.after('<tr class="entryBlock"></tr>');
+            });
+        });
+        function getData(){
+            var trData = '<td colspan="7"><table><tr>' + $(".eventDetails").html() + '</tr></table></td>';
+            $(".entryBlock").html(trData);
+
+        }
+        $(".healthclinics").hide();
+    </script>
+	
+</ui:define>
+ 
+</ui:composition>

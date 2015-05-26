@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition>
+	<!-- LeftNav start -->
+		<p:panel id="leftNavPanel">
+		 <h:form id="leftNavForm" rendered="#{searchController.showLeftNav}">
+		 
+          <section class="mapsection">
+          	<p:commandLink id="mapLink" >
+          		<i class="mapicon"></i> <span>Show Map View</span>
+          		<p:ajax  listener="#{searchController.showClinicsMap}"  update="@([id$=clinicResultPanel]) @([id$=locPanel]) :growl @([id$=leftNavPanel])" />
+          	</p:commandLink>
+          </section>
+          <section class="filtersection">
+          	<div class="titleside">
+                   Filters
+              </div>
+              <div class="filterblock">
+              	<h3>Price Range (INR)</h3>
+              		<div class="lablesrange">
+						<span>0</span>
+						<span>-to-</span>
+						<span>1000</span>
+					</div>
+		      		 <p:slider id="priceSlider" for="priceStartUI,priceEndUI"  style="width: 242px" minValue="0" maxValue="1000" range="true" displayTemplate="Between {min} and {max}" >
+		      		 	<p:ajax event="slideEnd" process="@form" listener="#{searchController.onLeftNavClick}" update="@form :clinicResultForm :growl" />
+		      		 </p:slider>
+		             <h:inputHidden  id="priceStartUI" value="#{searchController.leftNavModel.priceStart}" />
+		   			 <h:inputHidden id="priceEndUI" value="#{searchController.leftNavModel.priceEnd}" />
+              </div>
+              <div class="filterblock">
+              	<h3>Distance Range (KM)</h3>
+              		<div class="lablesrange">
+						<span>0</span>
+						<span>-to-</span>
+						<span>1000</span>
+					</div>
+                     <p:slider id="distSlider" for="distStartUI,distEndUI"  style="width: 242px" minValue="0" maxValue="500" range="true" displayTemplate="Between {min} and {max}" >
+                     	<p:ajax process="@form"  listener="#{searchController.onLeftNavClick}" update="@form :clinicResultForm :growl" />
+                     </p:slider>
+		             <h:inputHidden id="distStartUI" value="#{searchController.leftNavModel.distanceStart}" />
+		   			 <h:inputHidden id="distEndUI" value="#{searchController.leftNavModel.distanceEnd}" />
+              </div>
+              <div class="filterblock">
+              	<h3>Star Rating</h3>
+                  <div class="starrating">
+                  	<p:dataGrid value="#{searchController.leftNavModel.starRatingList}"	var="starRating" columns="1" rows="6">
+	                	<div class="ratingrow">
+	                          <p:selectBooleanCheckbox value="#{starRating.selected}">
+								<p:ajax  listener="#{searchController.onLeftNavClick}" update="@([id$=clinicResultPanel]) :growl"/>
+							  </p:selectBooleanCheckbox>
+	                          <div class="ratesymbol">
+	                          	<h:graphicImage value="#{starRating.iconPath}"  rendered="#{starRating.iconPath ne ''}"/>
+	                          	<h:outputLabel value="Unrated Clinics" rendered="#{starRating.iconPath eq ''}" />
+	                          </div>
+	                          <a href="#" class="noclinic">#{starRating.clinicCount} Clinics</a>
+                    	</div>
+                    </p:dataGrid>
+                 </div> 
+              	</div>
+             	<div class="filterblock">
+              	<h3>Hospital Amenities</h3>
+               <div class="accordion" id="accordion" data-collapse-type="manual">
+                 	  <ui:repeat var="hospAmenities" value="#{searchController.leftNavModel.hosAmenitiesList}">
+                  		 
+               		       <div class="accordion-group">
+                     		   <div class="accordion-heading">
+                          			<a class="accordion-toggle collapsed in" data-toggle="collapse" data-target="##{hospAmenities.amenitiesUIId}" href="javascript:void(0);">
+                          				  #{hospAmenities.heading}
+                         			</a>
+                        	   </div>
+                        	    <div id="#{hospAmenities.amenitiesUIId}" class="collapse">
+		                        	<p:dataGrid columns="1" var="doc" value="#{hospAmenities.documnetList}"> 
+			                          <div class="accordion-inner">
+			                          	<div class="filterselection">
+		                                	<p:selectBooleanCheckbox value="#{doc.status}"  >
+												<p:ajax listener="#{searchController.onLeftNavClick}" update="@([id$=clinicResultPanel]) :growl"/>
+											</p:selectBooleanCheckbox>
+											<div class="amenitiesicon">
+												<h:graphicImage value="#{doc.iconPath}"  rendered="#{doc.iconPath ne ''}"/>
+											</div>
+			                                <span>#{doc.name}</span>
+				                          </div>
+				                        </div> 
+		                        	</p:dataGrid>
+		                        </div>
+                     	  </div>  
+                           </ui:repeat>	    
+              	 		</div>
+              	 		</div> 
+         	 </section> 
+		</h:form>
+		</p:panel>
+	<!-- LeftNav end -->
+	</ui:composition>
+</h:body>
+</html>

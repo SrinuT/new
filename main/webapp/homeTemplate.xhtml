@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    #{searchController.init()}
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-slider.css" rel="stylesheet" />
+        <link href="fonts/stylesheet.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/flexslider.css" />
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <title><ui:insert name="title">::ihealthMantra | Search Page ::</ui:insert></title>
+
+
+        <script src="js/modernizr.js"></script>
+        <script src="js/jquery.sidr.min.js"></script>
+        <script src="js/jquery.flexslider.js"></script>
+        <script>
+            $(document).ready(function() {
+
+                $('.img').click(function() {
+                    var goto = parseInt($(this).find('img').attr('val'));
+
+                    //myFlexSlider.flexslider(goto);
+
+                    $(".secondGallery").show();
+                    $(".middleGallery").hide();
+                    console.log(goto);
+                    myFlexSlider.flexslider(goto);
+                    //myFlexSlider.flexslider('next');
+
+                });
+                $("#closeSecond").click(function() {
+                    $(".secondGallery").hide();
+                    $(".middleGallery").show();
+                })
+                var myFlexSlider = $('.bxslider').flexslider({
+                    slidershowSpeed: 0,
+                    animationSpeed: 0
+                });
+                $('#simple-menu').sidr();
+                if (!Modernizr.touch) {
+                    $(".img").addClass("hover");
+                }
+                if (Modernizr.touch) {
+                    // show the close overlay button
+                    $(".close-overlay").removeClass("hidden");
+                    $(".img").addClass("hover");
+                    // handle the adding of hover class when clicked
+                    $(".img").click(function(e) {
+                        if (!$(this).hasClass("hover")) {
+                            $(this).removeClass("hover");
+                        }
+                    });
+                    // handle the closing of the overlay
+                    $(".close-overlay").click(function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if ($(this).closest(".img").hasClass("hover")) {
+                            $(this).closest(".img").addClass("hover");
+                        }
+                    });
+                } else {
+                    // handle the mouseenter functionality
+                    $(".img").mouseenter(function() {
+                        $(this).removeClass("hover");
+                    })
+                        // handle the mouseleave functionality
+                            .mouseleave(function() {
+                                $(this).addClass("hover");
+                            });
+                }
+				$(".logindpm").click(function(event){
+					event.stopPropagation();
+				});
+            });
+        </script>
+
+    </h:head>
+    <h:body styleClass="homebg">
+        <ui:insert name="content" />
+
+    </h:body>
+</h:html>

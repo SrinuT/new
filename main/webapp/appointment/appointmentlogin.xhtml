@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<p:panel id="appointmentLoginPanel"
+		rendered="#{appController.showAppointmentLogin and empty sessionBean.personDto}">
+		<div class="container app_page">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="app_login">
+						<div class="innerlogin">
+							<div class="app_ldesc">
+								<h2>login</h2>
+								<p>If you provide a cell phone number, you agree that Quest
+									Diagnostics may contact you at this number, or another number
+									that you later convert to a cell phone number, to service your
+									account.</p>
+							</div>
+
+							<div class="app_lform ">
+                                <form id="loginForm" name="loginForm" action="#{facesContext.externalContext.requestContextPath}/login/process" method="post">
+                                  <h:messages style="font-size: 15px; color: green;" />  
+<h:outputText value="${SPRING_SECURITY_LAST_EXCEPTION.message}" style="color: red; margin-left: 83px; margin-top: 15px;" rendered="${not empty param.login_error}" />
+                                    <br />
+                                    <input type="text" placeholder="Email" name="j_username" />
+                                    <input type="password" placeholder="Password" name="j_password" />
+                                    <div class="logcheck">
+                                        <input type="checkbox" />
+                                        <span>Remember me</span>
+                                    </div>
+                                    <div class="frgpsw">
+										<h:link value="Forgot Password?" outcome="/pages/login/forgotPassword.xhtml"/>                                    
+									</div>
+                                    <input type="button" value="Login" onclick="document.getElementById('loginForm').submit();" />
+								<div class="lgo_reg">
+									<span>OR </span>
+                                    <h:link value="Click here to Register" outcome="/pages/login/login.xhtml"/>
+								</div>
+                                </form>
+							</div>
+
+							<div class="emailapp">
+								<h3>OR Sign in with Email</h3>
+							</div>
+							<div class="loginfg">
+								<a class="lgwithgoogle" href="#"> <img
+									src="../images/gplus_icon.png" alt="" title="" /> <span>Log
+										in with google</span>
+								</a> <a class="lgwithfb" href="#"> <img
+									src="../images/fb_icon.png" alt="" title="" /> <span>Log
+										in with Facebook</span>
+								</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+                <h:form id="panelsFormApp" prependId="false">
+				<div class="col-md-6">
+					<div class="innerguest">
+						<div class="app_guestuser">
+							<div class="app_ldesc">
+								<h2>Guest users</h2>
+							</div>
+							<div class="app_lform">
+								<table>
+									<tr>
+										<td style="width: 50px"><h:message
+												style="color:red;margin:8px;" for="firstName" /></td>
+										<td style="width: 50px"><h:message
+												style="color:red;margin:8px;" for="lastName" /></td>
+									</tr>
+								</table>
+								<f:event listener="#{appController.validateEmail}" type="postValidate" />
+								<p:inputText validatorMessage="First name is wrong"
+									requiredMessage="Please enter first name." styleClass="wdth50"
+									id="firstName" value="#{appController.guestLogin.firstName}"
+									placeholder="First Name" required="true">
+									<f:validateRegex pattern="[a-zA-Z]+" />
+									<p:watermark for="firstName" value="FirstName"></p:watermark>
+								</p:inputText>
+								<p:inputText validatorMessage="Last name is wrong"
+									requiredMessage="Please enter last name"
+									styleClass="wdth50 fltr" id="lastName"
+									value="#{appController.guestLogin.lastName}"
+									placeholder="Last Name" required="true">
+									<f:validateRegex pattern="[a-zA-Z]+" />
+									<p:watermark for="lastName" value="LastName"></p:watermark>
+								</p:inputText>
+                                <h:message for="pContactNo" style="color:red;margin:8px;" />
+								<p:inputText id="pContactNo"
+									validatorMessage="Primary Contact No is wrong, format example xx-xxxxxxxxxx"
+									value="#{appController.guestLogin.primaryNumber}"
+									required="true"
+									requiredMessage="Please enter Primary Contact No"
+									placeholder="Primary Contact No">
+									<f:validateRegex pattern="[\d]{2}-[\d]{10}" />
+									<p:watermark for="pContactNo" value="Primary Contact No"></p:watermark>
+								</p:inputText>
+
+								<div class="fgtpasw">
+									<a href="#"><img src="../images/info_icon.png" alt=""
+										title="" /></a>
+									<p:selectBooleanCheckbox
+										value="#{appController.guestLogin.appointmentReminder}"></p:selectBooleanCheckbox>
+									<span>Call to remind me of this appointment </span>
+								</div>
+								<div>
+									<h:message style="color:red;margin:8px;" for="dob" />
+								</div>
+								<p:calendar id="dob" value="#{appController.guestLogin.dob}"
+									pattern="MM/dd/yyyy" placeholder="Date Of Birth"
+									required="true">
+									<p:watermark for="dob" value="Date Of Birth"></p:watermark>
+								</p:calendar>
+
+								<table>
+									<tr>
+										<td style="width: 50px"><h:message
+												style="color:red;margin:8px;" for="email" /></td>
+										<td style="width: 50px"><h:message
+												style="color:red;margin:8px;" for="confirmEmail" /></td>
+									</tr>
+                                             <tr>
+										<td style="width: 50px"><h:message
+												style="color:red;margin:8px;" for="email" /></td>
+										<td style="width: 50px"><h:message
+												style="color:red;margin:8px;" for="confirmEmail" /></td>
+									</tr>
+								</table>
+
+								<p:inputText requiredMessage="Please enter email."
+									validatorMessage="Email is wrong" styleClass="wdth50"
+									id="email" value="#{appController.guestLogin.email}"
+									placeholder="Email" required="true">
+									<p:watermark for="email" value="Email"></p:watermark>
+									<f:validateRegex
+										pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+								</p:inputText>
+								<p:inputText requiredMessage="Please enter confirm email"
+									validatorMessage="Confirm email is wrong"
+									styleClass="wdth50 fltr" id="confirmEmail"
+									placeholder="Confirm Email"
+									value="#{appController.guestLogin.confirmEmail}"
+									required="true">
+									<p:watermark for="confirmEmail" value="Confirm Email"></p:watermark>
+									<f:validateRegex
+										pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+								</p:inputText>
+								<div class="fgtpasw">
+									<p:selectBooleanCheckbox
+										value="#{appController.guestLogin.onlineSurveyGuest}"></p:selectBooleanCheckbox>
+									<span>Send me an online survey following my appointment.
+									</span>
+								</div>
+								<div class="fgtpasw">
+									<p:selectBooleanCheckbox
+										value="#{appController.guestLogin.specialOfferQuestDig}" />
+									<span class="speoffer">Please email me with special
+										offers and health information from Quest Diagnostics.</span>
+								</div>
+								<div>
+									<p:commandLink id="mkAppCmdLnk" value="Make Appointment"
+                                            styleClass="logbtn" actionListener="#{appController.onMakeAppointmentClick}"
+                                            process="@form"
+                                            update=":centerPanel">
+									</p:commandLink>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                </h:form>
+			</div>
+		</div>
+	</p:panel>
+</h:body>
+</html>

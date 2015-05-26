@@ -1,0 +1,33 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+	
+	<http auto-config="true">
+			
+		<session-management>
+			<concurrency-control max-sessions="100" error-if-maximum-exceeded="true" expired-url="/pages/login/login.xhtml" />
+		</session-management>
+		
+		
+		<form-login login-page="/pages/login/login.xhtml"
+			authentication-failure-url="/pages/login/login.xhtml?login_error=1"
+			default-target-url="/appointmentguestconf.xhtml"
+			login-processing-url="/login/process"
+			always-use-default-target="true"/>
+		
+		<logout logout-url="/logout/process" logout-success-url="/"
+				invalidate-session="true"  />
+		
+		<access-denied-handler error-page="/pages/login/login.xhtml"/>
+	</http>
+	
+	<authentication-manager erase-credentials="false">
+		<authentication-provider ref="authenticationProvider"/>
+  	</authentication-manager>
+	
+	<beans:bean id="authenticationProvider" class="com.ihm.security.AuthenticationProviderImpl" />
+
+</beans:beans>

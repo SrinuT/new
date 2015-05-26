@@ -1,0 +1,1699 @@
+
+::-moz-selection { background: #252525; color: #ffffff; text-shadow: none; }
+::selection { background: #252525; color: #ffffff; text-shadow: none; }
+:focus { outline-color: transparent!important; outline-style: none!important; }
+
+
+body {
+	 font-family: 'latobold';
+	 font-size:14px;
+	 font-weight:normal;
+}
+
+a,p,li,ul,h1,h2,h3,h4
+{
+	margin:0;
+	padding:0;
+}
+a:hover, a:focus
+{
+	text-decoration:none;
+}
+li{list-style: none;}
+
+a {
+  color:#349acf;
+  text-decoration:none;
+  background: transparent;
+}
+
+a:hover {
+  color:#00537e;
+  text-decoration:none;
+}
+
+label {
+	color:#646464;
+	font-size:14px;
+	font-weight:500;
+	text-transform:uppercase;
+}
+
+.anim {
+	 -webkit-transition: all .2s ease-in-out;
+	 -moz-transition: all .2s ease-in-out;
+	 -ms-transition: all .2s ease-in-out;
+	 transition: all .2s ease-in-out;
+}
+
+/*********** bootstrap changes start*************/
+
+.navbar-default {
+    background-color: #272727;
+    border:none;
+}
+.navbar {
+	border-radius:0;
+	margin:0;
+}
+.navbar-default .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-nav > li > a {
+    padding:7px 25px;
+	font-size:16px; 
+	margin:0 5px;
+	border: transparent 1px solid;
+	border-radius:5px;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: transparent;
+    color: #fff;
+	border: #007aba 1px solid;
+}
+.navbar-nav {
+	margin:12px 0;
+}
+
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #007aba;
+    color: #fff;
+}
+
+.navbar-toggle {
+	margin:15px 15px 12px 0 ;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #333;
+}
+.subblckbg .navbar-right {
+	margin: 0 ;
+}
+.subblckbg .tab-content {
+	background:#349acf url(../images/whitecornerbg2.png) no-repeat;
+	min-height:106px;
+}
+.subblckbg .nav-tabs {
+    border:none;
+}
+.subblckbg .nav-tabs > li > a { 
+    margin-right: 0px;
+	margin-left: 3px;
+	padding:14px 50px;
+}
+.subblckbg .nav-tabs > li.active > a, .subblckbg .nav-tabs > li.active > a:hover, .subblckbg .nav-tabs > li.active > a:focus { 
+    background-color:#349acf;
+    border:none;
+    color: #fff;
+    cursor: default;
+}
+
+.moredtails .tab-pane {
+	padding:10px 0;
+}
+
+.subblckbg .nav-tabs > li > a {
+    margin-left: 3px;
+    margin-right: 0;
+    padding: 14px 50px;
+	border-radius:  0;
+	font-size:18px;
+	border:none;
+	color:#888888; 
+	background-color:#fff;
+}
+.progress {   
+    height: 14px;
+    margin: 3px 0 0 0;
+    overflow: hidden;
+	background: none repeat scroll 0 0 #349acf;
+    border: 1px solid #006fa9;
+    border-radius: 8px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4) inset;
+}
+.progress-bar {
+    
+    color: #fff;
+    float: left;
+    font-size: 12px;
+    height: 100%;
+    line-height: 20px;
+    text-align: center;
+    transition: width 0.6s ease 0s;
+    width: 0;
+	
+	background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
+    background-repeat: repeat-x;
+    border-radius: 8px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset; 
+}
+
+
+.ratingrow > input[type="radio"], input[type="checkbox"] {
+	margin:5px 0 0 0 ;
+}
+
+/*********** bootstrap changes  end*************/
+
+
+/*********** Header Start *************/
+
+.topmenubar {
+	
+}
+
+.topleft{
+	margin:20px 0 0 15px;
+}
+
+.topleft a{
+	color:#fff;
+	display:inline-block;
+	font-size:16px; 
+}
+
+.topleft a img{
+	margin:0 10px 0 0
+}
+
+.logo {
+	width:35%;
+	height:87px;
+	padding:12px 0 0 10px;
+	float:left;
+}
+.logo a {
+	display:inline-block;
+}
+.subheader {
+	position:relative;
+}
+.
+
+.subheader:before {
+	background:#fff;
+	position:absolute;
+	width:50%;
+	display:block;
+	left:0;
+	height:100%;
+	z-index:0;
+	content:"";
+	top:0;
+}
+.subheader:after {
+	background:#3f3f3f;
+	position:absolute;
+	width:50%;
+	display:block;
+	right:0;
+	height:87px;
+	z-index:0;
+	content:"";
+	top:0;
+}
+
+
+
+.subblckbg {
+	background:#3f3f3f url(../images/whitecornerbg.png) no-repeat;;
+	position:relative;
+	display:block;
+	z-index:100;
+}
+.mytabbox {
+	background:#49a4d4;
+	position:relative;
+	height:106px;
+	z-index:10;
+}
+.mysearchtabs {
+	position: absolute;
+    right: 0;
+    top: -54px;
+    z-index: 100; 
+}
+ 
+.mytabbox:after {
+	background:#349acf;
+	position:absolute;
+	width:50%;
+	display:block;
+	right:0;
+	height:100%;
+	z-index:0;
+	content:"";
+	top:0;
+	
+}
+.searchbar {
+	width:100%;
+	display:table;
+	position:relative;
+	z-index:1000;
+}
+.fields_s {
+	display:table-cell;
+}
+.searchbar form{
+	width:100%;
+	display:table-row;
+}
+.fields_s select, .fields_s input[type="text"]{
+	width:97%;
+	border:none; 
+	border-radius:5px;
+	color:#6b6b6b;
+	font-size:15px;
+	padding:7px 9px;
+	font-family: 'latoregular';
+}
+
+.searchbtn, .adsearchbtnlink {
+	text-align:right;
+}
+.searchbtn input[type="submit"]{
+	background:url(../images/searchicon.png) no-repeat #00537e 10px ;
+	padding:7px 20px 7px 40px;
+	border:none;
+	color:#fff;
+	font-size:16px;
+	text-transform:uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.17);
+	border-radius:5px; 
+}
+
+.adsearchbtnlink a{
+	background:#fa9034;
+	padding:9px 20px;
+	border:none;
+	color:#fff;
+	font-size:16px;
+	text-transform:uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.17);
+	border-radius:5px;
+	white-space:nowrap;
+	margin:0 5px ;
+}
+.subblckbg .tab-content {
+	padding:35px 0 0 ;
+}
+.selebx {
+	width:16%;
+}
+
+.myacc {
+	float:right;
+	
+}
+.myacc > a{
+	color:#fff;
+	background:#349acf;
+	padding:0px 0px 0px 20px;
+	display:inline-block;
+	line-height:36px;
+	font-size:15px;
+	text-transform:uppercase;
+	position:relative;
+	z-index:10;
+	margin:23px 0 0;
+}
+.myacclink {}
+.myacc > a span{
+	float:right;
+	color:#fff;
+	padding: 0 15px;
+	margin:0 0 0 20px;
+	font-size:18px;
+	background:#fa9034;
+	border-left:1px solid #3f3f3f;
+}
+.myacc > a:hover, .myacc > a:focus{ 
+	background:#272727; 
+	
+}
+ 
+
+.healthclinics{
+    width: 312px;
+    margin: 0 auto;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+	background:#fff;
+	position:absolute;
+	right:0; 
+}
+.clinictitle{
+    background: #272727;
+    padding: 10px 20px;
+}
+.clinictitle h2{
+    color:#fff;
+    font-size: 18px;
+	text-transform: uppercase;
+}
+.cliniccharges{
+    padding: 17px 16px 0 17px;
+    overflow: auto;
+}
+.clinicview{}
+.clinicview h3{
+    font-size:14px;
+    color:#349acf;
+}
+.clinicview img {
+    float: right;
+}
+.chargeslist{
+    margin: 10px 0;
+    display: inline-block;
+    overflow: hidden;
+    border-radius:5px;
+}
+.clinicrs, .clinickm{
+    background-color:#349acf ;
+    font-size:14px;
+    color:#fff;
+    float: left;
+    margin-right:2px;
+    padding: 6px 11px 5px;
+}
+.clinickm{
+    background-color:#fa9034 ; 
+    margin-right:0px;
+}
+.comparebtn{
+    border-top: 1px solid #e1e1e1;
+    text-align: center;
+}
+.comparebtn input[type="Button"]{
+    background-color:#349acf;
+    color:#fff;
+    font-size: 14px;
+    border: none;
+    padding: 10px 0;
+    width: 90%;
+    margin: 10px 0;
+	text-transform:uppercase;
+}
+
+/*********** Header end *************/
+
+
+/*********** Sidebar Start *************/
+
+
+.midpart {
+	overflow:auto;
+	background:#efefef;
+	padding:0 0 40px;
+}
+
+aside {
+	width:300px;
+	float:left;
+	margin:4px 4px 0  0;
+}
+aside section {
+	margin:0 0 4px 0;
+	background:#fff;
+	overflow:hidden;
+}
+.mapsection {
+	position:relative;
+}
+.mapsection a{
+	vertical-align:middle;
+}
+.mapsection a span{
+	color: #00537e;
+    display: block;
+    font-size: 20px;
+    padding: 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.mapicon {
+	background:url(../images/mapicon.png) no-repeat 25px center #00537e;
+	height:60px;
+	width:64px; 
+	display:inline-block;
+	float:left;
+	position:relative;
+} 
+.mapicon:after {
+	width: 0; 
+	height: 0; 
+	border-top: 0px solid transparent;
+	border-bottom: 60px solid transparent; 
+	content:"";
+	position:absolute;
+	right:-32px;
+	border-left:32px solid #00537e; 
+} 
+
+.filtersection {
+	
+}
+.titlesection { 
+
+}
+.lablesrange {
+	width:100%; 
+	margin:10px 0 0;
+	overflow:auto;
+}
+.lablesrange span {
+	width:33.33%;
+	display:block;
+	float:left;
+	text-align:center;
+}
+.lablesrange span:first-child {	text-align:left; }
+.lablesrange span:last-child {	text-align:right; }
+
+.titleside {
+	background:url(../images/filtertitlebg.png) no-repeat #717171;
+	border-left:#424242 solid 4px;
+	padding:14px 0 14px 20px;
+	color:#fff;
+	font-size:20px;
+	line-height:30px;
+	text-transform: uppercase;
+}
+.filterblock {
+	border-bottom:1px solid #efefef;
+	padding:20px;
+}
+.filterblock h3{
+	font-size:16px;
+	color:#5a5a5a;
+	text-transform:uppercase; 
+}
+.starrating {
+	padding:20px 0 0;
+}
+.ratingrow{
+	margin:5px 0;
+	display:table;
+	width:100%;
+}
+.ratingrow img{
+	margin: 0 0 0 8px ; 
+} 
+.noclinic {
+	text-align:right;
+	display:table-row;
+} 
+.ratingrow > *{
+	display:table-cell;
+	vertical-align:middle;
+	padding:3px 0;
+	
+}
+.ratingrow > a{
+	color:#5a5a5a;
+	font-family: 'latoregular';
+}
+.accordion {
+	margin:20px 0;
+}
+.accordion-heading {
+	border-bottom:1px solid #cecece;
+	font-size:15px;
+}
+
+.accordion-heading a.accordion-toggle.collapsed{
+	background: url(../images/plusicon.png) no-repeat right 10px;
+	display:block;
+	padding:5px 0;
+	margin:5px 0;
+}
+.accordion-heading a {
+	background: url(../images/minicon.png) no-repeat right 10px;
+	display:block;
+	padding:5px 0;
+	margin:5px 0;
+}
+.accordion-inner {
+	padding:5px 10px;
+}
+
+.filterselection {
+	margin:8px 0;
+}
+
+.filterselection > *{
+	display:inline-block;
+	vertical-align:middle; 
+}
+.filterselection > img{
+	margin:0 8px 0 0px;
+}
+.filterselection > input[type="checkbox" ]{
+	margin:0 8px 0 0px;
+}
+
+
+.filterselection > span{
+	margin:0 10px 0 0 ;
+	display:inline-block;
+	color:#5a5a5a;
+	font-family: 'latoregular';
+	
+}
+
+
+
+
+
+/*********** Sidebar end *************/
+
+
+
+/*********** Mid Searchpage Start *************/
+
+section.mainsection {
+	margin:0 0 0 304px;
+}
+
+.toptitlesection {
+	background:#fff;
+	padding:26px;
+	margin: 0 0 4px 0;
+}
+.pagetitle {
+	color:#666666;
+	font-size:27px;
+	line-height:25px;
+	text-transform:uppercase;
+}
+.pagetitle span {
+	font-size:13px;
+	color:#555555;
+	display:block;
+}
+.sortingsection {
+	float:right;
+}
+.sortingsection select {
+	border:1px solid #d4d4d4;  
+	color:#6b6b6b;
+	font-size:15px;
+	padding:7px 10px;
+	margin:0 0 0 5px; 
+	font-family: 'latoregular';
+} 
+.listclinic {
+	background:#fff;
+	overflow:auto; 
+	border:2px solid #cdcdcd;
+	position: relative;
+    z-index: 1;
+	width:100%; 
+	display:inline-block;
+}
+.listclinic:hover {
+	border:2px solid #5bb6e6;  
+	border-radius:10px; 
+	margin-left: -2%;
+    margin-right: -2%;
+    padding-left:  2%;
+    padding-right: 2%;
+	width:104%; 
+	box-shadow:0 0 10px rgba(0,0,0,0.2);
+} 
+
+
+.clinicleft {
+	width:60%;
+	float:left; 
+}
+.clinicright {
+	width:40%;
+	float:left;
+	 padding: 15px 0 0;
+}
+
+.clinicbasic {
+	padding:20px;
+}
+a.clinicname {
+	color:#349acf;
+	font-size:24px;
+} 
+.ratingline {
+	vertical-align:middle;
+}
+.ratingline .stars{
+	margin:0 15px 0 10px;
+}
+.ratingstatus {
+	border-left:2px solid #9f9f9f;
+	font-size:14px;
+	padding: 0 10px 2px 10px;
+	margin:2px 0;
+	display:inline-block;
+	line-height:18px;
+}
+.ratingbyuser {
+	border-left:2px solid #9f9f9f;
+	font-size:14px;
+	padding: 0 10px 2px 10px;
+	margin:2px 0; 
+	line-height:23px;
+	color:#3a3a3a;
+	display: inline-block;
+	font-family: 'latoregular'; 
+}
+.ratingbyuser a {
+	color:#00537e;
+}
+
+.greencolor { color:#0b7800 }
+.graycolor { color:#5a5a5a }
+.redcolor { color:#da0000 }
+
+
+
+.clinicpic {
+	height:202px;
+	overflow:hidden;
+	width: 97%;
+}
+.clinicpic img {
+	width:100%;
+}
+.clnicadress {
+	font-size:14px;
+	margin: 10px 0; 
+	line-height:18px;
+	color:#373737;
+	font-family: 'latoregular';
+}
+.facilitytopicons {
+	margin:15px 0 5px;
+}
+.facilitytopicons li{
+	display:inline-block;
+	margin:0 3px;
+}
+
+
+.appointmentbox {
+	background:#f8f8f8;
+	border:1px solid #e4e4e4;
+	font-family: 'latoregular';
+	padding:10px 15px;
+	margin:10px 0 0 0;
+	border-radius:10px;
+}
+.appointmentbox h5{
+	font-size:16px;
+	color:#565656;
+}
+.appointmentbox h5 span{
+	font-size:13px;
+	color:#0086cb; 
+}
+.timeschedules {
+	margin:15px 0;
+}
+.timeschedules a{
+	background: none repeat scroll 0 0 #fff;
+    border: 1px solid #dfdfdf;
+    border-radius: 6px;
+    color: #4b4b4b;
+    display: inline-block;
+    font-family: "latobold";
+    font-size: 12px;
+    margin: 2px 0;
+    padding: 5px;
+    text-transform: uppercase;
+}
+.timeschedules a.active{
+	background: none repeat scroll 0 0 #349acf; 
+	color:#fff; 
+}
+.timeschedulesbutn {
+	
+}
+.timeschedulesbutn a i{
+	display:inline-block;
+	background:url(../images/appointmenticon.png) no-repeat center center;
+	width:18px;
+	height:21px;
+	float:left;
+	margin:0 10px 0 0;
+}
+.timeschedulesbutn a{
+	background:#00537e;
+	font-family: 'latobold';
+	color:#fff;
+	padding:5px 8px;
+	border-radius:5px;
+	display:inline-block;
+	border: none;
+	vertical-align:middle;
+}
+
+.botpicpart {
+	margin:10px 0;
+}
+
+.price {
+	color:#fff;
+	font-size:30px;
+	background:#349acf;
+	display:inline-block;
+	padding:5px 0 0;
+	text-align:center;
+	float:left;
+	width: 45%;
+}
+.price span{
+	display:block;
+	font-size:16px;
+	background:#00537e;
+	font-family: 'latoregular';
+	padding:3px 0px;
+}
+.price sup{
+	 
+	font-size:19px;  
+	font-family: 'latoregular';
+}
+.icncompare {
+	
+}
+.distanceblock {
+	float:left;
+	font-size:28px;
+	color:#fa9034;
+	text-align: center;
+    width: 50%;
+}
+.distanceblock a i{
+	display:inline-block;
+	background:url(../images/compareicon.png) no-repeat center center;
+	width:15px;
+	height:18px; 
+	float:left;
+	margin: 0 10px 0 0;	
+}
+.distanceblock a {
+	background: none repeat scroll 0 0 #727272;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 20px;
+    text-align: center;
+    text-transform: uppercase; 
+}
+.distanceblock > span{
+	display:block;
+	height:35px;
+	
+}
+.distanceblock > span span{
+	font-size:12px;
+	color:#00537e;
+	text-transform:uppercase;
+	font-family: 'latoregular';
+}
+.linksmore {
+	padding:15px 0 10px;
+}
+.linksmore a{
+	font-size:15px;
+	color:#4f4f4f;
+	float:left;
+	padding:0 8px;
+	font-family: 'latoregular';
+	border-right:1px solid #9f9f9f;
+}
+.linksmore a:last-child{
+	border-right:none;
+}
+.moredtails {
+	padding:0px 20px 0 20px;
+	clear:both;
+	position:relative;
+}
+
+
+
+.moredtails .tab-content{ 
+    overflow: auto;
+}
+
+.imagesdetai{
+    float: left;
+    width:30%;
+    padding: 0 8px 0 0;
+}
+.facilities{
+    width: 70%;
+    overflow: auto;
+    border-left: 1px solid #d2d2d2;
+    padding: 5px 0 10px 10px;
+}
+.gallreyimg {
+    margin: 0 0 4px;
+    overflow: auto;
+}
+.gallreyimg li{
+    float: left;
+    margin: 0 2% 2% 0;
+    width: 31%;
+}
+.gallreyimg li img{
+    width: 100%;
+    height: auto;
+}
+.imagesdetai a{
+    color:#5a5a5a;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 5px 0 0;
+    display: inline-block;
+}
+.ourfacilities {
+    margin: 5px 0;
+}
+.facititle{
+    margin: 0 0 8px;
+}
+.facititle h3,.desctitle h3{
+    color:#00537e;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.faciinfo{
+    border-top:1px solid #e7e7e7;
+    padding: 5px 0;
+    overflow: hidden;
+}
+.faciinfo:last-child{
+    border-bottom:1px solid #e7e7e7;
+}
+.faciinfo span{
+    color:#2a2a2a;
+    font-size:16px;
+    font-family: 'latoregular';
+    float: left;
+}
+.faciinfo ul{
+    float: right;
+}
+.faciinfo li{
+   float: left; 
+   font-size: 14px;
+   color:#5a5a5a;
+   margin: 0 0 0 10px;
+}
+
+.smallimg{
+        width: 15px;
+        height: auto;
+        margin: 0 4px 1px 2px;
+}
+.detaildesc{
+    margin: 15px 0 0;
+}
+.desctitle{    
+}
+.detaildesc p{
+    color:#282828;
+    font-size: 14px;
+    font-family: 'latoregular';
+    margin: 20px 0;
+}
+.journeydesc{
+    width: 50%;
+    float: left;
+}
+.journeydesc img,.awardedesc img{float: left;margin: 5px 18px 0 0;}
+.journeydesc p,.awardedesc p{
+    color:#525252;
+    font-size: 14px;
+    font-family: 'latoregular';
+    margin: 0;
+}
+.awardedesc{
+    width: 50%;
+    overflow: auto;
+}
+
+.facilitiesrate {
+	
+}
+.titletables {
+	background:#349acf;
+	text-transform:uppercase;
+	color:#fff;
+}
+.facilitiesrate ul{
+	display:table;
+	width:100%;
+}
+.facilitiesrate li {
+	display:table-row;
+}
+
+.facilitiesrate li > div{
+	border-bottom:1px solid #d7d7d7;
+}
+.facilitiesrate li > div:last-child{
+	text-align:right;
+}
+.facilitiesrate li.titletables > div{
+	border-bottom:1px solid #00537e;
+	font-family: 'latobold';
+}
+.facilitiesrate li > div{
+	display:table-cell;
+	padding:6px 10px; 
+	font-family: 'latoregular';
+}
+.linkformore a{
+	color:#00537e;
+	font-size:14px;
+	font-weight:500;
+	text-transform:uppercase;
+	display:inline-block;
+	font-family: 'latobold';
+	margin:20px 10px;
+}
+
+
+
+.ratingleft {
+	width:37%;
+	float:left;
+	overflow:auto;
+}
+.ratingright { 
+}
+
+.reviewtab {
+	padding:20px 0;
+}
+
+.reviewgraphic {
+	background:url(../images/ratingbg.png) no-repeat center center;
+	display: inline-block;
+    font-size: 52px;
+    height: 144px;
+    line-height: 144px;
+    text-align: center;
+    width: 144px;
+	color:#fff;
+	float:left; 
+	margin:0 20px 0 0;
+}
+.reviewtextd {
+	border-right:1px solid #d7d7d7;
+}
+.reviewtextd h2{
+	text-transform:uppercase;
+	color:#00537e;
+	font-size:18px;
+	padding:20px 0 0;
+}
+.reviewtextd p{
+	text-transform:uppercase;
+	color:#3a3a3a;
+	font-size:14px;
+	margin:10px 0 ;
+	font-family: 'latoregular';
+}
+.reviewtextd p a{  
+	color:#00537e;
+	font-size:15px;
+	display:inline-block;
+} 
+.ratinginall {
+	
+}
+.ratinginall ul{
+	display:table;
+	width:62%;
+}
+.ratinginall li {
+	display:table-row;
+} 
+.ratinginall li > div:last-child{
+	text-align:right;
+} 
+.ratinginall li > div:nth-child(2){
+	width:16%;
+} 
+.ratinginall li > div{
+	display:table-cell;
+	padding:6px 10px; 
+	font-family: 'latoregular';
+}
+.ratesymbol  {
+	text-align: center;
+    width: 160px;
+}
+.ratesymbol  img{
+	text-align: center;
+    height: 30px;
+}
+
+.closebtn{
+	background:#fff;
+	float:right;
+	margin:10px;
+	padding:5px;
+	height:16px;
+	width:15px;
+} 
+
+
+
+
+
+/*********** Mid Searchpage end *************/
+
+/*********** footer Start *************/
+footer {
+	background:#e2e2e2;
+	padding:20px 0;
+	font-family: 'latoregular';
+}
+
+.footerleft {
+	color:#414141;
+	margin: 0 0 10px 0;
+}
+.footerleft a:link, .footerleft a:visited{
+	color:#414141;
+	margin:0 5px;
+	
+}
+.footerleft a:hover, .footerleft a:focus{ 
+	color:#349acf; 
+}
+
+
+/*********** footer end *************/
+
+
+/*********** comparepage start *************/
+
+.comparepage{
+    background-color: #efefef;
+    padding: 0 0 55px;
+}
+.comparetitle{
+    background-color: #fff;
+    padding: 27px 0 27px 32px;
+    margin-bottom: 4px;
+}
+.comparetitle h2{
+    font-size:25px;
+    color:#666666;
+    font-weight: normal;
+}
+.selectcategory{
+    float: left;
+    overflow: hidden;
+    width: 22%;
+    text-align: center;
+}
+.overview {
+    margin: 20px 0 0;
+}
+.overview select{
+    font-size: 16px;
+    color: #4b4b4b;
+    font-family: 'latoregular';
+    width: 80%;
+    padding: 8px 5px; 
+    max-width: 100%;
+    border: 1px solid #d4d4d4;
+} 
+.comparebtwtitle{
+    width:78%;
+    overflow: auto
+}
+
+.supertitle ,.averagetitle ,.addclinic{
+    position: relative;
+    background-color: #0075b1;
+    padding: 18px;
+    overflow: auto;
+    width: 33.33%;
+    max-width: 100%;
+    float: left;
+}
+.supertitle h3 ,.averagetitle h3{
+    font-size:19px;
+    color: #fff;
+    font-family: 'latoregular';
+    padding: 0 20px;
+    text-align: center;
+}
+.averagetitle{
+    background-color:#006396;
+}
+.closeimg {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+}
+.addclinic{
+    background-color: #00537e;
+    padding: 22px;
+}
+.addclinicbtn{
+}
+.addclinicbtn input[type=text]{
+    padding: 6px 5px;
+    width: 80%;
+    float: left;
+    border: none;
+    font-size: 15px;
+    border-right: 1px solid #00537e;
+}
+.addclinicbtn input[type=button]{
+    border:none;
+    background-color: #349acf;
+    color: #fff;
+    padding: 6px 13px;
+    font-size: 15px;
+    width: 20%;
+}
+
+.compareparttitle{
+    background-color: #f4f4f4;  
+    overflow: auto;
+}
+.connectclinic{
+    margin-bottom: 8px;
+}
+.clinicsubtitles{
+    text-align: center;
+    background-color: #fff;
+    padding: 17px 0;
+    border-bottom: 2px solid #349acf;
+}
+
+.clinicsubtitles h3{
+    font-size: 18px;
+    color: #4b4b4b;
+    font-weight: normal;
+}
+.cliniclistside{
+    background-color: #349acf;
+    position: relative;
+    width: 100%;
+    display: table;
+}
+.feturetitle{
+     display: table-cell;
+    float: left;
+    min-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    width: 22%;
+    padding: 0 20px;
+}
+.feturetitle h3{
+    font-size: 20px;
+    color: #fff;
+    height: 70px;
+    margin: auto;
+    font-family: 'latoregular';
+    padding: 25px 0 0;
+}
+
+.clinic1{
+    float: right; 
+    width: 78%;
+    background-color: #fff;
+}
+.comparisonpart{
+    float: left; 
+    width: 33.33%;
+    border-right: 1px solid #e4e4e4;
+}
+
+.comparisonpart:last-child{border: none;}
+
+.cliniccontact ,.pricetab ,.comparerating ,.clinicamenitiesicon{
+    text-align: center;
+    margin: 15px 0;
+}
+.appointment{
+    margin-bottom: 18px; 
+}
+.appointment a{
+    font-size: 16px;
+    color: #fff;
+    background-color: #0075b1;
+    border-radius: 5px;
+    border-bottom: 3px solid #e5e5e5;
+    padding: 9px 30px 7px;
+    display: inline-block;
+}
+
+.contactappo{
+    
+}
+.contactappo a span{
+    font-size:18px;
+    color:#464646;
+}
+.contactappo a img{
+    margin-right: 8px;
+}
+.pricetab{
+}
+.pricetab h3{
+    font-size: 22px;
+    color: #fff;
+    background-color: #4a4a4a;
+    border-bottom: 3px solid #e5e5e5;
+    display: inline-block;
+    padding: 10px 27px;
+    border-radius: 5px;
+    margin: 20px 0 6px;
+}
+.comparesubpart{
+    border-bottom: 1px solid #efefef;
+}
+.comparesubpart:last-child{
+    border: none;
+}
+.comparerating{}
+.averageimg{
+    margin: 2px 0 4px;
+}
+.averageimg img{
+    width: auto;
+    height: 40px;
+    max-width: 100%;
+}
+.comparerating span{
+    color: #363636;
+    font-size: 18px;
+}
+
+.clinicamenitiesicon{
+}
+.clinicamenitiesicon ul{
+    width: 65%;
+    margin: 0 auto;
+}
+.clinicamenitiesicon ul li{
+    text-align: left;
+    margin: 4px 0;
+}
+.clinicamenitiesicon li img{
+    margin-right: 10px;
+}
+.clinicamenitiesicon img:last-child{margin: 10px 10px 0 0;}
+
+.clinicamenitiesicon li span{
+    color: #5a5a5a;
+    font-size:14px;
+    font-family: 'latoregular';
+}
+.amenitiesstep2{padding: 23px 0;}
+
+.parkingtab{padding: 6px 0;}
+
+.distance{padding: 10px 0;}
+.distance span{
+    font-size: 22px;
+    text-align: center;
+    color: #007db0;
+}
+
+
+/*********** comparepage end *************/
+
+
+
+
+@media screen and (max-width:1300px) {
+.logo {
+	height: 80px;
+    padding: 10px 0 0 0;
+}
+.logo img {
+	width:92%;
+}
+.myacc{
+	margin-top:20px
+}
+.topleft {
+    margin: 15px 0 0 10px;
+}
+.navbar-nav > li > a {  
+    font-size: 15px; 
+    padding: 4px 22px;
+}	
+.subblckbg .tab-content {
+    padding: 25px 0;
+	 min-height:0;
+}
+.mytabbox { 
+	height:auto; 
+}
+.toptitlesection {
+	padding: 25px;
+}
+.pagetitle { 
+    font-size: 22px; 
+}
+.sortingsection select {
+	padding:5px 10px;
+}
+.mapsection a span {
+    font-size: 18px;
+    padding: 12px 0 2px;
+}
+.myacc {
+    margin-top: 0;
+}
+.mapicon {
+	height: 45px;
+    width: 45px;
+	 background: url("../images/mapicon.png") no-repeat scroll 15px center #00537e;
+}
+.mapicon:after {
+    border-bottom: 45px solid transparent;
+    border-left: 20px solid #00537e;
+    border-top: 0 solid transparent;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: -20px;
+    width: 0;
+}
+.titleside {
+	font-size: 19px;
+    line-height: 30px;
+    padding: 10px 0 10px 20px;
+}
+a.clinicname {
+	font-size:22px;
+}
+
+}
+ @media screen and (max-width:1280px) {   
+    .supertitle h3, .averagetitle h3 {font-size: 17px;}  
+    .comparetitle h2{font-size: 23px;}
+    .comparetitle{padding: 23px 0 23px 32px;}
+    .pricetab h3{font-size: 20px;}
+    .feturetitle h3{font-size:18px;} 
+     .addclinic{padding: 20px;}
+}
+@media screen and (max-width:1198px) {
+.distanceblock a{
+	padding: 5px 10px;
+}
+.distanceblock a i {
+	 margin: 0 5px 0 0;
+}
+}
+@media screen and (max-width:1080px) {
+.faciinfo ul {
+    float: left;
+}
+.gallreyimg li {
+    float: left;
+    margin: 0 2% 2% 0;
+    width: 48%;
+	font-size:0;
+}
+.faciinfo span {
+    display: block;
+    float: none;
+    margin: 0 0 4px;
+}
+.reviewgraphic {
+    border-right: 1px solid #d7d7d7;
+    float: none;
+    width: 100%;
+	margin:0 ;
+}
+a.clinicname {
+	font-size:18px;
+}
+
+}
+
+
+@media screen and (max-width:991px) {
+    
+    .appointment a{font-size: 14px;padding: 9px 20px 7px}
+    .contactappo a span{font-size: 14px;}
+    .pricetab h3{font-size: 18px;}
+    .feturetitle h3{font-size: 18px;}
+    .comparetitle h2{font-size: 20px;}
+    .comparetitle {padding: 18px 0 18px 32px;}
+    .feturetitle h3 {font-size: 16px;}
+    .supertitle h3, .averagetitle h3{padding: 0 10px;}
+}
+
+
+
+
+
+@media screen and (max-width:920px) {
+	.clinicleft, .clinicright {
+    float: none;
+    width: 100%;
+} 
+.botpicpart {
+    margin: 10px auto;
+    width: 90%;
+}
+.clinicright {
+	padding:0;
+}
+.clinicpic {
+	width:100%;
+}
+    
+    .supertitle h3, .averagetitle h3{font-size: 15px;}
+    .addclinicbtn input[type="text"] ,.addclinicbtn input[type="button"]{font-size: 12px;}
+
+}
+@media screen and (max-width:840px) {
+aside {
+	width:250px;
+}
+section.mainsection {
+	margin:0 0 0 254px;
+}
+.selebx {
+    width: 14%;
+}
+    .supertitle h3, .averagetitle h3 {padding: 1px 10px;font-size: 13px;}
+    .addclinicbtn input[type="text"], .addclinicbtn input[type="button"]{font-size: 10px;}
+    .overview {margin: 10px 0 0;}
+}
+
+
+@media screen and (max-width:768px) {
+.text-left, .text-right {
+	text-align:center;
+}
+.pagetitle {
+    font-size: 18px;
+	 margin: 8px 0 0;
+}
+.moredtails {
+    padding: 10px 20px;
+}
+
+    .comparetitle {padding: 13px 0 13px 32px;}
+    .comparetitle h2 {font-size: 18px;}
+    .appointment a{padding: 9px 10px 7px;}
+    .pricetab h3{font-size: 16px;}
+    .comparerating span{font-size: 16px;}
+    .addclinicbtn input[type="text"], .addclinicbtn input[type="button"] {font-size: 10px;}
+    .addclinicbtn input[type="text"]{width: 75%;}
+    .addclinicbtn input[type="button"] {width: 25%;}
+    .addclinic {padding: 19px;}
+    .closeimg > img {height: auto;width: 10px;}
+    .closeimg {top:3px;}
+    .supertitle h3, .averagetitle h3{padding: 0;font-size: 12px;}
+    footer{padding: 10px 0;}
+    .supertitle, .averagetitle, .addclinic{ padding: 18px 5px;}
+    .navbar-toggle {margin: 10px 15px 10px 0;}
+}
+@media screen and (max-width:767px) {
+aside {
+	float:none;
+	width:96%;
+	margin:0 auto;
+}
+.fields_s {
+	display:inline-block;
+}
+section.mainsection {
+	margin:0 auto;
+	width:96%;
+}
+.selebx, .textbx {
+	width:18%;
+	display:inline-block;
+}
+.searchbar form {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+.searchbtn, .adsearchbtnlink {
+    margin: 7px 0 0;
+    text-align: right;
+}
+.subblckbg .tab-content {
+	padding: 15px 0;
+}
+.searchbtn input[type="submit"], .adsearchbtnlink a {
+	font-size:14px;
+	 
+}
+.searchbtn input[type="submit"]{ 
+	padding:7px 20px 7px 40px;
+}
+
+.adsearchbtnlink a {
+	padding:8px 20px ;
+}
+.logo img {
+    width: 100%;
+}
+.myacc > a {
+	font-size:12px;
+}
+
+.aside section {
+	margin:4px 0;
+}
+
+} 
+@media screen and (max-width:640px) {
+
+.faciinfo li { 
+    display: block;
+    float: none; 
+    margin: 0 0 0 10px;
+}
+.logo {
+    height: auto;
+    padding: 10px;
+}
+.logo img {
+    width: 210px;
+}
+    .appointment a {padding: 7px 8px;font-size: 12px;}
+    .appointment{margin-bottom: 10px;}
+    .contactappo a span{font-size: 12px;}
+    .pricetab h3{font-size: 14px;padding: 8px 20px;margin: 10px 0 6px;}
+    .feturetitle h3{font-size:14px;}
+}
+
+@media screen and (max-width:520px) {
+
+.supertitle h3, .averagetitle h3 {font-size: 11px;padding: 1px 0;}
+}
+@media screen and (max-width:480px) {
+
+
+.myacc {
+    margin-top: 15px;
+}
+.gallreyimg li {  
+    width: 98%;
+}
+.nav > li > a {
+	padding:10px;
+}
+a.clinicname {
+    display: block;
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+.selebx, .textbx {
+    display: inline-block;
+    margin: 3px 0;
+    width: 95%;
+}
+     .comparetitle {padding: 10px 0 10px 20px;}
+    .comparetitle h2 {font-size: 16px;}
+    .comparisonpart{float: none;width: 100%;}
+    .clinicamenitiesicon ul{width: 60%;}
+    .comparisonpart{border-bottom: 1px solid #efefef}
+    .feturetitle{padding: 0;}
+    .supertitle, .averagetitle, .addclinic{float: none;padding: 15px;width: 100%;}
+    .overview select{font-size: 13px;}
+    .selectcategory{width: 25%;}
+    .comparebtwtitle{width: 75%;}
+    .feturetitle{width: 25%;}
+    .clinic1{width: 75%;}
+    .cliniccontact, .pricetab, .comparerating, .clinicamenitiesicon {margin: 10px 0;}
+    .clinicsubtitles{padding: 10px 0;}
+    .clinicsubtitles h3{font-size: 15px;}
+    .amenitiesstep2 {padding: 10px 0;}
+}
+
+
+@media screen and (max-width:420px) { 
+.logo {
+    background: none repeat scroll 0 0 #fff;
+    width: 100%;
+}
+.subblckbg, .subheader:after {
+	background:none;
+}
+.myacc {
+	margin:0;
+}
+.logo a {
+    display: block;
+    text-align: center;
+}
+.myacc {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+.myacc > a {
+    display: inline-block;
+    font-size: 12px;
+}
+.myacc > a span {
+	border-left: 1px solid #fff;
+}
+.ratingleft {
+    float: none;
+    overflow: auto;
+    width: 100%;
+}
+.reviewtextd, .reviewgraphic {
+    border-right: none;
+}
+.ratingright {
+	width:100%;
+}
+.healthclinics {
+	left:0;
+}
+    .overview select{font-size: 11px;}
+    .myacc > a{margin: 0;}
+    .subblckbg .tab-content {padding: 10px 0;}
+    .fields_s select, .fields_s input[type="text"]{font-size: 12px;}
+    .logo{padding: 5px;}
+    
+}

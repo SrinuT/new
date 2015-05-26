@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+    <!-- View Scope Handle -->
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="view">
+					<bean class="com.ihm.jsf.scope.ViewScope" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<!-- ~View Scope Handle -->
+    
+    <!-- session information bean -->
+    <bean id="sessionBean"
+    	  scope="session"
+    	  class="com.ihm.customer.faces.bean.SessionBean"/>
+    <!-- session information bean -->
+    
+    <bean id="baseController"
+    	  scope="request"
+          abstract="true"
+    	  class="com.ihm.customer.faces.controller.BaseController"/>
+    
+    <bean id="appointmentConfController" 
+    	  class="com.ihm.customer.faces.controller.AppointmentConfController"
+          scope="view"
+    	  parent="baseController"/>
+    	  
+   	<bean id="personController" 
+    	  scope="view"
+    	  class="com.ihm.customer.faces.controller.PersonController"
+    	  parent="baseController"/>
+
+    <bean id="appController"
+          scope="session"
+          class="com.ihm.customer.faces.controller.AppointmentController"
+          parent="baseController"/>
+    	  
+</beans>

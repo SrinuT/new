@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/appointment/layout/appointmentLayout.xhtml">
+	<ui:define name="mainsection">
+		<p:panel id="appointmentConfirmPanel"
+			rendered="#{appController.showAppointmentConfirm}">
+			<div class="container app_page brdtop .apppagelas">
+				<div class="confmapp">
+					<div class="app_ldesc">
+						<h2>Confirm Appointment</h2>
+						<div class="cnfnum">
+							<p>Confirmation Number:</p>
+							<p>#{appController.confirmationNo}</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="row confmappmid" id="confmappmid">
+					<div class="col-md-5">
+						<div class="ihmlocation locihm">
+
+							<span>#{appController.bookedClinic.clinicName}</span>
+							<p>
+								<img src="../images/location_icon.png" alt="" title=""
+									width="14" /> #{appController.bookedClinic.clinicAddress.fullAddress}
+							</p>
+							<div class="ihmdirection">
+								<!-- <span class="distance">4.5<span>(ml)</span></span> -->
+								<span class="distance">
+								<h:outputLabel rendered="#{!empty appController.bookedClinic.distanceDifference and appController.bookedClinic.distanceDifference != '0'}" value="#{appController.bookedClinic.distanceDifference}"  class="distanceblock">
+										<h:outputLabel rendered="#{!empty appController.bookedClinic.distanceDifference and appController.bookedClinic.distanceDifference !='0'}" value="Distance ."  style="font-weight:normal;"/>
+								</h:outputLabel>
+								</span>
+								<!-- <p>
+									Away from here.<a href="#"> Click here</a> for Direction
+								</p> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="cnfudtl">
+							<div class="appschedule">
+								<h3>Appointment Detail</h3>
+								<div class="scheduledtl">
+									<div class="takeapp">
+										<label>Test Name:</label> <span>#{appController.bookedClinic.testName}</span>
+									</div>
+									<div class="takeapp">
+										<label>Schedule:</label> <span><sapn class="appscetime">#{appController.makeAppointment.slotTime}
+											PM</sapn>#{appController.makeAppointment.serviceDay},
+											<h:outputText value="#{appController.makeAppointment.startDate}">
+                                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                            </h:outputText>.</span>
+									</div>
+									<div class="takeapp">
+                                        <h:panelGroup rendered="#{empty sessionBean.personDto}">
+                                            <label>Name:</label> <span>#{appController.guestLogin.firstName} #{appController.guestLogin.lastName}</span>
+                                        </h:panelGroup>
+                                        <h:panelGroup rendered="#{not empty sessionBean.personDto}">
+                                            <label>Name:</label> <span>#{sessionBean.personDto.firstName} #{sessionBean.personDto.lastName}</span>
+                                        </h:panelGroup>
+                                    </div>
+                                    <div class="takeapp">
+                                        <label>Birth Date:</label>
+                                        <span>
+                                            <h:outputText value="#{appController.guestLogin.dob}">
+                                                <f:convertDateTime type="date" pattern="EEEE, dd/MM/yyyy"/>
+                                            </h:outputText>
+                                        </span>
+                                    </div>
+									<div class="takeapp">
+										<label>Price:</label> <span>Rs. #{appController.bookedClinic.testPrice - appController.bookedClinic.testDiscount}<!-- #{appController.bookedClinic.testPrice} -->
+										</span>
+									</div>
+									<div class="takeapp">
+										<label>Clinic Phone:</label> <span>#{appController.slrSeller.mobileNumber}</span>
+									</div>
+									<div class="takeapp">
+										<label>Clinic Email:</label> <span>#{appController.slrSeller.emailAddress}</span>
+									</div>
+									<div class="takeapp">
+												<label>Address:</label>	
+												<span>#{appController.bookedClinic.clinicAddress.fullAddress}</span>
+									</div>
+									<div class="takeapp">
+										<label>Customer Care:</label> <span>966-001-2500</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="confmappbttm">
+							<div class="meetappdtl">
+								<ul>
+									<li>
+										<a href="#" id="appdf">
+											<img src="../images/pdf_icon.png" alt="" title="" />
+											<span>Prepare for my visit (PDF)</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" id="googleappid">
+											<img src="../images/g_cale_icon.png" alt="" title="" />
+											<span id="apgoogle">Add to Google Calender</span>			   
+									 </a>
+									</li>
+									<li>
+										<a href="#" id="appprint">
+											<img src="../images/print_icon.png" alt="" title="" />
+											<span> Print appointment details</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+                            <h:form>
+							<div class="newappbtn">
+                                <h:link outcome="/appointmentguestconf.xhtml">Change / Cancel</h:link>
+                                <h:link outcome="/searchresults.xhtml">New Appointment</h:link>
+							</div>
+                            </h:form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+<script src="../js/jspdf.debug.js" type="text/JavaScript"></script>
+<script src="../js/html2canvas.js" type="text/JavaScript"></script>
+<script type="text/JavaScript">
+$(document).ready(function(e) {
+ /* PDF Generator */
+        $('#appdf').click(function(){
+        	$('#confmappmid').css({'background-color':'#fff'});
+     		$('.logo').css({'background-color':'#fff','padding':'5px'});
+     		$('.confmapp').css({'background-color':'#fff','border-top':'3px solid #007aba'});
+     		$('.takeapp span').css({'color':'#000'});
+     		$('.takeapp label').css({'color':'#000'});
+     		var confnum = '#{appController.confirmationNo}';
+	        var doc = new jsPDF('p', 'pt', 'a4');
+	        	doc.addHTML($('.logo')[0],0,0,function(){
+	        		doc.addHTML($('.confmapp')[0],0,65,function(){
+	        			doc.addHTML($('.confmappmid')[0],0,110, function() {
+	            			doc.save('iHealthmantra Appointment-'+confnum+'.pdf');
+	            			doc.output('datauri');
+	            			location.reload();
+	        		});
+	        	});
+	          });
+	        	
+        });
+        /* PDF Generator */
+        /*Google Calender */
+        $('#apgoogle').click(function(){
+        	var x = $('span.appscetime').parent().text();
+        	var y= $('span.appscetime').text();
+        	//alert(y);
+        	var startdate = '#{appController.makeAppointment.startDate}';
+        	var kk = startdate.split(" ");
+        	var datestart =kk[0];
+        	var datestart = datestart.replace(/-/g,'');
+        	var k='#{appController.makeAppointment.slotTime}';
+            var time = k.split(":");
+            var starttime = time[0]+time[1]+time[2];
+            var hours = time[0]; 
+            var minutes = time[1]; 
+            if (+minutes >= 30){ // when minutes over 30
+                    hours = (+hours+1)%24; // add an hour and convert 24 to 0
+             }
+            minutes = (+minutes + 30)%60; // add 30 minutes and convert 61 to 1
+            if(minutes == 0){
+            	minutes = "00";
+            }
+            var endtime= hours+minutes+"00";
+            var clinicname = '#{appController.bookedClinic.clinicName}';
+            var clinicaddress = '#{appController.bookedClinic.clinicAddress.fullAddress}';
+        	window.open("https://www.google.com/calendar/render?action=TEMPLATE&amp;text=Appointment-"+clinicname+"&amp;dates="+datestart+"T"+starttime+"/"+datestart+"T"+endtime+"&amp;details="+clinicname+"&amp;location="+clinicaddress+"&amp;sf=true&amp;output=xml", '_blank');	
+        });
+        /*Google Calender*/
+        
+        /*PRINT Screen */
+        $('#appprint').click(function(){
+        	window.print($('#confmappmid').html());
+        });
+        
+        /*PRINT Screen */
+        
+     	
+    });
+	</script>
+		</p:panel>
+	</ui:define>
+</ui:composition>

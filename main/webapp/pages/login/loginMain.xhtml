@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>ihealthMantra | Search Result page</title> <!-- Bootstrap -->
+
+	<link href="#{request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="#{request.contextPath}/css/bootstrap-slider.css" rel="stylesheet"/>
+	<link href="#{request.contextPath}/fonts/stylesheet.css" rel="stylesheet"/>
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet"/>
+</h:head>
+
+<h:body styleClass="loginbg">
+	<header>
+		<div class="subheader">
+			<div class="container subblckbg lgback">
+				<div class="logo maplogo loginlogo">
+					<a href="../../home.xhtml">
+						<img src="#{request.contextPath}/images/ihealthlogo.png" alt="iHealthMantra" />
+					</a>
+				</div>
+				<div class="usercontact">
+				<div class="lusercon">
+						<a href="#"> <img src="#{request.contextPath}/images/callicon.png" alt="" title=""/>
+								<span>Call Us : +880 111-111-111</span></a>
+					</div>
+					<div class="headsocial">
+						<ul>
+							<li><a href="#"><i class="social1"></i></a></li>
+							<li><a href="#"><i class="social2"></i></a></li>
+							<li><a href="#"><i class="social3"></i></a></li>
+						</ul>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<ui:insert name="content"/>
+	<div class="lcinfo">
+    <div class="container ">
+        <div class="row ">
+            <div class="lcintab">
+                <div class="col-md-4 lcftab clearfix">
+                    <div class="serimg">
+                        <img src="#{request.contextPath}//images/l_search_icon.png"
+                             alt="" title="" />
+                    </div>
+                    <div class="ltabinfo">
+                        <h3>Search</h3>
+                        <p>Find healthcare providers that are <br/> near to you</p>
+                    </div>
+                </div>
+                <div class="col-md-4 lcftab clearfix">
+                    <div class="serimg">
+                        <img src="#{request.contextPath}/images/l_compare_icon.png"
+                             alt="" title="" />
+                    </div>
+                    <div class="ltabinfo">
+                        <h3>Compare</h3>
+                        <p>Compare price, discounts <br/> and facilities</p>
+                    </div>
+                </div>
+                <div class="col-md-4 lcftab clearfix">
+                    <div class="serimg">
+                        <img src="#{request.contextPath}/images/l_appointment_icon.png"
+                             alt="" title="" />
+                    </div>
+                    <div class="ltabinfo">
+                        <h3>Appointment</h3>
+                        <p>Online Appointments –  Say No to <br/> long queues</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="lgfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 lgfooterl">
+                    <p>© 2014, iHealthMantra. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="footerleft">
+                        <ul>
+                            <li><a href="../../home.xhtml">Home</a></li>
+                            <li><a href="../../about.xhtml">About Us</a></li>
+                            <li class="f_active"><a href="../../contact.xhtml">Contact</a></li>
+                            <li><a href="../../privacypolicy.xhtml">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="#{request.contextPath}/js/jquery.min.js"></script>
+
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="#{request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="#{request.contextPath}/js/bootstrap-slider.js"></script>
+
+    <script type="text/javascript">
+        $("#ex1").slider({});
+        $("#ex2").slider({});
+        $(document).ready(
+                function(e) {
+                    $(".myacclink").click(function() {
+                        $(".healthclinics").toggle();
+                    });
+                    $('.panel-heading a').on(
+                            'click',
+                            function(e) {
+                                if ($(this).parents('.panel').children(
+                                                '.panel-collapse').hasClass('in')) {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                }
+                            });
+                });
+    </script>
+
+</h:body>
+</html>

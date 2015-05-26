@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/appointment/layout/appointmentLayout.xhtml">
+  <ui:define name="mainsection">
+	
+	<p:panel id="centerPanel">
+		<h:form id="panelsForm" prependId="false">
+			<ui:include src="panelTop.xhtml"></ui:include>
+			<ui:include src="appointmentlogin.xhtml"></ui:include>
+			<ui:include src="makeappointment.xhtml"></ui:include>
+			<ui:include src="panelLast.xhtml"></ui:include>
+			<ui:include src="searchDialog.xhtml"></ui:include>
+		</h:form>
+	</p:panel>
+    <form name="loginForm" id="loginFormGuesUser" action="#{facesContext.externalContext.requestContextPath}/login/process" method="post" class="userloginform">
+    </form>
+  </ui:define>
+</ui:composition>

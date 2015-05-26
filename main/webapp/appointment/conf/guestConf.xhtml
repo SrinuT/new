@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+	<div class="container app_page brdtop apppagelas">
+        <div class="confmapp">
+        	<div class="app_ldesc">
+            	<h2>Appointment</h2>
+            </div>                    
+        </div>
+        <div class="row confmappmid">
+            <div class="col-md-12">
+            	<p:messages/>
+                <h:panelGroup class="conmno" layout="block" id="searchInfo">
+                    <label>Enter Confirmation Number:</label>
+                    <h:inputText id="confirmationNumberId" value="#{controller.confirmationNumber}"/>
+                    <p:commandLink value="Go"
+                    			   actionListener="#{controller.onGo}"
+                    			   update=":appointmentGuestForm:pageContent"
+                    			   process="@this, searchInfo" />
+                </h:panelGroup>
+            </div>
+        </div>
+		<div class="row">
+	        <div class="col-md-12">
+	            <div class="confmappbttm">
+	                <div class="meetappdtl appfinfo">
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	                    </p>
+	                </div>
+	            
+		            <div class="newappbtn">
+		                <h:link outcome="/searchresults.xhtml">New Appointment</h:link>
+		            </div>
+	        	</div>
+	        </div>
+        </div>      
+    </div>
+
+</ui:composition>

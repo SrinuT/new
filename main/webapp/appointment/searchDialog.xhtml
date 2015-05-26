@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<p:panel id="popupPanel">
+        <h:form id="panelsFormPopup" prependId="false">
+
+		<p:dialog id="moreDeals" widgetVar="dlgMrDls" closeOnEscape="true" modal="true" header="Clinic Deals" resizable="false" showEffect="clip" hideEffect="clip" width="700" height="450">
+			<div class="facilitiesrate">	
+				<ul>
+					<li class="titletables">
+						<div >FACILITIES</div>
+						<div >FACILITIES Detail</div>
+						<div >Rate</div>
+					</li>	
+			    <ui:repeat value="#{appController.viewMoreDeals.serviceDealList}" var="deals">
+					<li>
+						<div >#{deals.dealName}</div>
+						<div >#{deals.dealDescription}</div>
+						<div >8000</div> <!-- #{deals.dealDiscount} -->
+					</li>
+				</ui:repeat>
+				</ul>
+			</div>	
+		</p:dialog> 
+		<p:dialog styleClass="moreReviews"  id="moreReviews" widgetVar="dlgMrRv" closeOnEscape="true" modal="true"  header="Customer Reviews" resizable="false" showEffect="clip" hideEffect="clip" width="700" height="450">
+				<div class="reviewtab">
+					<div class="ratingleft"> 
+						<div class="reviewtextd">
+							<h2>Ratings</h2>
+							<p>
+								#{clinic.scoredRating} out of 10 from <a href="#">#{clinic.totalCustomerRated} customers</a>
+							</p>
+						</div>
+					</div>
+					<div class="ratingright">
+						<div class="ratinginall">
+								<ul>
+									<ui:repeat value="#{appController.viewMoreReviews.customerReviewsList}"	var="review" >
+										<li>
+											<div>#{review.customerReview}</div>
+											<div>
+												<div class="pgBar">
+													<p:progressBar value="${review.percentProgress}" labelTemplate="{value}%" displayOnly="true"/>
+												</div>
+											</div>
+											<div >${review.customerStarRating}</div>
+										</li>
+									</ui:repeat>
+								</ul>
+						</div>
+					</div>
+				</div> 
+		</p:dialog>
+        </h:form>
+	</p:panel>	
+</h:body>
+</h:html>

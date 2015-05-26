@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd">
+
+<suite name="IHealthMantra Services Test Suite">
+	<test name="Functional Test">
+		<classes>
+			<class name="com.ihm.customer.test.IHMantraFunctionalTest"/>
+		</classes>
+	</test>
+</suite>
